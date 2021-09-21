@@ -26,9 +26,9 @@ The **Car Pooling application** is intended for people travelling,to make it a c
   
 ## Credits
 
-- [Komal Bindal](https://github.com/komal-bindal)
+-  [Komal Bindal](https://github.com/komal-bindal)
 
-- [Kritika Sharma](https://github.com/kritika-sharma130)
+-  [Kritika Sharma](https://github.com/kritika-sharma130)
 
-- [Deepanshi Mittal](https://github.com/deepanshi-mitta)
+-  [Deepanshi Mittal](https://github.com/deepanshi-mitta)
 
