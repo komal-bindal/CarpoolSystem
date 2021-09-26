@@ -10,22 +10,16 @@ import androidx.appcompat.app.AppCompatActivity
 class SignupScreen1 : AppCompatActivity() {
     private val PASSWORD_ERROR = "invalid password"
     private val EMAIL_ID_ERROR = "invalid emailId"
-    private val PASSWORD_INSTRUCTIONS =
-        "Password should contain one special character(@#$%^&+=!), 1 uppercase letter, 1 lowercase letter and should have minimum 4 characters"
-
 
     private lateinit var password: EditText
     private lateinit var emailId: EditText
-    private lateinit var passwordInstructions: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_screen1)
 
-        passwordInstructions = findViewById(R.id.passwordInstructions)
         password = findViewById(R.id.passwordText)
         emailId = findViewById(R.id.emailIdText)
-        passwordInstructions.text = PASSWORD_INSTRUCTIONS
 
         password.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
@@ -34,9 +28,6 @@ class SignupScreen1 : AppCompatActivity() {
             ) {
 
             }
-
-
-
 
             override fun onTextChanged(
                 s: CharSequence?,
