@@ -25,5 +25,13 @@ class RegistrationUtils {
             val matcher = pattern.matcher(phoneNumber)
             return matcher.matches()
         }
+        fun isValidVehicleNumber(vehicleNumber:String):Boolean{
+            val vehicleNumberPattern="^[A-Z]{2}[ -][0-9]{1,2}(?: [A-Z])?(?: [A-Z]*)? [0-9]{4}\$"
+            val pattern = Pattern.compile(vehicleNumberPattern)
+            val matcher = pattern.matcher(vehicleNumber)
+            return matcher.matches()
+        }
+
+
     }
 }
