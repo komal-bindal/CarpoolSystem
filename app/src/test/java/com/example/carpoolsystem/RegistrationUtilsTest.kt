@@ -134,7 +134,7 @@ class RegistrationUtilsTest {
         Assert.assertFalse(result)
     }
     @Test
-    fun isValidEmail_EmailUnderscore_False(){
+    fun isValidEmail_DoesNotContainsEmailUnderscore_False(){
         val result=RegistrationUtils.isValidEmail("Kritkika.sharmacs19@gla.ac.in")
         Assert.assertFalse(result)
     }
