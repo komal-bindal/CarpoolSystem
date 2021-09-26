@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VehicleDetailsScreen">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView2"
+        android:layout_width="230dp"
+        android:layout_height="202dp"
+        android:src="#99000000"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-97dp"
+        tools:layout_editor_absoluteY="-48dp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView"
+        android:layout_width="309dp"
+        android:layout_height="190dp"
+        android:src="#99000000"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="-95dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_baseline_add_circle_24"
+        android:drawableLeft="@drawable/ic_baseline_add_circle_24"
+        android:gravity="center"
+        android:text="Add Ride"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="130dp" />
+
+    <EditText
+        android:id="@+id/editTextSource"
+        android:layout_width="263dp"
+        android:layout_height="52dp"
+        android:background="@drawable/rounded_corners"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Add Source"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text=""
+        tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints"
+        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteY="240dp" />
+
+    <EditText
+        android:id="@+id/editTextDestination"
+        android:layout_width="263dp"
+        android:layout_height="52dp"
+        android:background="@drawable/rounded_corners"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Add Destination"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text=""
+        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteY="319dp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/editTextTime"
+        android:layout_width="263dp"
+        android:layout_height="52dp"
+        android:background="@drawable/rounded_corners"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Add Time"
+        android:inputType="time"
+        android:minHeight="48dp"
+        android:text=""
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="400dp" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="263dp"
+        android:layout_height="52dp"
+        android:background="@drawable/rounded_corners"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Add Date"
+        android:inputType="date"
+        android:minHeight="48dp"
+        android:text=""
+        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="477dp" />
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="263dp"
+        android:layout_height="52dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#55B3BF"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Add Details"
+        android:minHeight="48dp"
+        android:text=""
+        android:textColorHint="@color/black"
+        android:textStyle="bold"
+        app:backgroundTint="#55B3BF"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteY="616dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

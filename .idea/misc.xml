@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/drawable/circle_shape.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/drawable/rounded_corners.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_signup_screen1.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_vehicle_details_screen.xml" value="0.1921875" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_main.xml" value="0.17572463768115942" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_signup_screen1.xml" value="0.264" />
       </map>

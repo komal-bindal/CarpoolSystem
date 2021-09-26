@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarpoolSystem">
         <activity
+            android:name=".VehicleDetailsScreen"
+            android:exported="true" />
+        <activity
             android:name=".SignupScreen1"
             android:exported="true" />
         <activity
