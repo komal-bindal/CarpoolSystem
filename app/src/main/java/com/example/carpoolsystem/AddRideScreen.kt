@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 
-class VehicleDetailsScreen : AppCompatActivity() {
+class AddRideScreen : AppCompatActivity() {
     private val SOURCE_ERROR = "invalid source format"
     private val DESTINATION_ERROR = "invalid destination format"
     private val DATE_ERROR = "invalid date format"
@@ -23,12 +23,12 @@ class VehicleDetailsScreen : AppCompatActivity() {
     private lateinit var addDetails: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_vehicle_details_screen)
+        setContentView(R.layout.activity_add_ride_screen)
         source=findViewById(R.id.editTextSource)
         destination=findViewById(R.id.editTextDestination)
         time=findViewById(R.id.editTextTime)
         date=findViewById(R.id.editTextDate)
-        addRide=findViewById(R.id.textView)
+        addRide=findViewById(R.id.textViewAddRide)
         addDetails=findViewById(R.id.buttonSubmit)
 
         source.addTextChangedListener(object : TextWatcher {
@@ -44,7 +44,7 @@ class VehicleDetailsScreen : AppCompatActivity() {
                 start: Int, before: Int, count: Int
             ) {
                 s?.apply {
-                    if (RegistrationUtils.isValidSource(s.toString())) {
+                    if (RideUtils.isValidSource(s.toString())) {
                         source.error = null
                     } else {
                         source.error = SOURCE_ERROR
@@ -69,7 +69,7 @@ class VehicleDetailsScreen : AppCompatActivity() {
                 p1: Int, p2: Int, p3: Int
             ) {
                 p0?.apply {
-                    if (RegistrationUtils.isValidDestination(p0.toString())) {
+                    if (RideUtils.isValidDestination(p0.toString())) {
                         destination.error = null
                     } else {
                         destination.error = DESTINATION_ERROR
@@ -92,7 +92,7 @@ class VehicleDetailsScreen : AppCompatActivity() {
                 p1: Int, p2: Int, p3: Int
             ) {
                 p0?.apply {
-                    if (RegistrationUtils.isValidDate(p0.toString())) {
+                    if (RideUtils.isValidDate(p0.toString())) {
                         date.error = null
                     } else {
                         date.error = DATE_ERROR
@@ -115,7 +115,7 @@ class VehicleDetailsScreen : AppCompatActivity() {
                 p1: Int, p2: Int, p3: Int
             ) {
                 p0?.apply {
-                    if (RegistrationUtils.isValidTime(p0.toString())) {
+                    if (RideUtils.isValidTime(p0.toString())) {
                      time.error = null
                     } else {
                         time.error = TIME_ERROR
