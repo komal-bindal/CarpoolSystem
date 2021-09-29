@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddRideScreen">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView2"
+        android:layout_width="230dp"
+        android:layout_height="202dp"
+        android:layout_marginStart="-80dp"
+        android:layout_marginLeft="-80dp"
+        android:layout_marginTop="-40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:src="#99000000"
+        app:layout_constraintEnd_toStartOf="@+id/editTextPhoneNumber"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView"
+        android:layout_width="309dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="-80dp"
+        android:src="#99000000"
+        app:layout_constraintEnd_toStartOf="@+id/editTextPhoneNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/editTextPhoneNumber"
+        android:layout_width="263dp"
+        android:layout_height="52dp"
+        android:background="@drawable/rounded_corners"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter phone number"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text=""
+        android:textSize="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.192"
+        tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/editTextOTP"
+        android:layout_width="263dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_corners"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter OTP"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:text=""
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNumber"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonVerify"
+        android:layout_width="263dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#55B3BF"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Verify"
+        android:minHeight="48dp"
+        android:text=""
+        android:textColorHint="@color/black"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:backgroundTint="#55B3BF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextOTP"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
