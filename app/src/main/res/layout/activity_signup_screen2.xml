@@ -39,6 +39,7 @@
         android:id="@+id/editTextPhoneNumber"
         android:layout_width="263dp"
         android:layout_height="52dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
@@ -47,18 +48,16 @@
         android:minHeight="48dp"
         android:text=""
         android:textSize="22dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.36"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextOTP"
         android:layout_width="263dp"
         android:layout_height="52dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
@@ -69,14 +68,14 @@
         android:textSize="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNumber"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSubmit"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/buttonVerify"
         android:layout_width="263dp"
         android:layout_height="52dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#55B3BF"
         android:ems="10"
@@ -91,6 +90,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextOTP"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="263dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#55B3BF"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Submit"
+        android:minHeight="48dp"
+        android:text=""
+        android:textColorHint="@color/black"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:backgroundTint="#55B3BF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNumber"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="317dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="32dp"
+        android:text="OTP Verification"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.28"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
