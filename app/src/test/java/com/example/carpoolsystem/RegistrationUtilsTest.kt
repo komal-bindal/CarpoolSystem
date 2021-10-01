@@ -5,6 +5,31 @@ import org.junit.Test
 
 class RegistrationUtilsTest {
     @Test
+    fun isValidUsername_DoesNotContainSurname_False(){
+        val result = RegistrationUtils.isValidUserName("deepanshi")
+        Assert.assertFalse(result)
+    }
+    @Test
+    fun isValidUsername_ContainsSpaceInBetween_False(){
+        val result = RegistrationUtils.isValidUserName("deepanshimittal")
+        Assert.assertFalse(result)
+    }
+    @Test
+    fun isValidUsername_IsEmpty_False(){
+        val result = RegistrationUtils.isValidUserName("")
+        Assert.assertFalse(result)
+    }
+    @Test
+    fun isValidUsername_ContainsCommaOtherThanSpace_False(){
+        val result = RegistrationUtils.isValidUserName("Deepanshi,Mittal")
+        Assert.assertFalse(result)
+    }
+    @Test
+    fun isValidUsername_ContainsUnderscoreOtherThanSpace_False(){
+        val result = RegistrationUtils.isValidUserName("Deepanshi_Mittal")
+        Assert.assertFalse(result)
+    }
+    @Test
     fun isValidPassword_SmallCaseAlphabetsOnly_False() {
         val result = RegistrationUtils.isValidPassword("abcdef")
         Assert.assertFalse(result)
