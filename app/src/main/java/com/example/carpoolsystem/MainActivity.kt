@@ -11,5 +11,6 @@ class MainActivity : AppCompatActivity() {
         val intent  = Intent(this, VehicleDetailsAdditionScreen::class.java)
         startActivity(intent)
         this.finish()
+
     }
 }

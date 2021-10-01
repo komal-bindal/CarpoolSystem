@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddRideScreen">
+    tools:context=".SignupScreen1">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circleImageView2"
@@ -93,7 +93,7 @@
         android:layout_height="52dp"
         android:layout_marginStart="67dp"
         android:layout_marginLeft="67dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="92dp"
         android:layout_marginEnd="81dp"
         android:layout_marginRight="81dp"
         android:background="@drawable/rounded_corners"
@@ -108,7 +108,7 @@
         android:textStyle="bold"
         app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.324"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
         tools:ignore="MissingConstraints" />
