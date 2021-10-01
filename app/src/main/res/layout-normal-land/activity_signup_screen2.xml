@@ -49,7 +49,7 @@
         android:minHeight="48dp"
         android:text=""
         android:textSize="22dp"
-        app:layout_constraintEnd_toStartOf="@+id/buttonSubmit"
+        app:layout_constraintEnd_toStartOf="@+id/buttonGetOtp"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -95,11 +95,11 @@
         android:textStyle="bold"
         app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSubmit"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGetOtp"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/buttonSubmit"
+        android:id="@+id/buttonGetOtp"
         android:layout_width="263dp"
         android:layout_height="52dp"
         android:layout_marginTop="36dp"
