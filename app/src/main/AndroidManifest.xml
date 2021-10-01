@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarpoolSystem">
         <activity
-            android:name=".SignupScreen2"
+            android:name=".SignupScreen2PhoneNumber"
             android:exported="true" />
         <activity
             android:name=".AddRideScreen"
