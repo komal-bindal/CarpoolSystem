@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddRideScreen">
+    tools:context=".VehicleDetailsAdditionScreen">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView2"
+        android:id="@+id/circleImageView3"
         android:layout_width="500dp"
         android:layout_height="308dp"
         android:src="#99000000"
@@ -16,114 +16,97 @@
         tools:layout_editor_absoluteY="-19dp" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView"
+        android:id="@+id/circleImageView4"
         android:layout_width="500dp"
         android:layout_height="308dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
         android:src="#99000000"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="4dp"
         tools:layout_editor_absoluteY="-71dp" />
 
     <TextView
-        android:id="@+id/textViewAddRide"
+        android:id="@+id/editTextCarNumber"
         android:layout_width="397dp"
         android:layout_height="133dp"
-        android:layout_marginTop="76dp"
-        android:drawableStart="@drawable/ic_baseline_add_circle_24"
-        android:drawableLeft="@drawable/ic_baseline_add_circle_24"
+        android:drawableStart="@drawable/ic_baseline_directions_car_filled_24"
+        android:drawableLeft="@drawable/ic_baseline_directions_car_filled_24"
         android:gravity="center"
-        android:text="Add Ride"
+        android:text="Car Details"
         android:textColor="@color/black"
         android:textSize="60dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circleImageView"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints,UnknownIdInLayout"
+        tools:layout_editor_absoluteX="212dp"
+        tools:layout_editor_absoluteY="290dp" />
 
     <EditText
-        android:id="@+id/editTextSource"
+        android:id="@+id/editTextCarMake"
         android:layout_width="647dp"
         android:layout_height="133dp"
-        android:layout_marginTop="68dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
-        android:hint="Add Source"
+        android:hint="Add Car Make"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text=""
         android:textSize="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAddRide"
-        tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints" />
+        tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints"
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="964dp" />
 
     <EditText
-        android:id="@+id/editTextDestination"
+        android:id="@+id/editTextCarModel"
         android:layout_width="647dp"
         android:layout_height="133dp"
-        android:layout_marginTop="72dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
-        android:hint="Add Destination"
+        android:hint="Add Car Model"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text=""
         android:textSize="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSource"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="734dp" />
 
     <EditText
-        android:id="@+id/editTextTime"
+        android:id="@+id/editTextLicenseNumber"
         android:layout_width="647dp"
         android:layout_height="133dp"
-        android:layout_marginTop="72dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
-        android:hint="Add Time"
+        android:hint="Add License Number"
         android:inputType="time"
         android:minHeight="48dp"
         android:text=""
         android:textSize="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDestination"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="1178dp" />
 
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="647dp"
         android:layout_height="133dp"
-        android:layout_marginTop="72dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
-        android:hint="Add Date"
+        android:hint="Add Car Number"
         android:inputType="date"
         android:minHeight="48dp"
         android:text=""
         android:textSize="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
-        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck" />
+        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck"
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="519dp" />
 
     <Button
         android:id="@+id/buttonSubmit"
         android:layout_width="647dp"
         android:layout_height="133dp"
-        android:layout_marginTop="72dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#55B3BF"
         android:ems="10"
@@ -136,9 +119,10 @@
         android:textStyle="bold"
         app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="1393dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
