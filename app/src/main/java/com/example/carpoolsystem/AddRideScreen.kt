@@ -1,19 +1,33 @@
 package com.example.carpoolsystem
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.text.format.DateFormat.is24HourFormat
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+import java.util.*
 
-class AddRideScreen : AppCompatActivity() {
+class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
+    TimePickerDialog.OnTimeSetListener {
     private val SOURCE_ERROR = "invalid source format"
     private val DESTINATION_ERROR = "invalid destination format"
     private val DATE_ERROR = "invalid date format"
     private val TIME_ERROR = "invalid time format"
 
+    var day = 0
+    var month: Int = 0
+    var year: Int = 0
+    var hour: Int = 0
+    var minute: Int = 0
+    var myDay = 0
+    var myMonth: Int = 0
+    var myYear: Int = 0
+    var myHour: Int = 0
+    var myMinute: Int = 0
 
     private lateinit var source: EditText
     private lateinit var destination: EditText
@@ -21,15 +35,26 @@ class AddRideScreen : AppCompatActivity() {
     private lateinit var date: EditText
     private lateinit var addRide: TextView
     private lateinit var addDetails: Button
+    private lateinit var addDateAndTime: Button
+    private lateinit var viewDateAndTime: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_ride_screen)
-        source=findViewById(R.id.editTextSource)
-        destination=findViewById(R.id.editTextDestination)
-        time=findViewById(R.id.editTextTime)
-        date=findViewById(R.id.editTextDate)
-        addRide=findViewById(R.id.textViewAddRide)
-        addDetails=findViewById(R.id.buttonSubmit)
+        source = findViewById(R.id.editTextSource)
+        destination = findViewById(R.id.editTextDestination)
+        addDetails = findViewById(R.id.buttonSubmit)
+        viewDateAndTime = findViewById(R.id.textViewempty)
+        addDateAndTime = findViewById(R.id.btnPick)
+
+        addDateAndTime.setOnClickListener {
+            val calendar: Calendar = Calendar.getInstance()
+            day = calendar.get(Calendar.DAY_OF_MONTH)
+            month = calendar.get(Calendar.MONTH)
+            year = calendar.get(Calendar.YEAR)
+            val datePickerDialog =
+                DatePickerDialog(this@AddRideScreen, this@AddRideScreen, year, month, day)
+            datePickerDialog.show()
+        }
 
         source.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
@@ -80,51 +105,28 @@ class AddRideScreen : AppCompatActivity() {
             override fun afterTextChanged(p0: Editable?) {}
         })
 
-        date.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(
-                p0: CharSequence?,
-                p1: Int, p2: Int, p3: Int
-            ) {
-            }
 
-            override fun onTextChanged(
-                p0: CharSequence?,
-                p1: Int, p2: Int, p3: Int
-            ) {
-                p0?.apply {
-                    if (RideUtils.isValidDate(p0.toString())) {
-                        date.error = null
-                    } else {
-                        date.error = DATE_ERROR
-                    }
-                }
-            }
+    }
 
-            override fun afterTextChanged(p0: Editable?) {}
-        })
+    override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+        myDay = day
+        myYear = year
+        myMonth = month
+        val calendar: Calendar = Calendar.getInstance()
+        hour = calendar.get(Calendar.HOUR)
+        minute = calendar.get(Calendar.MINUTE)
+        val timePickerDialog = TimePickerDialog(
+            this@AddRideScreen, this@AddRideScreen, hour, minute,
+            is24HourFormat(this)
+        )
+        timePickerDialog.show()
+    }
 
-        time.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(
-                p0: CharSequence?,
-                p1: Int, p2: Int, p3: Int
-            ) {
-            }
-
-            override fun onTextChanged(
-                p0: CharSequence?,
-                p1: Int, p2: Int, p3: Int
-            ) {
-                p0?.apply {
-                    if (RideUtils.isValidTime(p0.toString())) {
-                     time.error = null
-                    } else {
-                        time.error = TIME_ERROR
-                    }
-                }
-            }
-
-            override fun afterTextChanged(p0: Editable?) {}
-        })
-
-}
+    @SuppressLint("SetTextI18n")
+    override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
+        myHour = hourOfDay
+        myMinute = minute
+        viewDateAndTime.text =
+            "Date = $day/$myMonth/$myYear\nTime = $myHour : $myMinute"
+    }
 }
