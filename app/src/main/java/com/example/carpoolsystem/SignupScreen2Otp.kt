@@ -88,7 +88,7 @@ class SignupScreen2Otp : AppCompatActivity() {
                                             startActivity(
                                                 Intent(
                                                     applicationContext,
-                                                    SignupScreen1::class.java
+                                                    VehicleDetailsAdditionScreen::class.java
                                                 )
                                             )
                                         } else {
@@ -99,12 +99,10 @@ class SignupScreen2Otp : AppCompatActivity() {
                                             ).show()
                                         }
                                     }
-
                                 }
                             )
                     }
                 }
-
             }
         )
 
