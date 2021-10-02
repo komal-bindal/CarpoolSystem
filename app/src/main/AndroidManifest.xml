@@ -18,6 +18,9 @@
             android:name=".SignupScreen2PhoneNumber"
             android:exported="true" />
         <activity
+            android:name=".VehicleDetailsAdditionScreen"
+            android:exported="true" />
+        <activity
             android:name=".AddRideScreen"
             android:exported="true" />
         <activity
