@@ -7,6 +7,9 @@
     <string name="_91">+91-</string>
     <string name="_1234567890">1234567890</string>
     <string name="get_otp">Get OTP</string>
+    <string name="otpreceived">otpReceived</string>
+    <string name="verify">Verify</string>
+    <string name="enter_the_otp_sent_to">Enter the OTP sent to</string>
 
 
 </resources>
