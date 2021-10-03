@@ -31,8 +31,6 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 
     private lateinit var source: EditText
     private lateinit var destination: EditText
-    private lateinit var time: EditText
-    private lateinit var date: EditText
     private lateinit var addRide: TextView
     private lateinit var addDetails: Button
     private lateinit var addDateAndTime: Button

@@ -111,6 +111,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextDestination"
         tools:ignore="MissingConstraints" />
 
+
     <TextView
         android:id="@+id/textViewempty"
         android:layout_width="180dp"
@@ -146,9 +147,11 @@
         android:textStyle="bold"
         app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewempty"
         tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

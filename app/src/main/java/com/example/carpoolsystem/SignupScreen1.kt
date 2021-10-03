@@ -1,12 +1,10 @@
 package com.example.carpoolsystem
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
-import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class SignupScreen1 : AppCompatActivity() {
@@ -17,7 +15,6 @@ class SignupScreen1 : AppCompatActivity() {
     private lateinit var password: EditText
     private lateinit var emailId: EditText
     private lateinit var name: EditText
-    private lateinit var nextButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +22,7 @@ class SignupScreen1 : AppCompatActivity() {
 
         password = findViewById(R.id.editTextPassword)
         emailId = findViewById(R.id.editTextEmail)
-        name = findViewById(R.id.editTextName)
-        nextButton = findViewById(R.id.buttonNext)
+        name=findViewById(R.id.editTextName)
 
         password.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
@@ -101,12 +97,6 @@ class SignupScreen1 : AppCompatActivity() {
             override fun afterTextChanged(p0: Editable?) {}
         })
 
-        nextButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(p0: View?) {
-                startActivity(Intent(applicationContext, SignupScreen2PhoneNumber::class.java))
-            }
-
-        })
 
     }
 }
