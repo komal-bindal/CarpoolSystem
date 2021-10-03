@@ -1,12 +1,11 @@
 package com.example.carpoolsystem
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class VehicleDetailsAdditionScreen : AppCompatActivity() {
     private val CAR_NUMBER_ERROR = "invalid number format"
@@ -21,11 +20,11 @@ class VehicleDetailsAdditionScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vehicle_details_addition_screen)
-        carNumber=findViewById(R.id.editTextCarNumber)
-        carModel=findViewById(R.id.editTextCarModel)
-        licenceNumber=findViewById(R.id.editTextLicenseNumber)
-        carMake=findViewById(R.id.editTextCarMake)
-        saveDetails=findViewById(R.id.buttonSaveDetails)
+        carNumber = findViewById(R.id.editTextCarNumber)
+        carModel = findViewById(R.id.editTextCarModel)
+        licenceNumber = findViewById(R.id.editTextLicenseNumber)
+        carMake = findViewById(R.id.editTextCarMake)
+        saveDetails = findViewById(R.id.buttonSaveDetails)
         carNumber.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 s: CharSequence?,

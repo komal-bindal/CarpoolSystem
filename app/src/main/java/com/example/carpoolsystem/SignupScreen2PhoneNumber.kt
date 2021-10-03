@@ -31,8 +31,6 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
         phoneNumberEditText = findViewById(R.id.editTextPhoneNumber)
         getOtpButton = findViewById(R.id.buttonGetOtp)
         phoneNumberEditText.requestFocus()
-
-
         phoneNumberEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 s: CharSequence?,
@@ -101,7 +99,5 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
                 }
             }
         )
-
-
     }
 }

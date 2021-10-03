@@ -13,10 +13,9 @@ import java.util.*
 
 class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     TimePickerDialog.OnTimeSetListener {
+
     private val SOURCE_ERROR = "invalid source format"
     private val DESTINATION_ERROR = "invalid destination format"
-    private val DATE_ERROR = "invalid date format"
-    private val TIME_ERROR = "invalid time format"
 
     var day = 0
     var month: Int = 0
@@ -35,9 +34,12 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     private lateinit var addDetails: Button
     private lateinit var addDateAndTime: Button
     private lateinit var viewDateAndTime: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_ride_screen)
+
         source = findViewById(R.id.editTextSource)
         destination = findViewById(R.id.editTextDestination)
         addDetails = findViewById(R.id.buttonSubmit)
@@ -102,8 +104,6 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 
             override fun afterTextChanged(p0: Editable?) {}
         })
-
-
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {

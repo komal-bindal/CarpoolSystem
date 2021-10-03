@@ -11,7 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class SignupScreen1 : AppCompatActivity() {
+
     private var firebaseAuth: FirebaseAuth? = null
+
     private val USERNAME_ERROR = "invalid Name"
     private val PASSWORD_ERROR = "invalid password"
     private val EMAIL_ID_ERROR = "invalid emailId"
@@ -122,8 +124,6 @@ class SignupScreen1 : AppCompatActivity() {
                 Toast.makeText(this, "Error Occured", Toast.LENGTH_SHORT).show()
             }
         }
-
-
     }
 
     fun register() {
@@ -141,5 +141,4 @@ class SignupScreen1 : AppCompatActivity() {
             }
         }
     }
-
 }

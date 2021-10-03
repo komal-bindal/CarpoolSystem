@@ -18,6 +18,7 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 
 class SignupScreen2Otp : AppCompatActivity() {
+
     private lateinit var otpCode1: EditText
     private lateinit var otpCode2: EditText
     private lateinit var otpCode3: EditText
