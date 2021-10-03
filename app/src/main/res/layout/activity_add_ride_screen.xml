@@ -89,11 +89,33 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextSource"
         tools:ignore="MissingConstraints" />
 
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:width="263dp"
+        android:background="@drawable/rounded_corners"
+        android:gravity="center_horizontal"
+        android:text="Date"
+        android:inputType="date"
+        android:textAlignment="center"
+        android:textSize="30dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDestination"
+        tools:ignore="MissingConstraints" />
+
     <EditText
         android:id="@+id/editTextTime"
         android:layout_width="263dp"
         android:layout_height="52dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginLeft="66dp"
+        android:layout_marginEnd="82dp"
+        android:layout_marginRight="82dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
@@ -103,32 +125,10 @@
         android:text=""
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDestination"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="263dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginLeft="66dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="82dp"
-        android:layout_marginRight="82dp"
-        android:background="@drawable/rounded_corners"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Add Date"
-        android:inputType="date"
-        android:minHeight="48dp"
-        android:text=""
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
-        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck" />
+        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck"
+        tools:layout_editor_absoluteY="510dp" />
 
     <Button
         android:id="@+id/buttonSubmit"
@@ -136,7 +136,7 @@
         android:layout_height="52dp"
         android:layout_marginStart="67dp"
         android:layout_marginLeft="67dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="148dp"
         android:layout_marginEnd="81dp"
         android:layout_marginRight="81dp"
         android:background="@drawable/rounded_corners"
@@ -151,8 +151,10 @@
         android:textStyle="bold"
         app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate"
+        app:layout_constraintTop_toBottomOf="@+id/date"
         tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
