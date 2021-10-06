@@ -57,7 +57,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="68dp"
         android:layout_marginLeft="68dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="Keep calm and share your ride"
         android:textSize="60px"
