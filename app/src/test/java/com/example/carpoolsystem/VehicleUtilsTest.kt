@@ -1,5 +1,6 @@
 package com.example.carpoolsystem
 
+import com.example.carpoolsystem.utility.VehicleUtils
 import org.junit.Assert
 import org.junit.Test
 

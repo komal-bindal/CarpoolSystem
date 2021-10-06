@@ -12,22 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarpoolSystem">
         <activity
-            android:name=".SignupScreen2Otp"
+            android:name=".screens.SignupScreen2Otp"
             android:exported="true" />
         <activity
-            android:name=".SignupScreen2PhoneNumber"
+            android:name=".screens.SignupScreen2PhoneNumber"
             android:exported="true" />
         <activity
-            android:name=".VehicleDetailsAdditionScreen"
+            android:name=".screens.VehicleDetailsAdditionScreen"
             android:exported="true" />
         <activity
-            android:name=".AddRideScreen"
+            android:name=".screens.AddRideScreen"
             android:exported="true" />
         <activity
-            android:name=".SignupScreen1"
+            android:name=".screens.SignupScreen1"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".screens.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

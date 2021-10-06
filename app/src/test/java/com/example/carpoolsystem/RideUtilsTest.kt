@@ -1,7 +1,7 @@
 package com.example.carpoolsystem
 
+import com.example.carpoolsystem.utility.RideUtils
 import org.junit.Assert
-import org.junit.Assert.*
 import org.junit.Test
 
 class RideUtilsTest{

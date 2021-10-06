@@ -1,4 +1,4 @@
-package com.example.carpoolsystem
+package com.example.carpoolsystem.screens
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.carpoolsystem.R
+import com.example.carpoolsystem.utility.RegistrationUtils
 import com.google.firebase.auth.FirebaseAuth
 
 class SignupScreen1 : AppCompatActivity() {

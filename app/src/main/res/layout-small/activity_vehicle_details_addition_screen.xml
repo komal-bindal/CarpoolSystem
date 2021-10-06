@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VehicleDetailsAdditionScreen">
+    tools:context=".screens.VehicleDetailsAdditionScreen">
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circleImageView3"
         android:layout_width="230dp"

@@ -1,4 +1,4 @@
-package com.example.carpoolsystem
+package com.example.carpoolsystem.screens
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
@@ -9,6 +9,8 @@ import android.text.TextWatcher
 import android.text.format.DateFormat.is24HourFormat
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.carpoolsystem.R
+import com.example.carpoolsystem.utility.RideUtils
 import java.util.*
 
 class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
