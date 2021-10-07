@@ -13,8 +13,6 @@
         android:layout_marginStart="-80dp"
         android:layout_marginLeft="-80dp"
         android:layout_marginTop="-40dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginRight="19dp"
         android:src="#99000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,6 +27,7 @@
         android:layout_marginRight="102dp"
         android:src="#99000000"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -38,20 +37,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="184dp"
+        android:layout_marginBottom="32dp"
         android:src="@drawable/s1"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="274dp"
-        android:layout_height="40dp"
+        android:layout_width="311dp"
+        android:layout_height="63dp"
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="84dp"
         android:gravity="center"
         android:text="Ride and share"
         android:textSize="60px"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDriver"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
@@ -60,7 +63,8 @@
         android:id="@+id/buttonDriver"
         android:layout_width="263dp"
         android:layout_height="52dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="-50dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#55B3BF"
         android:drawableStart="@drawable/ic_baseline_directions_car_filled_24"
@@ -74,6 +78,7 @@
         android:textSize="27dp"
         android:textStyle="bold"
         app:backgroundTint="#55B3BF"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPassenger"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
@@ -83,6 +88,7 @@
         android:id="@+id/buttonPassenger"
         android:layout_width="263dp"
         android:layout_height="52dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="68dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#55B3BF"
@@ -101,7 +107,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonDriver"
-        app:layout_constraintVertical_bias="0.604"
+        app:layout_constraintVertical_bias="0.282"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
