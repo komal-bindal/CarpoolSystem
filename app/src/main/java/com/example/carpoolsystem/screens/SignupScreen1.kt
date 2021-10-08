@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
+import com.example.carpoolsystem.models.Driver
 import com.example.carpoolsystem.utility.RegistrationUtils
 import com.google.firebase.auth.FirebaseAuth
 
@@ -17,26 +18,35 @@ class SignupScreen1 : AppCompatActivity() {
     private var firebaseAuth: FirebaseAuth? = null
 
     private val USERNAME_ERROR = "invalid Name"
-    private val PASSWORD_ERROR = "invalid password"
-    private val EMAIL_ID_ERROR = "invalid emailId"
+    private val PASSWORD_ERROR = "Password Should contain at least one upper case letter,lower case letter,number,special characters(@#\$%^&+=!)"
+    private val EMAIL_ID_ERROR = "Enter your GLA EmailID"
 
     private lateinit var password: EditText
     private lateinit var emailId: EditText
     private lateinit var name: EditText
     private lateinit var buttonNext: Button
+    private lateinit var OTPSignUpButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_screen1)
+        val intent=intent
+        val user=intent.getStringExtra("User").toString()
 
-        firebaseAuth = FirebaseAuth.getInstance()
+        //firebaseAuth = FirebaseAuth.getInstance()
         password = findViewById(R.id.editTextPassword)
         emailId = findViewById(R.id.editTextEmail)
         name = findViewById(R.id.editTextName)
         buttonNext = findViewById(R.id.buttonNext)
+        OTPSignUpButton = findViewById(R.id.buttonNext2)
+        OTPSignUpButton.setOnClickListener {
+            val intent=Intent(this@SignupScreen1,SignupScreen2PhoneNumber::class.java)
+            startActivity(intent)
+        }
 
         buttonNext.setOnClickListener {
-            register()
+
+            //register()
         }
 
         password.addTextChangedListener(object : TextWatcher {
@@ -114,33 +124,33 @@ class SignupScreen1 : AppCompatActivity() {
         })
     }
 
-    fun checkEmail() {
-        val firebaseUser = firebaseAuth?.currentUser
-        firebaseUser?.sendEmailVerification()?.addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                Toast.makeText(this, "Verification mail send", Toast.LENGTH_SHORT).show()
-                firebaseAuth?.signOut()
-                finish()
-                startActivity(Intent(this, SignupScreen2PhoneNumber::class.java))
-            } else {
-                Toast.makeText(this, "Error Occured", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
-    fun register() {
-        var e: String = emailId.text.toString()
-        var p: String = password.text.toString()
-        if (e.isEmpty() || p.isEmpty()) {
-            Toast.makeText(this, "Fill all fields", Toast.LENGTH_SHORT).show()
-        } else {
-            firebaseAuth?.createUserWithEmailAndPassword(e, p)?.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    checkEmail()
-                } else {
-                    Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-    }
+//    fun checkEmail() {
+//        val firebaseUser = firebaseAuth?.currentUser
+//        firebaseUser?.sendEmailVerification()?.addOnCompleteListener { task ->
+//            if (task.isSuccessful) {
+//                Toast.makeText(this, "Verification mail send", Toast.LENGTH_SHORT).show()
+//                firebaseAuth?.signOut()
+//                finish()
+//                startActivity(Intent(this, SignupScreen2PhoneNumber::class.java))
+//            } else {
+//                Toast.makeText(this, "Error Occured", Toast.LENGTH_SHORT).show()
+//            }
+//        }
+//    }
+//
+//    fun register() {
+//        var e: String = emailId.text.toString()
+//        var p: String = password.text.toString()
+//        if (e.isEmpty() || p.isEmpty()) {
+//            Toast.makeText(this, "Fill all fields", Toast.LENGTH_SHORT).show()
+//        } else {
+//            firebaseAuth?.createUserWithEmailAndPassword(e, p)?.addOnCompleteListener { task ->
+//                if (task.isSuccessful) {
+//                    checkEmail()
+//                } else {
+//                    Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//        }
+    //}
 }
