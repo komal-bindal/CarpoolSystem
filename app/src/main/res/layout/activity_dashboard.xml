@@ -162,8 +162,8 @@
                         android:layout_below="@id/bus1"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="Back"
-                        android:textSize="24sp" />
+                        android:text="Forget Password"
+                        android:textSize="20sp" />
 
                     <ImageView
                         android:id="@+id/bus1"
@@ -171,7 +171,7 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+                        app:srcCompat="@drawable/ic_baseline_autorenew_24"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -236,7 +236,7 @@
                         android:layout_below="@id/cycle"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="ForgetPassword"
+                        android:text="Logout"
                         android:textSize="20sp" />
 
                     <ImageView
@@ -245,44 +245,11 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_baseline_autorenew_24"
-                        tools:ignore="VectorDrawableCompat" />
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="1">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/textView9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/airplane"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginEnd="48dp"
-                        android:layout_marginRight="48dp"
-                        android:text="Logout"
-                        android:textSize="24sp" />
-
-                    <ImageView
-                        android:id="@+id/airplane"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="15dp"
                         app:srcCompat="@drawable/ic_baseline_check_circle_outline_24"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
