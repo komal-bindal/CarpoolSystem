@@ -60,8 +60,13 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
         })
 
 
-        getOtpButton.setOnClickListener(
-            object : View.OnClickListener {
+        getOtpButton.setOnClickListener{
+            val intent=Intent(this@SignupScreen2PhoneNumber,SignupScreen2Otp::class.java)
+            startActivity(intent)
+        }
+
+
+            /*object : View.OnClickListener {
                 override fun onClick(v: View) {
                     if (phoneNumberEditText.text.toString().trim().isEmpty()) {
                         Toast.makeText(applicationContext, "Enter mobile", Toast.LENGTH_SHORT)
@@ -99,7 +104,8 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
                         }
                     )
                 }
-            }
-        )
+            }*/
+
     }
-}
+    }
+
