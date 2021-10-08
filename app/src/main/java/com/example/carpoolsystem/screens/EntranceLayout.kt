@@ -12,9 +12,9 @@ class EntranceLayout : AppCompatActivity() {
         setContentView(R.layout.activity_entrance_layout)
         supportActionBar?.hide()
         Handler().postDelayed({
-            val intent= Intent(this@EntranceLayout,UsersScreen::class.java)
+            val intent = Intent(this@EntranceLayout, UsersScreen::class.java)
             startActivity(intent)
             finish()
-        },3000)
+        }, 3000)
     }
 }

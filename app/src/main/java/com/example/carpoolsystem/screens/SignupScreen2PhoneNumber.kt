@@ -4,19 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
 import com.example.carpoolsystem.utility.RegistrationUtils
-import com.google.firebase.FirebaseException
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.auth.PhoneAuthProvider
-import com.google.firebase.auth.PhoneAuthProvider.ForceResendingToken
-import com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks
-import java.util.concurrent.TimeUnit
 
 
 class SignupScreen2PhoneNumber : AppCompatActivity() {
@@ -60,52 +52,52 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
         })
 
 
-        getOtpButton.setOnClickListener{
-            val intent=Intent(this@SignupScreen2PhoneNumber,SignupScreen2Otp::class.java)
+        getOtpButton.setOnClickListener {
+            val intent = Intent(this@SignupScreen2PhoneNumber, SignupScreen2Otp::class.java)
             startActivity(intent)
         }
 
 
-            /*object : View.OnClickListener {
-                override fun onClick(v: View) {
-                    if (phoneNumberEditText.text.toString().trim().isEmpty()) {
-                        Toast.makeText(applicationContext, "Enter mobile", Toast.LENGTH_SHORT)
-                            .show()
-                        return
-                    }
-                    PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                        "+91" + phoneNumberEditText.text.toString(),
-                        60,
-                        TimeUnit.SECONDS,
-                        this@SignupScreen2PhoneNumber,
-                        object : OnVerificationStateChangedCallbacks() {
-                            override fun onCodeSent(
-                                verificationId: String,
-                                forceResendingToken: ForceResendingToken
-                            ) {
-                                super.onCodeSent(verificationId, forceResendingToken)
-                                verificationOTP = verificationId
-                                val phoneNumber = "+91 " + phoneNumberEditText.text.toString()
-                                val intent =
-                                    Intent(applicationContext, SignupScreen2Otp::class.java)
-                                intent.putExtra("PhoneNumber", phoneNumber.toString())
-                                intent.putExtra("VerificationOTP", verificationOTP.toString())
-                                startActivity(intent)
-                            }
-
-                            override fun onVerificationCompleted(phoneAuthCredential: PhoneAuthCredential) {
-
-                            }
-
-                            override fun onVerificationFailed(e: FirebaseException) {
-                                Toast.makeText(applicationContext, e.message, Toast.LENGTH_SHORT)
-                                    .show()
-                            }
-                        }
-                    )
+        /*object : View.OnClickListener {
+            override fun onClick(v: View) {
+                if (phoneNumberEditText.text.toString().trim().isEmpty()) {
+                    Toast.makeText(applicationContext, "Enter mobile", Toast.LENGTH_SHORT)
+                        .show()
+                    return
                 }
-            }*/
+                PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                    "+91" + phoneNumberEditText.text.toString(),
+                    60,
+                    TimeUnit.SECONDS,
+                    this@SignupScreen2PhoneNumber,
+                    object : OnVerificationStateChangedCallbacks() {
+                        override fun onCodeSent(
+                            verificationId: String,
+                            forceResendingToken: ForceResendingToken
+                        ) {
+                            super.onCodeSent(verificationId, forceResendingToken)
+                            verificationOTP = verificationId
+                            val phoneNumber = "+91 " + phoneNumberEditText.text.toString()
+                            val intent =
+                                Intent(applicationContext, SignupScreen2Otp::class.java)
+                            intent.putExtra("PhoneNumber", phoneNumber.toString())
+                            intent.putExtra("VerificationOTP", verificationOTP.toString())
+                            startActivity(intent)
+                        }
+
+                        override fun onVerificationCompleted(phoneAuthCredential: PhoneAuthCredential) {
+
+                        }
+
+                        override fun onVerificationFailed(e: FirebaseException) {
+                            Toast.makeText(applicationContext, e.message, Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                    }
+                )
+            }
+        }*/
 
     }
-    }
+}
 
