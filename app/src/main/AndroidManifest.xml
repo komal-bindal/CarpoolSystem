@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarpoolSystem">
         <activity
+            android:name=".screens.HomeScreen"
+            android:exported="true" />
+        <activity
             android:name=".screens.Dashboard"
             android:exported="true" />
         <activity
@@ -20,8 +23,6 @@
         <activity
             android:name=".screens.EntranceLayout"
             android:exported="true" />
-        android:name=".screens.SignupScreen2Otp"
-        android:exported="true" />
         <activity
             android:name=".screens.SignupScreen2PhoneNumber"
             android:exported="true" />
