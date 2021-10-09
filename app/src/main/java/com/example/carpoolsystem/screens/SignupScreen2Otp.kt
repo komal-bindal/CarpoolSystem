@@ -47,7 +47,6 @@ class SignupScreen2Otp : AppCompatActivity() {
         val intent = intent
         val phone = intent.getStringExtra("PhoneNumber")
         phoneNumber.text = phone.toString()
-        val verificationOtp = intent.getStringExtra("VerificationOTP")
 
         otpCode1.requestFocus()
 
