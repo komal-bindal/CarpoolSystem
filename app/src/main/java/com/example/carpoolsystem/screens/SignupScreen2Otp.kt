@@ -1,5 +1,6 @@
 package com.example.carpoolsystem.screens
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,6 +11,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthProvider
 
 class SignupScreen2Otp : AppCompatActivity() {
 
@@ -44,30 +51,35 @@ class SignupScreen2Otp : AppCompatActivity() {
         otpCode1.requestFocus()
 
         otpEditTextSetUp()
+        verifyButton.setOnClickListener {
+            val intent=Intent(this@SignupScreen2Otp,Dashboard::class.java)
+            startActivity(intent)
+            finish()
+        }
 
-        verifyButton.setOnClickListener(
-            object : View.OnClickListener {
-                override fun onClick(p0: View?) {
-                    val otpEntered = otpCode1.text.toString() +
-                            otpCode2.text.toString() +
-                            otpCode3.text.toString() +
-                            otpCode4.text.toString() +
-                            otpCode5.text.toString() +
-                            otpCode6.text.toString()
-                    if (otpEntered.isEmpty()) {
-                        Toast.makeText(applicationContext, "Please enter Otp", Toast.LENGTH_SHORT)
-                            .show()
-                        return
-                    }
-                    if (otpEntered.length != 6) {
-                        Toast.makeText(
-                            applicationContext,
-                            "Please enter valid Otp",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        return
-                    }
-
+//        verifyButton.setOnClickListener(
+//            object : View.OnClickListener {
+//                override fun onClick(p0: View?) {
+//                    val otpEntered = otpCode1.text.toString() +
+//                            otpCode2.text.toString() +
+//                            otpCode3.text.toString() +
+//                            otpCode4.text.toString() +
+//                            otpCode5.text.toString() +
+//                            otpCode6.text.toString()
+//                    if (otpEntered.isEmpty()) {
+//                        Toast.makeText(applicationContext, "Please enter Otp", Toast.LENGTH_SHORT)
+//                            .show()
+//                        return
+//                    }
+//                    if (otpEntered.length != 6) {
+//                        Toast.makeText(
+//                            applicationContext,
+//                            "Please enter valid Otp",
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                        return
+//                    }
+//
 //                    if (verificationOtp != null) {
 //                        var phoneAuthCredential: PhoneAuthCredential =
 //                            PhoneAuthProvider.getCredential(
@@ -96,11 +108,11 @@ class SignupScreen2Otp : AppCompatActivity() {
 //                                }
 //                            )
 //                    }
-                }
-            }
-        )
-
-    }
+//                }
+//            }
+//        )
+//
+   }
 
     private fun otpEditTextSetUp() {
         otpCode1.addTextChangedListener(object : TextWatcher {

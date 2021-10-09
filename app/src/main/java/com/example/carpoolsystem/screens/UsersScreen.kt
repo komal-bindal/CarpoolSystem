@@ -18,12 +18,14 @@ class UsersScreen : AppCompatActivity() {
             val intent = (Intent(this@UsersScreen, SignupScreen1::class.java))
             intent.putExtra("User", "Driver")
             startActivity(intent)
+            finish()
 
         }
         buttonpassenger.setOnClickListener {
             val intent = (Intent(this@UsersScreen, SignupScreen1::class.java))
             intent.putExtra("User", "Passenger")
             startActivity(intent)
+            finish()
 
         }
 
