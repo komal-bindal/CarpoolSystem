@@ -45,7 +45,8 @@ class SignupScreen1 : AppCompatActivity() {
         }
 
         buttonNext.setOnClickListener {
-
+            val intent =Intent(this@SignupScreen1,AddRideScreen::class.java)
+            startActivity(intent)
             //register()
         }
 
