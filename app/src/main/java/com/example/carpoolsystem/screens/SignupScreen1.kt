@@ -6,8 +6,10 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
+import com.example.carpoolsystem.models.Driver
 import com.example.carpoolsystem.utility.RegistrationUtils
 import com.google.firebase.auth.FirebaseAuth
 
@@ -16,8 +18,7 @@ class SignupScreen1 : AppCompatActivity() {
     private var firebaseAuth: FirebaseAuth? = null
 
     private val USERNAME_ERROR = "invalid Name"
-    private val PASSWORD_ERROR =
-        "Password Should contain at least one upper case letter,lower case letter,number,special characters(@#\$%^&+=!)"
+    private val PASSWORD_ERROR = "Password Should contain at least one upper case letter,lower case letter,number,special characters(@#\$%^&+=!)"
     private val EMAIL_ID_ERROR = "Enter your GLA EmailID"
 
     private lateinit var password: EditText
@@ -29,8 +30,8 @@ class SignupScreen1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_screen1)
-        val intent = intent
-        val user = intent.getStringExtra("User").toString()
+        val intent=intent
+        val user=intent.getStringExtra("User").toString()
 
         //firebaseAuth = FirebaseAuth.getInstance()
         password = findViewById(R.id.editTextPassword)
@@ -39,7 +40,7 @@ class SignupScreen1 : AppCompatActivity() {
         buttonNext = findViewById(R.id.buttonNext)
         OTPSignUpButton = findViewById(R.id.buttonNext2)
         OTPSignUpButton.setOnClickListener {
-            val intent = Intent(this@SignupScreen1, SignupScreen2PhoneNumber::class.java)
+            val intent=Intent(this@SignupScreen1,SignupScreen2PhoneNumber::class.java)
             startActivity(intent)
         }
 

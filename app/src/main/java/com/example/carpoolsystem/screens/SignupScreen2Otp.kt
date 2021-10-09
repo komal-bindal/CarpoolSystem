@@ -1,5 +1,6 @@
 package com.example.carpoolsystem.screens
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,6 +11,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthProvider
 
 class SignupScreen2Otp : AppCompatActivity() {
 
@@ -37,10 +44,10 @@ class SignupScreen2Otp : AppCompatActivity() {
 
         verifyButton = findViewById(R.id.buttonVerify)
 
-//        val intent = intent
-//        val phone = intent.getStringExtra("PhoneNumber")
-//        phoneNumber.text = phone.toString()
-//        val verificationOtp = intent.getStringExtra("VerificationOTP")
+        val intent = intent
+        val phone = intent.getStringExtra("PhoneNumber")
+        phoneNumber.text = phone.toString()
+        val verificationOtp = intent.getStringExtra("VerificationOTP")
 
         otpCode1.requestFocus()
 
@@ -69,34 +76,34 @@ class SignupScreen2Otp : AppCompatActivity() {
                         return
                     }
 
-//                    if (verificationOtp != null) {
-//                        var phoneAuthCredential: PhoneAuthCredential =
-//                            PhoneAuthProvider.getCredential(
-//                                verificationOtp,
-//                                otpEntered
-//                            )
-//                        FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
-//                            .addOnCompleteListener(
-//                                object : OnCompleteListener<AuthResult> {
-//                                    override fun onComplete(task: Task<AuthResult>) {
-//                                        if (task.isSuccessful) {
-//                                            startActivity(
-//                                                Intent(
-//                                                    applicationContext,
-//                                                    VehicleDetailsAdditionScreen::class.java
-//                                                )
-//                                            )
-//                                        } else {
-//                                            Toast.makeText(
-//                                                applicationContext,
-//                                                "OTP is invalid",
-//                                                Toast.LENGTH_SHORT
-//                                            ).show()
-//                                        }
-//                                    }
-//                                }
-//                            )
-//                    }
+                    if (verificationOtp != null) {
+                        var phoneAuthCredential: PhoneAuthCredential =
+                            PhoneAuthProvider.getCredential(
+                                verificationOtp,
+                                otpEntered
+                            )
+                        FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
+                            .addOnCompleteListener(
+                                object : OnCompleteListener<AuthResult> {
+                                    override fun onComplete(task: Task<AuthResult>) {
+                                        if (task.isSuccessful) {
+                                            startActivity(
+                                                Intent(
+                                                    applicationContext,
+                                                    VehicleDetailsAdditionScreen::class.java
+                                                )
+                                            )
+                                        } else {
+                                            Toast.makeText(
+                                                applicationContext,
+                                                "OTP is invalid",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    }
+                                }
+                            )
+                    }
                 }
             }
         )
