@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.VehicleDetailsAdditionScreen">
+    tools:context=".screens.ChangeCarDetails">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circleImageView3"
@@ -42,7 +42,7 @@
         android:drawableStart="@drawable/ic_baseline_directions_car_filled_24"
         android:drawableLeft="@drawable/ic_baseline_directions_car_filled_24"
         android:gravity="center"
-        android:text="Car Details"
+        android:text="Change Car Details"
         android:textColor="@color/black"
         android:textSize="30dp"
         android:textStyle="bold"
@@ -108,37 +108,11 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextnewCarMake"
         tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/editTextLicenseNumber"
-        android:layout_width="263dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginLeft="66dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="82dp"
-        android:layout_marginRight="82dp"
-        android:background="@drawable/rounded_corners"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Add License Number"
-        android:inputType="date"
-        android:minHeight="48dp"
-        android:text=""
-        android:textSize="27dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextnewCarModel"
-        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck" />
-
     <Button
         android:id="@+id/buttonsavenewdetails"
         android:layout_width="263dp"
         android:layout_height="52dp"
-        android:layout_marginStart="67dp"
-        android:layout_marginLeft="67dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="81dp"
-        android:layout_marginRight="81dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#55B3BF"
         android:ems="10"
@@ -152,9 +126,24 @@
         app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextLicenseNumber"
+        app:layout_constraintTop_toBottomOf="@+id/editTextnewCarModel"
         tools:ignore="MissingConstraints" />
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="60dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="303dp"
+        android:layout_marginLeft="303dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginBottom="60dp"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonsavenewdetails"
+        app:layout_constraintVertical_bias="0.88" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
