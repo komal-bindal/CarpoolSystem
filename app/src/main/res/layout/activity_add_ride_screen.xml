@@ -17,6 +17,7 @@
         android:layout_marginRight="19dp"
         android:src="#99000000"
         app:layout_constraintEnd_toStartOf="@+id/textViewAddRide"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -30,6 +31,7 @@
         android:layout_marginRight="102dp"
         android:src="#99000000"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
