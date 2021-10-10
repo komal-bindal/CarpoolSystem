@@ -16,7 +16,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:src="#99000000"
-        app:layout_constraintEnd_toStartOf="@+id/editTextCarNumber"
+        app:layout_constraintEnd_toStartOf="@+id/editTextEnternewcarnumber"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints,UnknownIdInLayout" />
@@ -55,7 +55,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextCarNumber"
+        android:id="@+id/editTextEnternewcarnumber"
         android:layout_width="213dp"
         android:layout_height="48dp"
         android:layout_marginStart="110dp"
@@ -74,7 +74,7 @@
         tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextCarMake"
+        android:id="@+id/editTextnewCarMake"
         android:layout_width="220dp"
         android:layout_height="48dp"
         android:layout_marginStart="110dp"
@@ -89,11 +89,11 @@
         android:text=""
         android:textSize="22dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCarNumber"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEnternewcarnumber"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextCarModel"
+        android:id="@+id/editTextnewCarModel"
         android:layout_width="220dp"
         android:layout_height="48dp"
         android:layout_marginStart="76dp"
@@ -107,7 +107,7 @@
         android:minHeight="48dp"
         android:text=""
         android:textSize="22dp"
-        app:layout_constraintStart_toEndOf="@+id/editTextCarNumber"
+        app:layout_constraintStart_toEndOf="@+id/editTextEnternewcarnumber"
         app:layout_constraintTop_toBottomOf="@+id/textViewCarDetails"
         tools:ignore="MissingConstraints" />
 
@@ -126,12 +126,12 @@
         android:minHeight="48dp"
         android:text=""
         android:textSize="22dp"
-        app:layout_constraintStart_toEndOf="@+id/editTextCarMake"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCarModel"
+        app:layout_constraintStart_toEndOf="@+id/editTextnewCarMake"
+        app:layout_constraintTop_toBottomOf="@+id/editTextnewCarModel"
         tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck" />
 
     <Button
-        android:id="@+id/buttonSaveDetails"
+        android:id="@+id/buttonsavenewdetails"
         android:layout_width="240dp"
         android:layout_height="50dp"
         android:layout_marginStart="210dp"

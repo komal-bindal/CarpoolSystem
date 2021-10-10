@@ -22,11 +22,11 @@ class VehicleDetailsAdditionScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vehicle_details_addition_screen)
-        carNumber = findViewById(R.id.editTextCarNumber)
-        carModel = findViewById(R.id.editTextCarModel)
+        carNumber = findViewById(R.id.editTextEnternewcarnumber)
+        carModel = findViewById(R.id.editTextnewCarModel)
         licenceNumber = findViewById(R.id.editTextLicenseNumber)
-        carMake = findViewById(R.id.editTextCarMake)
-        saveDetails = findViewById(R.id.buttonSaveDetails)
+        carMake = findViewById(R.id.editTextnewCarMake)
+        saveDetails = findViewById(R.id.buttonsavenewdetails)
         carNumber.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 s: CharSequence?,

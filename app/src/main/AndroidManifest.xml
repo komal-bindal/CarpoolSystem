@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarpoolSystem">
         <activity
+            android:name=".screens.ChangeCarDetails"
+            android:exported="true" />
+        <activity
+            android:name=".screens.ChangePassword"
+            android:exported="true" />
+        <activity
+            android:name=".screens.NoResultsFound"
+            android:exported="true" />
+        <activity
+            android:name=".screens.PassengersProfile"
+            android:exported="true" />
+        <activity
+            android:name=".screens.DriversProfile"
+            android:exported="true" />
+        <activity
             android:name=".screens.SignInScreen"
             android:exported="true" />
         <activity
