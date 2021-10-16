@@ -18,8 +18,8 @@ The **Car Pooling application** is intended for people travelling,to make it a c
   
 ## Tech Stack
 
-- **IDE:** Android Studio
-- **Language:** Kotlin
+- **IDE:** Android Studio 2020.3.1
+- **Language:** Kotlin 1.5.20
 
 
 
