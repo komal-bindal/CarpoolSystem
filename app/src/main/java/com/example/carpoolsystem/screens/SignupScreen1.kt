@@ -1,5 +1,6 @@
 package com.example.carpoolsystem.screens
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -9,7 +10,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
-import com.example.carpoolsystem.models.Driver
 import com.example.carpoolsystem.utility.RegistrationUtils
 import com.google.firebase.auth.FirebaseAuth
 
@@ -18,140 +18,164 @@ class SignupScreen1 : AppCompatActivity() {
     private var firebaseAuth: FirebaseAuth? = null
 
     private val USERNAME_ERROR = "invalid Name"
-    private val PASSWORD_ERROR = "Password Should contain at least one upper case letter,lower case letter,number,special characters(@#\$%^&+=!)"
-    private val EMAIL_ID_ERROR = "Enter your GLA EmailID"
+    private val PASSWORD_ERROR =
+        "Password should contain at least one upper case letter, lower case letter, number, and special characters(@#\$%^&+=!)"
+    private val EMAIL_ID_ERROR = "Enter your GLA Email address"
 
-    private lateinit var password: EditText
-    private lateinit var emailId: EditText
-    private lateinit var name: EditText
-    private lateinit var buttonNext: Button
+    private lateinit var passwordEditText: EditText
+    private lateinit var emailIdEditText: EditText
+    private lateinit var nameEditText: EditText
+    private lateinit var nextButton: Button
     private lateinit var OTPSignUpButton: Button
+    private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_screen1)
-        val intent=intent
-        val user=intent.getStringExtra("User").toString()
+        val intent = intent
+        val user = intent.getStringExtra("User").toString()
 
-        //firebaseAuth = FirebaseAuth.getInstance()
-        password = findViewById(R.id.editTextPassword)
-        emailId = findViewById(R.id.editTextEmail)
-        name = findViewById(R.id.editTextName)
-        buttonNext = findViewById(R.id.buttonNext)
+        firebaseAuth = FirebaseAuth.getInstance()
+        passwordEditText = findViewById(R.id.editTextPassword)
+        emailIdEditText = findViewById(R.id.editTextEmail)
+        nameEditText = findViewById(R.id.editTextName)
+        nextButton = findViewById(R.id.buttonNext)
         OTPSignUpButton = findViewById(R.id.buttonNext2)
+
+        progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("Loading")
+        progressDialog.setMessage("Please wait...")
+
         OTPSignUpButton.setOnClickListener {
-            val intent=Intent(this@SignupScreen1,SignupScreen2PhoneNumber::class.java)
+            val intent = Intent(this@SignupScreen1, SignupScreen2PhoneNumber::class.java)
             startActivity(intent)
         }
 
-        buttonNext.setOnClickListener {
-            val intent =Intent(this@SignupScreen1,Dashboard::class.java)
-            startActivity(intent)
-            //register()
+        nextButton.setOnClickListener {
+            register()
+            progressDialog.show()
         }
 
-        password.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(
-                s: CharSequence?,
-                start: Int, count: Int, after: Int
-            ) {
-
-            }
 
 
-            override fun onTextChanged(
-                s: CharSequence?,
-                start: Int, before: Int, count: Int
-            ) {
-                s?.apply {
-                    if (RegistrationUtils.isValidPassword(s.toString())) {
-                        password.error = null
+        passwordEditText.addTextChangedListener(
+            object : TextWatcher {
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int, count: Int, after: Int
+                ) {
 
-                    } else {
-                        password.error = PASSWORD_ERROR
+                }
+
+
+                override fun onTextChanged(
+                    s: CharSequence?,
+                    start: Int, before: Int, count: Int
+                ) {
+                    s?.apply {
+                        if (RegistrationUtils.isValidPassword(s.toString())) {
+                            passwordEditText.error = null
+
+                        } else {
+                            passwordEditText.error = PASSWORD_ERROR
+                        }
                     }
                 }
-            }
 
-            override fun afterTextChanged(s: Editable?) {
+                override fun afterTextChanged(s: Editable?) {
 
-            }
-        })
+                }
+            })
 
-        emailId.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(
-                p0: CharSequence?,
-                p1: Int, p2: Int, p3: Int
-            ) {
-            }
+        emailIdEditText.addTextChangedListener(
+            object : TextWatcher {
+                override fun beforeTextChanged(
+                    p0: CharSequence?,
+                    p1: Int, p2: Int, p3: Int
+                ) {
+                }
 
-            override fun onTextChanged(
-                p0: CharSequence?,
-                p1: Int, p2: Int, p3: Int
-            ) {
-                p0?.apply {
-                    if (RegistrationUtils.isValidEmail(p0.toString())) {
+                override fun onTextChanged(
+                    p0: CharSequence?,
+                    p1: Int, p2: Int, p3: Int
+                ) {
+                    p0?.apply {
+                        if (RegistrationUtils.isValidEmail(p0.toString())) {
 
-                        emailId.error = null
-                    } else {
-                        emailId.error = EMAIL_ID_ERROR
+                            emailIdEditText.error = null
+                        } else {
+                            emailIdEditText.error = EMAIL_ID_ERROR
+                        }
                     }
                 }
-            }
 
-            override fun afterTextChanged(p0: Editable?) {}
-        })
-        name.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(
-                p0: CharSequence?,
-                p1: Int, p2: Int, p3: Int
-            ) {
-            }
+                override fun afterTextChanged(p0: Editable?) {}
+            })
 
-            override fun onTextChanged(
-                p0: CharSequence?,
-                p1: Int, p2: Int, p3: Int
-            ) {
-                p0?.apply {
-                    if (RegistrationUtils.isValidUserName(p0.toString())) {
-                        name.error = null
-                    } else {
-                        name.error = USERNAME_ERROR
+        nameEditText.addTextChangedListener(
+            object : TextWatcher {
+                override fun beforeTextChanged(
+                    p0: CharSequence?,
+                    p1: Int, p2: Int, p3: Int
+                ) {
+                }
+
+                override fun onTextChanged(
+                    p0: CharSequence?,
+                    p1: Int, p2: Int, p3: Int
+                ) {
+                    p0?.apply {
+                        if (RegistrationUtils.isValidUserName(p0.toString())) {
+                            nameEditText.error = null
+                        } else {
+                            nameEditText.error = USERNAME_ERROR
+                        }
                     }
                 }
-            }
 
-            override fun afterTextChanged(p0: Editable?) {}
-        })
+                override fun afterTextChanged(p0: Editable?) {}
+            })
     }
 
-//    fun checkEmail() {
-//        val firebaseUser = firebaseAuth?.currentUser
-//        firebaseUser?.sendEmailVerification()?.addOnCompleteListener { task ->
-//            if (task.isSuccessful) {
-//                Toast.makeText(this, "Verification mail send", Toast.LENGTH_SHORT).show()
-//                firebaseAuth?.signOut()
-//                finish()
-//                startActivity(Intent(this, SignupScreen2PhoneNumber::class.java))
-//            } else {
-//                Toast.makeText(this, "Error Occured", Toast.LENGTH_SHORT).show()
-//            }
-//        }
-//    }
-//
-//    fun register() {
-//        var e: String = emailId.text.toString()
-//        var p: String = password.text.toString()
-//        if (e.isEmpty() || p.isEmpty()) {
-//            Toast.makeText(this, "Fill all fields", Toast.LENGTH_SHORT).show()
-//        } else {
-//            firebaseAuth?.createUserWithEmailAndPassword(e, p)?.addOnCompleteListener { task ->
-//                if (task.isSuccessful) {
-//                    checkEmail()
-//                } else {
-//                    Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//        }
-    //}
+    fun checkEmail() {
+        val firebaseUser = firebaseAuth?.currentUser
+        firebaseUser?.sendEmailVerification()?.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(
+                    this,
+                    "Verification mail send. Please verify your email",
+                    Toast.LENGTH_SHORT
+                ).show()
+                firebaseAuth?.signOut()
+                finish()
+                startActivity(Intent(this, SignInScreen::class.java))
+            } else {
+                Toast.makeText(
+                    this,
+                    "Some error occurred. Please try again later.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+
+    fun register() {
+        val emailId: String = emailIdEditText.text.toString()
+        val password: String = passwordEditText.text.toString()
+        if (emailId.isEmpty() || password.isEmpty()) {
+            progressDialog.hide()
+            Toast.makeText(this, "Fill all given fields", Toast.LENGTH_SHORT).show()
+        } else {
+            firebaseAuth?.createUserWithEmailAndPassword(emailId, password)
+                ?.addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        progressDialog.hide()
+                        checkEmail()
+                    } else {
+                        progressDialog.hide()
+                        Toast.makeText(this, "Some error occurred.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
+    }
 }

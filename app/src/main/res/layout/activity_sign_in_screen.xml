@@ -59,7 +59,7 @@
         android:id="@+id/editTextEnterPassword"
         android:layout_width="300dp"
         android:layout_height="52dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
@@ -69,16 +69,17 @@
         android:text=""
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEnterEmail"
         tools:ignore="MissingConstraints" />
+
 
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="300dp"
         android:layout_height="52dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#55B3BF"
         android:ems="10"
@@ -91,6 +92,7 @@
         android:textStyle="bold"
         app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEnterPassword"
         tools:ignore="MissingConstraints" />
@@ -101,7 +103,7 @@
         android:layout_height="65dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="16dp"
         android:background="@color/white"
         android:backgroundTint="#55B3BF"
         android:ems="10"
@@ -114,17 +116,16 @@
         android:textStyle="bold"
         app:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buttonLogin"
         tools:ignore="MissingConstraints" />
-
 
     <Button
         android:id="@+id/buttonOtpLogin"
         android:layout_width="300dp"
         android:layout_height="52dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#55B3BF"
         android:ems="10"
@@ -137,6 +138,7 @@
         android:textStyle="bold"
         app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buttonForgetPassword"
         tools:ignore="MissingConstraints" />
@@ -144,10 +146,10 @@
     <Button
         android:id="@+id/buttonSignUp"
         android:layout_width="405dp"
-        android:layout_height="114dp"
+        android:layout_height="65dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="16dp"
         android:background="@color/white"
         android:backgroundTint="#55B3BF"
         android:ems="10"
