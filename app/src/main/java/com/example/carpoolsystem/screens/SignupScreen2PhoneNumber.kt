@@ -33,6 +33,8 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
         phoneNumberEditText = findViewById(R.id.editTextPhoneNumber)
         getOtpButton = findViewById(R.id.buttonGetOtp)
         phoneNumberEditText.requestFocus()
+
+
         phoneNumberEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 s: CharSequence?,
@@ -60,26 +62,8 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
         })
 
 
-
-        getOtpButton.setOnClickListener {
-
-            if (phoneNumberEditText.text.toString().trim().isEmpty()) {
-                Toast.makeText(applicationContext, "Enter mobile", Toast.LENGTH_SHORT)
-                    .show()
-            } else {
-                val phoneNumber = "+91 " + phoneNumberEditText.text.toString()
-                val intent =
-                    Intent(applicationContext, SignupScreen2Otp::class.java)
-                intent.putExtra("PhoneNumber", phoneNumber.toString())
-                startActivity(intent)
-            }
-
-
-
-        }
-
-
-            /*object : View.OnClickListener {
+        getOtpButton.setOnClickListener(
+            object : View.OnClickListener {
                 override fun onClick(v: View) {
                     if (phoneNumberEditText.text.toString().trim().isEmpty()) {
                         Toast.makeText(applicationContext, "Enter mobile", Toast.LENGTH_SHORT)
@@ -117,8 +101,9 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
                         }
                     )
                 }
-            }*/
+            }
+        )
+
 
     }
-    }
-
+}
