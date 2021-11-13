@@ -8,6 +8,10 @@ class CarPoolApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        initSdk()
+    }
+
+    fun initSdk(){
         MapmyIndiaAccountManager.getInstance().restAPIKey = getRestAPIKey()
         MapmyIndiaAccountManager.getInstance().mapSDKKey = getMapSDKKey()
         MapmyIndiaAccountManager.getInstance().atlasClientId = getAtlasClientId()

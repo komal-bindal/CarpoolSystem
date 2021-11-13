@@ -1,7 +1,7 @@
 package com.example.carpoolsystem.screens.map
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
 import com.mapmyindia.sdk.maps.MapView
 
