@@ -75,7 +75,7 @@ dependencies {
     implementation 'com.mapmyindia.sdk:direction-ui:0.3.0'
     //for location
     implementation 'com.google.android.gms:play-services-location:18.0.0'
-
+    implementation 'com.google.code.gson:gson:2.8.9'
 
 }
 
