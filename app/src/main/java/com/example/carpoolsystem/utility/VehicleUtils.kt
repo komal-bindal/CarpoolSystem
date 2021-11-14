@@ -4,10 +4,22 @@ import java.util.regex.Pattern
 
 class VehicleUtils {
     companion object {
-        fun isValidCarNumber(carNumber: String): Boolean {
-            val carNumberPattern = "^[A-Z]{2}[ -][0-9]{1,2}(?: [A-Z])?(?: [A-Z]*)? [0-9]{4}\$"
+        fun isValidDistrictCode(districtCode: String): Boolean {
+            val carNumberPattern = "^[0-9][0-9]\$"
             val pattern = Pattern.compile(carNumberPattern)
-            val matcher = pattern.matcher(carNumber)
+            val matcher = pattern.matcher(districtCode)
+            return matcher.matches()
+        }
+        fun isValidLetters(letters: String): Boolean {
+            val carNumberPattern = "^[A-Z][A-Z]\$"
+            val pattern = Pattern.compile(carNumberPattern)
+            val matcher = pattern.matcher(letters)
+            return matcher.matches()
+        }
+        fun isValidDigits(digits: String): Boolean {
+            val carNumberPattern = "^[0-9][0-9][0-9][0-9]\$"
+            val pattern = Pattern.compile(carNumberPattern)
+            val matcher = pattern.matcher(digits)
             return matcher.matches()
         }
 

@@ -2,8 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/entranceLayout">
+    android:id="@+id/nav_graph">
 
     <fragment
         android:id="@+id/entranceLayout"
@@ -88,6 +87,7 @@
         android:name="com.example.carpoolsystem.screens.VehicleDetailsAdditionScreen"
         android:label="activity_vehicle_details_addition_screen"
         tools:layout="@layout/activity_vehicle_details_addition_screen" />
+
     <fragment
         android:id="@+id/noResultsFound"
         android:name="com.example.carpoolsystem.screens.NoResultsFound"
@@ -140,3 +140,4 @@
             app:destination="@id/signupScreenPhoneNumber" />
     </fragment>
 </navigation>
+

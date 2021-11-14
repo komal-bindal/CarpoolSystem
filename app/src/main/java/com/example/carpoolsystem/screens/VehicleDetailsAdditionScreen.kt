@@ -1,5 +1,6 @@
 package com.example.carpoolsystem.screens
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -14,7 +15,7 @@ class VehicleDetailsAdditionScreen : AppCompatActivity() {
     private val CAR_MODEL_ERROR = "invalid model format"
     private val CAR_MAKE_ERROR = "invalid cake make format"
     private val LICENCE_NUMBER_ERROR = "invalid number format"
-    private lateinit var carNumber: EditText
+    private lateinit var carNumber: Button
     private lateinit var carModel: EditText
     private lateinit var licenceNumber: EditText
     private lateinit var carMake: EditText
@@ -25,34 +26,16 @@ class VehicleDetailsAdditionScreen : AppCompatActivity() {
         carNumber = findViewById(R.id.editTextEnternewcarnumber)
         carModel = findViewById(R.id.editTextnewCarModel)
         licenceNumber = findViewById(R.id.editTextLicenseNumber)
-        carMake = findViewById(R.id.editTextnewCarMake)
-        saveDetails = findViewById(R.id.buttonsavenewdetails)
-        carNumber.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(
-                s: CharSequence?,
-                start: Int, count: Int, after: Int
-            ) {
+        carMake = findViewById(R.id.editTextCarMake)
+        saveDetails = findViewById(R.id.buttonSaveDetails)
 
-            }
 
-            override fun onTextChanged(
-                s: CharSequence?,
-                start: Int, before: Int, count: Int
-            ) {
-                s?.apply {
-                    if (VehicleUtils.isValidCarNumber(s.toString())) {
-                        carNumber.error = null
-                    } else {
-                        carNumber.error = CAR_NUMBER_ERROR
-                    }
-                }
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
-        })
-
+        carNumber.setOnClickListener {
+            val intent = (Intent(this@VehicleDetailsAdditionScreen, CarNumber::class.java))
+            intent.putExtra("User", "Driver")
+            startActivity(intent)
+            finish()
+        }
         carModel.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 p0: CharSequence?,

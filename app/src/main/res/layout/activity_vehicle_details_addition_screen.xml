@@ -51,8 +51,9 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/editTextEnternewcarnumber"
+
+    <Button
+        android:id="@+id/editTextCarNumber"
         android:layout_width="263dp"
         android:layout_height="52dp"
         android:layout_marginTop="8dp"

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarpoolSystem">
         <activity
+            android:name=".screens.CarNumber"
+            android:exported="true">
+        </activity>
             android:name=".screens.ChangeCarDetails"
             android:exported="true" />
         <activity
@@ -29,6 +32,7 @@
         <activity
             android:name=".screens.SignInScreen"
             android:exported="true" />
+
         <activity
             android:name=".screens.HomeScreen"
             android:exported="true" />
