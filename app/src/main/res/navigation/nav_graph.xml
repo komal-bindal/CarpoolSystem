@@ -21,7 +21,7 @@
         tools:layout="@layout/activity_users_screen">
         <action
             android:id="@+id/action_usersScreen_to_signupScreen1"
-            app:destination="@id/signupScreen1" />
+            app:destination="@id/signInScreen" />
     </fragment>
     <fragment
         android:id="@+id/signupScreen1"
@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_signupScreen1_to_dashboard"
             app:destination="@id/dashboard" />
+        <action
+            android:id="@+id/action_signupScreen1_to_signInScreen"
+            app:destination="@id/signInScreen" />
     </fragment>
     <fragment
         android:id="@+id/signupScreenPhoneNumber"
@@ -69,10 +72,72 @@
         <action
             android:id="@+id/action_dashboard_to_addRideScreen"
             app:destination="@id/addRideScreen" />
+        <action
+            android:id="@+id/action_dashboard_to_passengersProfile"
+            app:destination="@id/passengersProfile" />
+        <action
+            android:id="@+id/action_dashboard_to_driversProfile2"
+            app:destination="@id/driversProfile" />
+        <action
+            android:id="@+id/action_dashboard_to_changePassword3"
+            app:destination="@id/changePassword" />
     </fragment>
     <fragment
         android:id="@+id/vehicleDetailsAdditionScreen"
         android:name="com.example.carpoolsystem.screens.VehicleDetailsAdditionScreen"
         android:label="activity_vehicle_details_addition_screen"
         tools:layout="@layout/activity_vehicle_details_addition_screen" />
+
+    <fragment
+        android:id="@+id/noResultsFound"
+        android:name="com.example.carpoolsystem.screens.NoResultsFound"
+        android:label="activity_no_results_found"
+        tools:layout="@layout/activity_no_results_found" />
+    <fragment
+        android:id="@+id/changePassword"
+        android:name="com.example.carpoolsystem.screens.ChangePassword"
+        android:label="activity_change_password"
+        tools:layout="@layout/activity_change_password">
+        <action
+            android:id="@+id/action_changePassword_to_signInScreen"
+            app:destination="@id/signInScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeCarDetails"
+        android:name="com.example.carpoolsystem.screens.ChangeCarDetails"
+        android:label="activity_change_car_details"
+        tools:layout="@layout/activity_change_car_details" />
+    <fragment
+        android:id="@+id/driversProfile"
+        android:name="com.example.carpoolsystem.screens.DriversProfile"
+        android:label="activity_drivers_profile"
+        tools:layout="@layout/activity_drivers_profile">
+        <action
+            android:id="@+id/action_driversProfile_to_changeCarDetails"
+            app:destination="@id/changeCarDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/passengersProfile"
+        android:name="com.example.carpoolsystem.screens.PassengersProfile"
+        android:label="activity_passengers_profile"
+        tools:layout="@layout/activity_passengers_profile" />
+    <fragment
+        android:id="@+id/signInScreen"
+        android:name="com.example.carpoolsystem.screens.SignInScreen"
+        android:label="activity_sign_in_screen"
+        tools:layout="@layout/activity_sign_in_screen">
+        <action
+            android:id="@+id/action_signInScreen_to_signupScreen1"
+            app:destination="@id/signupScreen1" />
+        <action
+            android:id="@+id/action_signInScreen_to_changePassword"
+            app:destination="@id/changePassword" />
+        <action
+            android:id="@+id/action_signInScreen_to_dashboard"
+            app:destination="@id/dashboard" />
+        <action
+            android:id="@+id/action_signInScreen_to_signupScreenPhoneNumber"
+            app:destination="@id/signupScreenPhoneNumber" />
+    </fragment>
 </navigation>
+

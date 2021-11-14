@@ -13,7 +13,11 @@
         android:layout_marginStart="-80dp"
         android:layout_marginLeft="-80dp"
         android:layout_marginTop="-40dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
         android:src="#99000000"
+        app:layout_constraintEnd_toStartOf="@+id/editTextName"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -22,12 +26,12 @@
         android:id="@+id/circleImageView"
         android:layout_width="309dp"
         android:layout_height="190dp"
-        android:layout_marginTop="-90dp"
+        android:layout_marginTop="-80dp"
         android:layout_marginEnd="102dp"
         android:layout_marginRight="102dp"
         android:src="#99000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -35,9 +39,9 @@
 
     <EditText
         android:id="@+id/editTextName"
-        android:layout_width="300dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="160dp"
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
@@ -45,16 +49,18 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text=""
-        android:textSize="20dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints"
-        tools:layout_editor_absoluteX="56dp" />
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextEmail"
-        android:layout_width="300dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
@@ -62,16 +68,17 @@
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:text=""
-        android:textSize="20dp"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextName"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="56dp" />
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextPassword"
-        android:layout_width="300dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
@@ -79,16 +86,17 @@
         android:inputType="textVisiblePassword"
         android:minHeight="48dp"
         android:text=""
-        android:textSize="20dp"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="56dp" />
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/buttonNext"
-        android:layout_width="300dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#55B3BF"
         android:ems="10"
@@ -97,20 +105,20 @@
         android:minHeight="48dp"
         android:text=""
         android:textColorHint="@color/black"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/buttonNext2"
-        android:layout_width="293dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#55B3BF"
         android:ems="10"
@@ -119,20 +127,19 @@
         android:minHeight="48dp"
         android:text=""
         android:textColorHint="@color/black"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/buttonNext3"
-        android:layout_width="419dp"
-        android:layout_height="95dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="413dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp"
         android:background="@color/white"
         android:backgroundTint="#55B3BF"
         android:ems="10"
@@ -145,22 +152,46 @@
         android:textStyle="bold"
         app:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonNext2"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="59dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="60dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="10dp"
         android:text="OR"
         android:textColor="@color/black"
-        android:textSize="100px"
+        android:textSize="60px"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonNext" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="168dp"
+        android:text="Signup to"
+        android:textColor="@color/teal_700"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="get started"
+        android:textColor="@color/teal_700"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextName"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

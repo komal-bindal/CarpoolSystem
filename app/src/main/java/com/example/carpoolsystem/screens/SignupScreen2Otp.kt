@@ -47,72 +47,68 @@ class SignupScreen2Otp : AppCompatActivity() {
         val intent = intent
         val phone = intent.getStringExtra("PhoneNumber")
         phoneNumber.text = phone.toString()
+        val verificationOtp = intent.getStringExtra("VerificationOTP")
 
         otpCode1.requestFocus()
 
         otpEditTextSetUp()
-        verifyButton.setOnClickListener {
-            val intent=Intent(this@SignupScreen2Otp,Dashboard::class.java)
-            startActivity(intent)
-            finish()
-        }
 
-//        verifyButton.setOnClickListener(
-//            object : View.OnClickListener {
-//                override fun onClick(p0: View?) {
-//                    val otpEntered = otpCode1.text.toString() +
-//                            otpCode2.text.toString() +
-//                            otpCode3.text.toString() +
-//                            otpCode4.text.toString() +
-//                            otpCode5.text.toString() +
-//                            otpCode6.text.toString()
-//                    if (otpEntered.isEmpty()) {
-//                        Toast.makeText(applicationContext, "Please enter Otp", Toast.LENGTH_SHORT)
-//                            .show()
-//                        return
-//                    }
-//                    if (otpEntered.length != 6) {
-//                        Toast.makeText(
-//                            applicationContext,
-//                            "Please enter valid Otp",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                        return
-//                    }
-//
-//                    if (verificationOtp != null) {
-//                        var phoneAuthCredential: PhoneAuthCredential =
-//                            PhoneAuthProvider.getCredential(
-//                                verificationOtp,
-//                                otpEntered
-//                            )
-//                        FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
-//                            .addOnCompleteListener(
-//                                object : OnCompleteListener<AuthResult> {
-//                                    override fun onComplete(task: Task<AuthResult>) {
-//                                        if (task.isSuccessful) {
-//                                            startActivity(
-//                                                Intent(
-//                                                    applicationContext,
-//                                                    VehicleDetailsAdditionScreen::class.java
-//                                                )
-//                                            )
-//                                        } else {
-//                                            Toast.makeText(
-//                                                applicationContext,
-//                                                "OTP is invalid",
-//                                                Toast.LENGTH_SHORT
-//                                            ).show()
-//                                        }
-//                                    }
-//                                }
-//                            )
-//                    }
-//                }
-//            }
-//        )
-//
-   }
+        verifyButton.setOnClickListener(
+            object : View.OnClickListener {
+                override fun onClick(p0: View?) {
+                    val otpEntered = otpCode1.text.toString() +
+                            otpCode2.text.toString() +
+                            otpCode3.text.toString() +
+                            otpCode4.text.toString() +
+                            otpCode5.text.toString() +
+                            otpCode6.text.toString()
+                    if (otpEntered.isEmpty()) {
+                        Toast.makeText(applicationContext, "Please enter Otp", Toast.LENGTH_SHORT)
+                            .show()
+                        return
+                    }
+                    if (otpEntered.length != 6) {
+                        Toast.makeText(
+                            applicationContext,
+                            "Please enter valid Otp",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return
+                    }
+
+                    if (verificationOtp != null) {
+                        var phoneAuthCredential: PhoneAuthCredential =
+                            PhoneAuthProvider.getCredential(
+                                verificationOtp,
+                                otpEntered
+                            )
+                        FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
+                            .addOnCompleteListener(
+                                object : OnCompleteListener<AuthResult> {
+                                    override fun onComplete(task: Task<AuthResult>) {
+                                        if (task.isSuccessful) {
+                                            startActivity(
+                                                Intent(
+                                                    applicationContext,
+                                                    Dashboard::class.java
+                                                )
+                                            )
+                                        } else {
+                                            Toast.makeText(
+                                                applicationContext,
+                                                "OTP is invalid",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    }
+                                }
+                            )
+                    }
+                }
+            }
+        )
+
+    }
 
     private fun otpEditTextSetUp() {
         otpCode1.addTextChangedListener(object : TextWatcher {
