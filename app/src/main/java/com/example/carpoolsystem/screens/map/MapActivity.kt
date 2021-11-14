@@ -1,10 +1,14 @@
 package com.example.carpoolsystem.screens.map
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.LinearLayoutCompat
 import com.example.carpoolsystem.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.gson.GsonBuilder
@@ -12,6 +16,8 @@ import com.mapmyindia.sdk.maps.MapView
 import com.mapmyindia.sdk.maps.MapmyIndiaMap
 import com.mapmyindia.sdk.maps.OnMapReadyCallback
 import com.mapmyindia.sdk.maps.annotations.MarkerOptions
+import com.mapmyindia.sdk.maps.annotations.PolygonOptions
+import com.mapmyindia.sdk.maps.annotations.PolylineOptions
 import com.mapmyindia.sdk.maps.camera.CameraPosition
 import com.mapmyindia.sdk.maps.camera.CameraUpdateFactory
 import com.mapmyindia.sdk.maps.geometry.LatLng
@@ -24,18 +30,29 @@ import com.mmi.services.api.geocoding.MapmyIndiaGeoCoding
 import com.mmi.services.api.geocoding.MapmyIndiaGeoCodingManager
 
 
+data class Location(val lat: Double, val long: Double, val placeName: String)
+
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mapView: MapView
     private lateinit var suggestionContainer: FrameLayout
     private var mapMyIndiaMap: MapmyIndiaMap? = null
+    private lateinit var btnSrc: AppCompatButton
+    private lateinit var btnDest: AppCompatButton
+    private lateinit var actionContainer: LinearLayoutCompat
     private val gson = GsonBuilder().setPrettyPrinting().serializeNulls().create()
+    private var selectSource: Boolean = false
+    private var sourceLoc: Location? = null
+    private var destLoc: Location? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
         mapView = findViewById(R.id.map_view)
         suggestionContainer = findViewById(R.id.container)
+        btnSrc = findViewById(R.id.btn_source)
+        btnDest = findViewById(R.id.btn_dest)
+        actionContainer = findViewById(R.id.container_actions)
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this);
 
@@ -48,13 +65,68 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         )
             .commit()
 
-        findViewById<FloatingActionButton>(R.id.btn_search).setOnClickListener {
+        btnSrc.setOnClickListener {
+            selectSource = true
+            actionContainer.visibility = View.GONE
             if (suggestionContainer.visibility == View.VISIBLE) {
                 suggestionContainer.visibility = View.GONE
             } else {
                 suggestionContainer.visibility = View.VISIBLE
             }
         }
+
+        btnDest.setOnClickListener {
+            selectSource = false
+            actionContainer.visibility = View.GONE
+            if (suggestionContainer.visibility == View.VISIBLE) {
+                suggestionContainer.visibility = View.GONE
+            } else {
+                suggestionContainer.visibility = View.VISIBLE
+            }
+        }
+
+        findViewById<AppCompatButton>(R.id.btn_pool).setOnClickListener {
+            val src = sourceLoc ?: return@setOnClickListener Toast.makeText(
+                this,
+                "select source please",
+                Toast.LENGTH_SHORT
+            ).show()
+            val dest = destLoc ?: return@setOnClickListener Toast.makeText(
+                this,
+                "select source please",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            val sourceLatLng = LatLng(src.lat, src.long)
+            val destinLatLng = LatLng(dest.lat, dest.long)
+
+            mapMyIndiaMap?.clear()
+
+            mapMyIndiaMap?.addMarker(
+                MarkerOptions().position(sourceLatLng)
+            )
+
+            mapMyIndiaMap?.addMarker(
+                MarkerOptions().position(destinLatLng)
+            )
+
+            mapMyIndiaMap?.addPolyline(
+                PolylineOptions()
+            .addAll(listOf(sourceLatLng,destinLatLng))
+            .color(Color.parseColor("#3bb2d0"))
+            .width(2f)
+            )
+
+            mapMyIndiaMap?.animateCamera(
+                CameraUpdateFactory.newLatLngZoom(
+                    sourceLatLng,
+                    22.0
+                )
+            )
+
+        }
+
+
 
         placeAutocompleteFragment.setOnPlaceSelectedListener(object : PlaceSelectionListener {
             override fun onCancel() {
@@ -65,10 +137,10 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 // Select place
                 Log.e("MapMyIndia", gson.toJson(eLocation))
                 suggestionContainer.visibility = View.GONE
+                actionContainer.visibility = View.VISIBLE
                 val mapmyIndiaMap = mapMyIndiaMap
 
                 if (mapmyIndiaMap != null && eLocation != null) {
-
 
                     val mapmyIndiaGeoCoding = MapmyIndiaGeoCoding.builder()
                         .setAddress(eLocation.placeAddress)
@@ -80,11 +152,22 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                                 //handle response
                                 response.results.firstOrNull()?.let {
                                     mapmyIndiaMap.clear()
+                                    if (selectSource) {
+                                        sourceLoc = Location(
+                                            it.latitude, it.longitude, it.formattedAddress
+                                        )
+                                        btnSrc.text = "Source : ${sourceLoc?.placeName}"
+                                    } else {
+                                        destLoc = Location(
+                                            it.latitude, it.longitude, it.formattedAddress
+                                        )
+                                        btnDest.text = "Destination : ${destLoc?.placeName}"
+                                    }
                                     val latLng = LatLng(it.latitude, it.longitude)
                                     mapmyIndiaMap.animateCamera(
                                         CameraUpdateFactory.newLatLngZoom(
                                             latLng,
-                                            12.0
+                                            20.0
                                         )
                                     )
                                     mapmyIndiaMap.addMarker(
