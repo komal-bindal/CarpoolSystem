@@ -56,6 +56,7 @@
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_users_screen.xml" value="0.1921875" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_vehicle_details_addition_screen.xml" value="0.1921875" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_vehicle_details_screen.xml" value="0.1921875" />
+
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout-land/activity_entrance_layout.xml" value="0.21516754850088182" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout-land/activity_signup_screen1.xml" value="0.21516754850088182" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout-large/activity_entrance_layout.xml" value="0.5386904761904762" />
@@ -69,15 +70,18 @@
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_drivers_profile.xml" value="0.24139492753623187" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_entrance_layout.xml" value="0.25407608695652173" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_home_screen.xml" value="0.25407608695652173" />
+
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_main.xml" value="0.17572463768115942" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_no_results_found.xml" value="0.24139492753623187" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_passengers_profile.xml" value="0.24139492753623187" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_sign_in_screen.xml" value="0.24139492753623187" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_signup_screen1.xml" value="0.264" />
+
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_signup_screen2_otp.xml" value="0.24139492753623187" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_signup_screen2_phone_number.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_users_screen.xml" value="0.8766447368421053" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_vehicle_details_addition_screen.xml" value="0.24139492753623187" />
+
       </map>
     </option>
   </component>
