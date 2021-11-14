@@ -23,16 +23,13 @@ class VehicleDetailsAdditionScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vehicle_details_addition_screen)
-        carNumber = findViewById(R.id.editTextEnternewcarnumber)
+        carNumber = findViewById(R.id.buttonCarNumber3)
         carModel = findViewById(R.id.editTextnewCarModel)
         licenceNumber = findViewById(R.id.editTextLicenseNumber)
-        carMake = findViewById(R.id.editTextCarMake)
-        saveDetails = findViewById(R.id.buttonSaveDetails)
-
-
+        carMake = findViewById(R.id.editTextnewCarMake)
+        saveDetails = findViewById(R.id.buttonsavenewdetails)
         carNumber.setOnClickListener {
             val intent = (Intent(this@VehicleDetailsAdditionScreen, CarNumber::class.java))
-            intent.putExtra("User", "Driver")
             startActivity(intent)
             finish()
         }
