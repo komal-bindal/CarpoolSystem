@@ -17,6 +17,7 @@
         android:layout_marginRight="19dp"
         android:src="#99000000"
         app:layout_constraintEnd_toStartOf="@+id/textViewAddRide"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -30,6 +31,7 @@
         android:layout_marginRight="102dp"
         android:src="#99000000"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -51,64 +53,18 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/editTextSource"
-        android:layout_width="280dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/rounded_corners"
-        android:drawableLeft="@drawable/ic_baseline_my_location_24"
-        android:ems="10"
-        android:foregroundGravity="center"
-        android:gravity="center"
-        android:hint="Add Source"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:paddingLeft="20sp"
-        android:paddingRight="20sp"
-        android:text=""
-        android:textColor="@color/black"
-        android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAddRide"
-        tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints" />
-
-
-    <EditText
-        android:id="@+id/editTextDestination"
-        android:layout_width="280dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/rounded_corners"
-        android:drawableLeft="@drawable/ic_baseline_location_on_24"
-        android:ems="10"
-        android:foregroundGravity="center"
-        android:gravity="center"
-        android:hint="Add Destination"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:paddingLeft="20sp"
-        android:paddingRight="20sp"
-        android:text=""
-        android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSource"
-        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnPick"
         android:layout_width="237dp"
         android:layout_height="60dp"
         android:layout_centerInParent="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="#4DC274"
         android:text="Pick Date and Time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDestination"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddLocation"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -146,9 +102,22 @@
         android:textStyle="bold"
         app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewempty"
         tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonAddLocation"
+        android:layout_width="231dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#4DC274"
+        android:text="Add Location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAddRide" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

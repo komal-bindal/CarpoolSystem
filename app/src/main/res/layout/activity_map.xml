@@ -42,19 +42,28 @@
             android:id="@+id/btn_source"
             android:layout_width="match_parent"
             android:text="Select Source"
-            android:layout_height="wrap_content"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="#4DC274"
+            android:layout_height="wrap_content" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_dest"
             android:text="Select Destination"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="#4DC274"
+            android:layout_height="wrap_content" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_pool"
+            android:layout_marginLeft="20dp"
             android:text="Pool"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_marginRight="20dp"
+            android:backgroundTint="#4DC274"
+            android:layout_height="wrap_content" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
