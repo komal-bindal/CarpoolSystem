@@ -11,6 +11,7 @@
     <string name="otpreceived">otpReceived</string>
     <string name="verify">Verify</string>
     <string name="enter_the_otp_sent_to">Enter the OTP sent to</string>
+    <string name="preference_file_key">com.example.myapp.PREFERENCE_FILE_KEY</string>
 
 
 </resources>

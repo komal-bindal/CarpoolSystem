@@ -1,6 +1,6 @@
 package com.example.carpoolsystem.models
 
-data class Vehicle(
+data class VehicleCarMake(
     val Count: Int,
     val Message: String,
     val Results: List<CarMake>,
