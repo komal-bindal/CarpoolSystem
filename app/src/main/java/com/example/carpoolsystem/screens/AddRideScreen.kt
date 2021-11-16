@@ -3,14 +3,13 @@ package com.example.carpoolsystem.screens
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.text.format.DateFormat.is24HourFormat
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
-import com.example.carpoolsystem.utility.RideUtils
+import com.example.carpoolsystem.screens.map.MapActivity
 import java.util.*
 
 class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
@@ -30,23 +29,28 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     var myHour: Int = 0
     var myMinute: Int = 0
 
-    private lateinit var source: EditText
-    private lateinit var destination: EditText
-    private lateinit var addRide: TextView
+
     private lateinit var addDetails: Button
     private lateinit var addDateAndTime: Button
     private lateinit var viewDateAndTime: TextView
+    private lateinit var addLocationButton: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_ride_screen)
 
-        source = findViewById(R.id.editTextSource)
-        destination = findViewById(R.id.editTextDestination)
+
         addDetails = findViewById(R.id.buttonSubmit)
         viewDateAndTime = findViewById(R.id.textViewempty)
         addDateAndTime = findViewById(R.id.btnPick)
+        addLocationButton = findViewById(R.id.buttonAddLocation)
+
+        addLocationButton.setOnClickListener {
+            val intent = Intent(this, MapActivity::class.java)
+            startActivity(intent)
+        }
 
         addDateAndTime.setOnClickListener {
             val calendar: Calendar = Calendar.getInstance()
@@ -58,54 +62,6 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
             datePickerDialog.show()
         }
 
-        source.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(
-                s: CharSequence?,
-                start: Int, count: Int, after: Int
-            ) {
-
-            }
-
-            override fun onTextChanged(
-                s: CharSequence?,
-                start: Int, before: Int, count: Int
-            ) {
-                s?.apply {
-                    if (RideUtils.isValidSource(s.toString())) {
-                        source.error = null
-                    } else {
-                        source.error = SOURCE_ERROR
-                    }
-                }
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
-        })
-
-        destination.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(
-                p0: CharSequence?,
-                p1: Int, p2: Int, p3: Int
-            ) {
-            }
-
-            override fun onTextChanged(
-                p0: CharSequence?,
-                p1: Int, p2: Int, p3: Int
-            ) {
-                p0?.apply {
-                    if (RideUtils.isValidDestination(p0.toString())) {
-                        destination.error = null
-                    } else {
-                        destination.error = DESTINATION_ERROR
-                    }
-                }
-            }
-
-            override fun afterTextChanged(p0: Editable?) {}
-        })
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
