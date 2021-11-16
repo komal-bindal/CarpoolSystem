@@ -6,14 +6,7 @@ import retrofit2.http.Query
 
 interface ApiInterface {
 
-    @GET("vehicles/getallmakes")
-    fun getCarMake(@Query("format") format: String): Call<Abc>
+    @GET("vehicles/GetMakesForVehicleType/car")
+    fun getCarMake(@Query("format") format: String): Call<Vehicle>
 
 }
-
-
-//@Query("format") condition: String)
-//    @GET("api/beer/random_beer")
-//    fun getData(): Call<List<Xyz>>
-
-//@Query("format") condition: String
