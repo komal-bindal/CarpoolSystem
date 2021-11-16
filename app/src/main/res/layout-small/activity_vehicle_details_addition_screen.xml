@@ -51,30 +51,11 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/editTextEnternewcarnumber"
-        android:layout_width="263dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/rounded_corners"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Add Car Number"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:text=""
-        android:textSize="27dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCarDetails"
-        tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextnewCarMake"
         android:layout_width="263dp"
         android:layout_height="52dp"
-        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
@@ -84,16 +65,15 @@
         android:text=""
         android:textSize="27dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEnternewcarnumber"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="313dp" />
 
     <EditText
         android:id="@+id/editTextnewCarModel"
         android:layout_width="263dp"
         android:layout_height="52dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
@@ -103,7 +83,6 @@
         android:text=""
         android:textSize="27dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextnewCarMake"
         tools:ignore="MissingConstraints" />
@@ -112,11 +91,7 @@
         android:id="@+id/editTextLicenseNumber"
         android:layout_width="263dp"
         android:layout_height="52dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginLeft="66dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="82dp"
-        android:layout_marginRight="82dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
@@ -131,14 +106,10 @@
         tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck" />
 
     <Button
-        android:id="@+id/buttonsavenewdetails"
+        android:id="@+id/buttonResetId"
         android:layout_width="263dp"
         android:layout_height="52dp"
-        android:layout_marginStart="67dp"
-        android:layout_marginLeft="67dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="81dp"
-        android:layout_marginRight="81dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#55B3BF"
         android:ems="10"
@@ -155,6 +126,22 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextLicenseNumber"
         tools:ignore="MissingConstraints" />
 
+    <Button
+        android:id="@+id/buttonCarNumber3"
+        android:layout_width="263dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_corners"
+        android:ems="10"
+        android:gravity="center"
+        android:text="Car Number"
+        android:textAllCaps="false"
+        android:textSize="27dp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCarDetails" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

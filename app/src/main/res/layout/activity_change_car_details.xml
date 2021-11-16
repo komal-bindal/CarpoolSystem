@@ -57,7 +57,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextEnternewcarnumber"
+        android:id="@+id/editTextEnterNewPassword2"
         android:layout_width="263dp"
         android:layout_height="52dp"
         android:layout_marginTop="40dp"
@@ -87,6 +87,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEnternewcarnumber"
         tools:ignore="MissingConstraints">
+
 
         <AutoCompleteTextView
             android:id="@+id/carMakeAutoComplete"
@@ -122,7 +123,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/buttonsavenewdetails"
+        android:id="@+id/buttonResetId"
         android:layout_width="263dp"
         android:layout_height="52dp"
         android:layout_marginTop="52dp"
@@ -155,7 +156,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonsavenewdetails"
+        app:layout_constraintTop_toBottomOf="@+id/buttonResetId"
         app:layout_constraintVertical_bias="0.88" />
 
 
