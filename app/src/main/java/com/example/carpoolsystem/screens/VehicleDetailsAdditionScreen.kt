@@ -27,7 +27,7 @@ class VehicleDetailsAdditionScreen : AppCompatActivity() {
         carModel = findViewById(R.id.editTextnewCarModel)
         licenceNumber = findViewById(R.id.editTextLicenseNumber)
         carMake = findViewById(R.id.editTextnewCarMake)
-        saveDetails = findViewById(R.id.buttonsavenewdetails)
+        saveDetails = findViewById(R.id.buttonResetId)
         carNumber.setOnClickListener {
             val intent = (Intent(this@VehicleDetailsAdditionScreen, CarNumber::class.java))
             startActivity(intent)

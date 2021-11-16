@@ -16,7 +16,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:src="#99000000"
-        app:layout_constraintEnd_toStartOf="@+id/editTextEnternewcarnumber"
+        app:layout_constraintEnd_toStartOf="@+id/editTextEnterNewPassword2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints,UnknownIdInLayout" />
@@ -87,7 +87,7 @@
         android:text=""
         android:textSize="22dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEnternewcarnumber"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEnterNewPassword2"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -105,7 +105,7 @@
         android:minHeight="48dp"
         android:text=""
         android:textSize="22dp"
-        app:layout_constraintStart_toEndOf="@+id/editTextEnternewcarnumber"
+        app:layout_constraintStart_toEndOf="@+id/editTextEnterNewPassword2"
         app:layout_constraintTop_toBottomOf="@+id/textViewCarDetails"
         tools:ignore="MissingConstraints" />
 
@@ -129,7 +129,7 @@
         tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck" />
 
     <Button
-        android:id="@+id/buttonsavenewdetails"
+        android:id="@+id/buttonResetId"
         android:layout_width="240dp"
         android:layout_height="50dp"
         android:layout_marginStart="210dp"
