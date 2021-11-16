@@ -19,14 +19,11 @@
         android:theme="@style/Theme.CarpoolSystem">
         <activity
             android:name=".screens.map.MapActivity"
-            android:exported="true">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
-
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
-        </activity>
+            android:exported="true"/>
         <activity
+            android:name=".screens.CarNumber"
+            android:exported="true"/>
+        <activity>
             android:name=".screens.ChangeCarDetails"
             android:exported="true" />
         <activity
@@ -44,6 +41,7 @@
         <activity
             android:name=".screens.SignInScreen"
             android:exported="true" />
+
         <activity
             android:name=".screens.HomeScreen"
             android:exported="true" />
