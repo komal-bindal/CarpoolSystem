@@ -1,5 +1,6 @@
 package com.example.carpoolsystem.screens
 
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
@@ -29,6 +30,7 @@ class SignInScreen : AppCompatActivity() {
         "Password should contain at least one upper case letter, lower case letter, number, and special characters(@#\$%^&+=!)"
     private val EMAIL_ID_ERROR = "Enter your GLA Email address"
 
+    @SuppressLint("LogNotTimber")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in_screen)
@@ -38,13 +40,14 @@ class SignInScreen : AppCompatActivity() {
         loginButton = findViewById(R.id.buttonLogin)
         emailIdEditText = findViewById(R.id.editTextEnterEmail)
         passwordEditText = findViewById(R.id.editTextEnterPassword)
-
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Loading")
         progressDialog.setMessage("Please wait...")
 
         firebaseAuth = FirebaseAuth.getInstance()
 
+        val intent = intent
+        val user = intent.getStringExtra("User")
         emailIdEditText.addTextChangedListener(
             object : TextWatcher {
                 override fun beforeTextChanged(
@@ -100,11 +103,13 @@ class SignInScreen : AppCompatActivity() {
 
         signUpButton.setOnClickListener {
             val intent = Intent(this, SignupScreen1::class.java)
+            intent.putExtra("User", user)
             startActivity(intent)
         }
 
         otpLoginButton.setOnClickListener {
             val intent = Intent(this, SignupScreen2PhoneNumber::class.java)
+            intent.putExtra("User", user)
             startActivity(intent)
         }
         forgetPasswordButton.setOnClickListener {
@@ -126,6 +131,8 @@ class SignInScreen : AppCompatActivity() {
                         if (task.isSuccessful) {
                             if (firebaseAuth?.currentUser?.isEmailVerified == true) {
                                 progressDialog.hide()
+//                                val intent = intent
+//                                val name = intent.getStringExtra("name")
                                 startActivity(Intent(this, Dashboard::class.java))
                             } else {
                                 progressDialog.hide()

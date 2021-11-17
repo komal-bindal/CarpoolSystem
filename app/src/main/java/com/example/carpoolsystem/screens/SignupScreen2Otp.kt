@@ -28,6 +28,7 @@ class SignupScreen2Otp : AppCompatActivity() {
     private lateinit var otpCode6: EditText
     private lateinit var phoneNumber: TextView
     private lateinit var verifyButton: Button
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,11 +42,13 @@ class SignupScreen2Otp : AppCompatActivity() {
         otpCode6 = findViewById(R.id.otpCode6)
 
         phoneNumber = findViewById(R.id.mobile)
+        firebaseAuth = FirebaseAuth.getInstance()
 
         verifyButton = findViewById(R.id.buttonVerify)
 
         val intent = intent
         val phone = intent.getStringExtra("PhoneNumber")
+        val selectedUser = intent.getStringExtra("User")
         phoneNumber.text = phone.toString()
         val verificationOtp = intent.getStringExtra("VerificationOTP")
 
@@ -82,7 +85,7 @@ class SignupScreen2Otp : AppCompatActivity() {
                                 verificationOtp,
                                 otpEntered
                             )
-                        FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
+                        firebaseAuth.signInWithCredential(phoneAuthCredential)
                             .addOnCompleteListener(
                                 object : OnCompleteListener<AuthResult> {
                                     override fun onComplete(task: Task<AuthResult>) {

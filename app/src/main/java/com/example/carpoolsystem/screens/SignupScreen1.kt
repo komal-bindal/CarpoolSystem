@@ -1,10 +1,12 @@
 package com.example.carpoolsystem.screens
 
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -12,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
 import com.example.carpoolsystem.utility.RegistrationUtils
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class SignupScreen1 : AppCompatActivity() {
 
@@ -32,8 +36,6 @@ class SignupScreen1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_screen1)
-        val intent = intent
-        val user = intent.getStringExtra("User").toString()
 
         firebaseAuth = FirebaseAuth.getInstance()
         passwordEditText = findViewById(R.id.editTextPassword)
@@ -46,8 +48,12 @@ class SignupScreen1 : AppCompatActivity() {
         progressDialog.setTitle("Loading")
         progressDialog.setMessage("Please wait...")
 
+        val intent = intent
+        val user = intent.getStringExtra("User")
+
         OTPSignUpButton.setOnClickListener {
             val intent = Intent(this@SignupScreen1, SignupScreen2PhoneNumber::class.java)
+            intent.putExtra("User", user)
             startActivity(intent)
         }
 
@@ -148,31 +154,57 @@ class SignupScreen1 : AppCompatActivity() {
                 ).show()
                 firebaseAuth?.signOut()
                 finish()
-                startActivity(Intent(this, SignInScreen::class.java))
+                val intent = Intent(this, SignInScreen::class.java)
+                intent.putExtra("name", nameEditText.text.toString())
+                startActivity(intent)
             } else {
                 Toast.makeText(
                     this,
                     "Some error occurred. Please try again later.",
                     Toast.LENGTH_SHORT
                 ).show()
+                Log.e("error", task.exception.toString())
             }
         }
     }
 
+    @SuppressLint("LogNotTimber")
     fun register() {
         val emailId: String = emailIdEditText.text.toString()
         val password: String = passwordEditText.text.toString()
-        if (emailId.isEmpty() || password.isEmpty()) {
+        val name: String = nameEditText.text.toString()
+        if (emailId.isEmpty() || password.isEmpty() || name.isEmpty()) {
             progressDialog.hide()
-            Toast.makeText(this, "Fill all given fields", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Fill all the given fields", Toast.LENGTH_SHORT).show()
         } else {
             firebaseAuth?.createUserWithEmailAndPassword(emailId, password)
                 ?.addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         progressDialog.hide()
+                        val intent = intent
+                        val selectedUser = intent.getStringExtra("User").toString()
+                        val db = Firebase.firestore
+                        val user = hashMapOf(
+                            "name" to name,
+                            "emailId" to emailId,
+                            "phoneNumber" to "",
+                            "user" to selectedUser
+                        )
+                        Log.d("user", selectedUser)
+                        db.collection("users").document(firebaseAuth?.currentUser?.uid!!)
+                            .set(user)
+                            .addOnSuccessListener { documentReference ->
+                                Log.d(
+                                    "database",
+                                    "DocumentSnapshot "
+                                )
+                            }.addOnFailureListener { e ->
+                                Log.w("error", "Error adding documnent", e)
+                            }
                         checkEmail()
                     } else {
                         progressDialog.hide()
+                        Log.e("error", task.exception.toString())
                         Toast.makeText(this, "Some error occurred.", Toast.LENGTH_SHORT).show()
                     }
                 }

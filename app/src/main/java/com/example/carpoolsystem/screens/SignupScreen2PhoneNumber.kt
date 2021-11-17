@@ -33,7 +33,8 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
         phoneNumberEditText = findViewById(R.id.editTextPhoneNumber)
         getOtpButton = findViewById(R.id.buttonGetOtp)
         phoneNumberEditText.requestFocus()
-
+        val intent = intent
+        val user = intent.getStringExtra("User")
 
         phoneNumberEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
@@ -87,7 +88,9 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
                                     Intent(applicationContext, SignupScreen2Otp::class.java)
                                 intent.putExtra("PhoneNumber", phoneNumber.toString())
                                 intent.putExtra("VerificationOTP", verificationOTP.toString())
+                                intent.putExtra("User", user)
                                 startActivity(intent)
+                                finish()
                             }
 
                             override fun onVerificationCompleted(phoneAuthCredential: PhoneAuthCredential) {
