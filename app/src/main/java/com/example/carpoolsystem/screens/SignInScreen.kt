@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -13,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
 import com.example.carpoolsystem.utility.RegistrationUtils
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
+
 
 class SignInScreen : AppCompatActivity() {
     private lateinit var signUpButton: Button
@@ -131,9 +135,49 @@ class SignInScreen : AppCompatActivity() {
                         if (task.isSuccessful) {
                             if (firebaseAuth?.currentUser?.isEmailVerified == true) {
                                 progressDialog.hide()
-//                                val intent = intent
-//                                val name = intent.getStringExtra("name")
-                                startActivity(Intent(this, Dashboard::class.java))
+                                val docReference =
+                                    FirebaseFirestore.getInstance().collection("users")
+                                        .whereEqualTo(
+                                            "uid",
+                                            firebaseAuth?.currentUser?.uid!!.toString()
+                                        )
+                                docReference.get()
+                                    .addOnSuccessListener { querySnapshot ->
+                                        if (!querySnapshot.isEmpty) {
+                                            Log.d("done", "tada")
+                                            val list: List<DocumentSnapshot> =
+                                                querySnapshot.documents
+                                            for (d in list) {
+                                                Log.d("data", "${d.data?.get("user")}")
+                                                if (d.data?.get("user") == user) {
+                                                    startActivity(
+                                                        Intent(
+                                                            this,
+                                                            Dashboard::class.java
+                                                        )
+                                                    )
+                                                } else {
+                                                    Toast.makeText(
+                                                        this,
+                                                        "You have not registered as $user",
+                                                        Toast.LENGTH_SHORT
+                                                    ).show()
+                                                }
+                                            }
+                                        } else {
+                                            Log.d("it is", "empty")
+                                            Toast.makeText(
+                                                this,
+                                                "User is not registered",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    }.addOnFailureListener { ep ->
+                                        Log.d(
+                                            "error",
+                                            "darling"
+                                        )
+                                    }
                             } else {
                                 progressDialog.hide()
                                 Toast.makeText(
