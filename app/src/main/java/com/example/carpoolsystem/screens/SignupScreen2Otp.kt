@@ -19,6 +19,7 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -110,6 +111,26 @@ class SignupScreen2Otp : AppCompatActivity() {
                                                 .addOnSuccessListener { querySnapshot ->
                                                     if (!querySnapshot.isEmpty) {
                                                         Log.d("done", "tada")
+                                                        val list: List<DocumentSnapshot> =
+                                                            querySnapshot.documents
+                                                        for (d in list) {
+                                                            Log.d("data", "${d.data?.get("user")}")
+                                                            if (d.data?.get("user") == selectedUser) {
+                                                                startActivity(
+                                                                    Intent(
+                                                                        applicationContext,
+                                                                        Dashboard::class.java
+                                                                    )
+                                                                )
+                                                            } else {
+                                                                Toast.makeText(
+                                                                    applicationContext,
+                                                                    "You have not registered as $selectedUser",
+                                                                    Toast.LENGTH_SHORT
+                                                                ).show()
+                                                            }
+                                                        }
+
                                                     } else {
                                                         Log.d("it is", "empty")
                                                         val db = Firebase.firestore
@@ -128,6 +149,12 @@ class SignupScreen2Otp : AppCompatActivity() {
                                                                     "database",
                                                                     "DocumentSnapshot "
                                                                 )
+                                                                startActivity(
+                                                                    Intent(
+                                                                        applicationContext,
+                                                                        Dashboard::class.java
+                                                                    )
+                                                                )
                                                             }.addOnFailureListener { e ->
                                                                 Log.w(
                                                                     "error",
@@ -139,17 +166,10 @@ class SignupScreen2Otp : AppCompatActivity() {
                                                 }.addOnFailureListener { ep ->
                                                     Log.d(
                                                         "error",
-                                                        "darling"
+                                                        "error in accessing database"
                                                     )
                                                 }
 
-
-                                            startActivity(
-                                                Intent(
-                                                    applicationContext,
-                                                    Dashboard::class.java
-                                                )
-                                            )
                                         } else {
                                             Toast.makeText(
                                                 applicationContext,
