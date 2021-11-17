@@ -19,58 +19,76 @@
         android:theme="@style/Theme.CarpoolSystem">
         <activity
             android:name=".screens.map.MapActivity"
+            android:screenOrientation="portrait"
             android:exported="true"/>
         <activity
             android:name=".screens.CarNumber"
+            android:screenOrientation="portrait"
             android:exported="true"/>
         <activity
             android:name=".screens.ChangeCarDetails"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".screens.ChangePassword"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".screens.NoResultsFound"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".screens.PassengersProfile"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".screens.DriversProfile"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".screens.SignInScreen"
+            android:screenOrientation="portrait"
             android:exported="true" />
 
         <activity
             android:name=".screens.HomeScreen"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".screens.SignupScreen2Otp"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".screens.Dashboard"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".screens.UsersScreen"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".screens.EntranceLayout"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".screens.SignupScreen2PhoneNumber"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".screens.VehicleDetailsAdditionScreen"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".screens.AddRideScreen"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".screens.SignupScreen1"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".screens.MainActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

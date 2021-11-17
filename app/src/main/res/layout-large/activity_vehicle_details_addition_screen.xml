@@ -195,7 +195,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/buttonsavenewdetails"
+        android:id="@+id/buttonResetId"
         android:layout_width="263dp"
         android:layout_height="52dp"
         android:background="@drawable/rounded_corners"

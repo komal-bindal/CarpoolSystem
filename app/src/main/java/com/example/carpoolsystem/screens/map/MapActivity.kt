@@ -10,13 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.LinearLayoutCompat
 import com.example.carpoolsystem.R
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.gson.GsonBuilder
 import com.mapmyindia.sdk.maps.MapView
 import com.mapmyindia.sdk.maps.MapmyIndiaMap
 import com.mapmyindia.sdk.maps.OnMapReadyCallback
 import com.mapmyindia.sdk.maps.annotations.MarkerOptions
-import com.mapmyindia.sdk.maps.annotations.PolygonOptions
 import com.mapmyindia.sdk.maps.annotations.PolylineOptions
 import com.mapmyindia.sdk.maps.camera.CameraPosition
 import com.mapmyindia.sdk.maps.camera.CameraUpdateFactory
@@ -112,9 +110,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
             mapMyIndiaMap?.addPolyline(
                 PolylineOptions()
-            .addAll(listOf(sourceLatLng,destinLatLng))
-            .color(Color.parseColor("#3bb2d0"))
-            .width(2f)
+                    .addAll(listOf(sourceLatLng, destinLatLng))
+                    .color(Color.parseColor("#3bb2d0"))
+                    .width(2f)
             )
 
             mapMyIndiaMap?.animateCamera(

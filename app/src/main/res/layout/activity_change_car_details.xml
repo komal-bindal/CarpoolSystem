@@ -49,7 +49,7 @@
         android:gravity="center"
         android:text="Change Car Details"
         android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextEnternewcarnumber"
+        android:id="@+id/editTextEnterNewPassword2"
         android:layout_width="263dp"
         android:layout_height="52dp"
         android:layout_marginTop="40dp"
@@ -75,49 +75,58 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewCarDetails"
         tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints" />
 
-    <EditText
-        android:id="@+id/editTextnewCarMake"
-        android:layout_width="263dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/rounded_corners"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Add Car Make"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:text=""
-        android:textSize="27dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEnternewcarnumber"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@id/editTextEnterNewPassword2"
+        tools:ignore="MissingConstraints">
 
-    <EditText
-        android:id="@+id/editTextnewCarModel"
-        android:layout_width="263dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/rounded_corners"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Add Car Model"
-        android:inputType="time"
-        android:minHeight="48dp"
-        android:text=""
-        android:textSize="27dp"
+
+        <AutoCompleteTextView
+            android:id="@+id/carMakeAutoComplete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Add Car Make"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextnewCarMake"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        tools:ignore="MissingConstraints">
+
+        <AutoCompleteTextView
+            android:id="@+id/carModelAutoComplete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Add Car Model"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/buttonsavenewdetails"
+        android:id="@+id/buttonResetId"
         android:layout_width="263dp"
         android:layout_height="52dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#55B3BF"
         android:ems="10"
@@ -131,7 +140,7 @@
         app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextnewCarModel"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -147,7 +156,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonsavenewdetails"
+        app:layout_constraintTop_toBottomOf="@+id/buttonResetId"
         app:layout_constraintVertical_bias="0.88" />
 
 
