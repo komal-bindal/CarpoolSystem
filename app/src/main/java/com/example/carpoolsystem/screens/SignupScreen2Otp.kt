@@ -1,9 +1,11 @@
 package com.example.carpoolsystem.screens
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -17,6 +19,12 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SignupScreen2Otp : AppCompatActivity() {
 
@@ -88,8 +96,54 @@ class SignupScreen2Otp : AppCompatActivity() {
                         firebaseAuth.signInWithCredential(phoneAuthCredential)
                             .addOnCompleteListener(
                                 object : OnCompleteListener<AuthResult> {
+                                    @SuppressLint("LogNotTimber")
                                     override fun onComplete(task: Task<AuthResult>) {
                                         if (task.isSuccessful) {
+                                            Log.d("auth", firebaseAuth.currentUser?.uid!!)
+                                            val docReference =
+                                                FirebaseFirestore.getInstance().collection("users")
+                                                    .whereEqualTo(
+                                                        "uid",
+                                                        firebaseAuth.currentUser?.uid!!.toString()
+                                                    )
+                                            docReference.get()
+                                                .addOnSuccessListener { querySnapshot ->
+                                                    if (!querySnapshot.isEmpty) {
+                                                        Log.d("done", "tada")
+                                                    } else {
+                                                        Log.d("it is", "empty")
+                                                        val db = Firebase.firestore
+                                                        val user = hashMapOf(
+                                                            "phoneNumber" to phone,
+                                                            "user" to selectedUser,
+                                                            "name" to "",
+                                                            "emailId" to "",
+                                                            "uid" to firebaseAuth.currentUser?.uid!!.toString()
+                                                        )
+                                                        db.collection("users")
+                                                            .document(firebaseAuth.currentUser?.uid!!)
+                                                            .set(user)
+                                                            .addOnSuccessListener { documentReference ->
+                                                                Log.d(
+                                                                    "database",
+                                                                    "DocumentSnapshot "
+                                                                )
+                                                            }.addOnFailureListener { e ->
+                                                                Log.w(
+                                                                    "error",
+                                                                    "Error adding documnent",
+                                                                    e
+                                                                )
+                                                            }
+                                                    }
+                                                }.addOnFailureListener { ep ->
+                                                    Log.d(
+                                                        "error",
+                                                        "darling"
+                                                    )
+                                                }
+
+
                                             startActivity(
                                                 Intent(
                                                     applicationContext,
@@ -110,6 +164,10 @@ class SignupScreen2Otp : AppCompatActivity() {
                 }
             }
         )
+
+    }
+
+    private fun xyz() = CoroutineScope(Dispatchers.IO).launch {
 
     }
 

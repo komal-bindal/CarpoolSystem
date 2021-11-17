@@ -160,7 +160,7 @@ class SignupScreen1 : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this,
-                    "Some error occurred. Please try again later.",
+                    "Error occurred." + task.exception.toString(),
                     Toast.LENGTH_SHORT
                 ).show()
                 Log.e("error", task.exception.toString())
@@ -185,10 +185,11 @@ class SignupScreen1 : AppCompatActivity() {
                         val selectedUser = intent.getStringExtra("User").toString()
                         val db = Firebase.firestore
                         val user = hashMapOf(
+                            "uid" to firebaseAuth?.currentUser?.uid!!.toString(),
                             "name" to name,
                             "emailId" to emailId,
-                            "phoneNumber" to "",
-                            "user" to selectedUser
+                            "user" to selectedUser,
+                            "phoneNumber" to ""
                         )
                         Log.d("user", selectedUser)
                         db.collection("users").document(firebaseAuth?.currentUser?.uid!!)
@@ -205,7 +206,11 @@ class SignupScreen1 : AppCompatActivity() {
                     } else {
                         progressDialog.hide()
                         Log.e("error", task.exception.toString())
-                        Toast.makeText(this, "Some error occurred.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this,
+                            "Some error occurred." + task.exception.toString(),
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
         }
