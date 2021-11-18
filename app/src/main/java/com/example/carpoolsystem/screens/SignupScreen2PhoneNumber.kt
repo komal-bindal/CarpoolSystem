@@ -23,6 +23,7 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
     private lateinit var phoneNumberEditText: EditText
     private lateinit var getOtpButton: Button
     private lateinit var verificationOTP: String
+    private val PHONE_NUMBER_ERROR = "phone number should have length 10"
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -32,8 +33,11 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
 
         phoneNumberEditText = findViewById(R.id.editTextPhoneNumber)
         getOtpButton = findViewById(R.id.buttonGetOtp)
+
         phoneNumberEditText.requestFocus()
 
+        val intent = intent
+        val user = intent.getStringExtra("User")
 
         phoneNumberEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
@@ -51,7 +55,7 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
                     if (RegistrationUtils.isValidPhoneNumber(s.toString())) {
                         phoneNumberEditText.error = null
                     } else {
-                        phoneNumberEditText.error = "error"
+                        phoneNumberEditText.error = PHONE_NUMBER_ERROR
                     }
                 }
             }
@@ -66,7 +70,11 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
             object : View.OnClickListener {
                 override fun onClick(v: View) {
                     if (phoneNumberEditText.text.toString().trim().isEmpty()) {
-                        Toast.makeText(applicationContext, "Enter mobile", Toast.LENGTH_SHORT)
+                        Toast.makeText(
+                            applicationContext,
+                            "Please enter phone number",
+                            Toast.LENGTH_SHORT
+                        )
                             .show()
                         return
                     }
@@ -87,7 +95,9 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
                                     Intent(applicationContext, SignupScreen2Otp::class.java)
                                 intent.putExtra("PhoneNumber", phoneNumber.toString())
                                 intent.putExtra("VerificationOTP", verificationOTP.toString())
+                                intent.putExtra("User", user)
                                 startActivity(intent)
+                                finish()
                             }
 
                             override fun onVerificationCompleted(phoneAuthCredential: PhoneAuthCredential) {

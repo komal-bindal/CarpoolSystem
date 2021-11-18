@@ -1,5 +1,6 @@
 package com.example.carpoolsystem.screens
 
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
@@ -12,6 +13,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
 import com.example.carpoolsystem.utility.RegistrationUtils
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+
 
 class SignInScreen : AppCompatActivity() {
     private lateinit var signUpButton: Button
@@ -24,11 +30,14 @@ class SignInScreen : AppCompatActivity() {
     private lateinit var progressDialog: ProgressDialog
 
     private var firebaseAuth: FirebaseAuth? = null
-
+    private val UID = "uid"
+    private val USER = "user"
+    private val USERS_COLLECTION = "users"
     private val PASSWORD_ERROR =
         "Password should contain at least one upper case letter, lower case letter, number, and special characters(@#\$%^&+=!)"
     private val EMAIL_ID_ERROR = "Enter your GLA Email address"
 
+    @SuppressLint("LogNotTimber")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in_screen)
@@ -44,6 +53,9 @@ class SignInScreen : AppCompatActivity() {
         progressDialog.setMessage("Please wait...")
 
         firebaseAuth = FirebaseAuth.getInstance()
+
+        val intent = intent
+        val user = intent.getStringExtra("User")
 
         emailIdEditText.addTextChangedListener(
             object : TextWatcher {
@@ -69,6 +81,7 @@ class SignInScreen : AppCompatActivity() {
 
                 override fun afterTextChanged(p0: Editable?) {}
             })
+
         passwordEditText.addTextChangedListener(
             object : TextWatcher {
                 override fun beforeTextChanged(
@@ -100,13 +113,16 @@ class SignInScreen : AppCompatActivity() {
 
         signUpButton.setOnClickListener {
             val intent = Intent(this, SignupScreen1::class.java)
+            intent.putExtra("User", user)
             startActivity(intent)
         }
 
         otpLoginButton.setOnClickListener {
             val intent = Intent(this, SignupScreen2PhoneNumber::class.java)
+            intent.putExtra("User", user)
             startActivity(intent)
         }
+
         forgetPasswordButton.setOnClickListener {
             val intent = Intent(this, ChangePassword::class.java)
             startActivity(intent)
@@ -116,33 +132,66 @@ class SignInScreen : AppCompatActivity() {
             progressDialog.show()
             val email = emailIdEditText.text.toString()
             val password = passwordEditText.text.toString()
-            if (email.isEmpty() || password.isEmpty()) {
+            if (email.isEmpty() || password.isEmpty() || !RegistrationUtils.isValidEmail(email) || !RegistrationUtils.isValidPassword(
+                    password
+                )
+            ) {
                 progressDialog.hide()
-                Toast.makeText(this, "Please enter email Id and password", Toast.LENGTH_SHORT)
-                    .show()
+                makeToast("Please enter email Id and password")
             } else {
                 firebaseAuth?.signInWithEmailAndPassword(email, password)
                     ?.addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            if (firebaseAuth?.currentUser?.isEmailVerified == true) {
+                            val currentUser = firebaseAuth?.currentUser
+                            if (currentUser?.isEmailVerified == true) {
                                 progressDialog.hide()
-                                startActivity(Intent(this, Dashboard::class.java))
+                                val docReference =
+                                    getReferenceOfCurrentUserFromDatabase(currentUser)
+                                docReference.get()
+                                    .addOnSuccessListener { querySnapshot ->
+                                        if (!querySnapshot.isEmpty) {
+                                            val list: List<DocumentSnapshot> =
+                                                querySnapshot.documents
+                                            for (d in list) {
+                                                if (d.data?.get(USER) == user) {
+                                                    startActivity(
+                                                        Intent(
+                                                            this,
+                                                            Dashboard::class.java
+                                                        )
+                                                    )
+                                                } else {
+                                                    makeToast("You have not registered as $user")
+                                                }
+                                            }
+                                        } else {
+                                            makeToast("User is not registered")
+                                        }
+                                    }.addOnFailureListener { e ->
+                                        makeToast(e.message.toString())
+                                    }
                             } else {
                                 progressDialog.hide()
-                                Toast.makeText(
-                                    this,
-                                    "Please verify your Email Id",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-
+                                makeToast("Please verify your Email Id")
                             }
                         } else {
                             progressDialog.hide()
-                            Toast.makeText(this, "Some error occurred", Toast.LENGTH_SHORT).show()
+                            makeToast(task.exception.toString())
                         }
                     }
             }
         }
     }
 
+    private fun getReferenceOfCurrentUserFromDatabase(currentUser: FirebaseUser): Query {
+        return FirebaseFirestore.getInstance().collection(USERS_COLLECTION)
+            .whereEqualTo(
+                UID,
+                currentUser.uid.toString()
+            )
+    }
+
+    private fun makeToast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
 }

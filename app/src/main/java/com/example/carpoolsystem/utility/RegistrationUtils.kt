@@ -13,7 +13,7 @@ class RegistrationUtils {
         }
 
         fun isValidEmail(emailId: String): Boolean {
-            val emailPattern = "^[a-z]+.[a-z]+_[a-z0-9]+@gla.ac.in$"
+            val emailPattern = "^[a-z]+.[a-z]+[_a-z0-9]*@gla.ac.in$"
             val pattern = Pattern.compile(emailPattern)
             val matcher = pattern.matcher(emailId)
             return matcher.matches()
@@ -27,7 +27,7 @@ class RegistrationUtils {
         }
 
         fun isValidUserName(name: String): Boolean {
-            val namePattern = "^[A-Za-z]+\\s+[A-Za-z]+[A-Za-z]$"
+            val namePattern = "^[A-Za-z]{3,}[A-Za-z\\s]{0,}$"
             val pattern = Pattern.compile(namePattern)
             val matcher = pattern.matcher(name)
             return matcher.matches()
