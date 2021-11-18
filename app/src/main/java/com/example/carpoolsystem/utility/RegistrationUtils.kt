@@ -27,7 +27,7 @@ class RegistrationUtils {
         }
 
         fun isValidUserName(name: String): Boolean {
-            val namePattern = "^[A-Za-z\\s]{1,}[A-Za-z]{0,}$"
+            val namePattern = "^[A-Za-z]{3,}[A-Za-z\\s]{0,}$"
             val pattern = Pattern.compile(namePattern)
             val matcher = pattern.matcher(name)
             return matcher.matches()
