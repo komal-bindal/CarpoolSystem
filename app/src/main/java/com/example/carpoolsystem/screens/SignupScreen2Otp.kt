@@ -15,17 +15,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.auth.*
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class SignupScreen2Otp : AppCompatActivity() {
 
@@ -38,6 +33,13 @@ class SignupScreen2Otp : AppCompatActivity() {
     private lateinit var phoneNumber: TextView
     private lateinit var verifyButton: Button
     private lateinit var firebaseAuth: FirebaseAuth
+    private val USERS_COLLECTION = "users"
+    private val UID = "uid"
+    private val USER = "user"
+    private val NAME = "name"
+    private val EMAIL_ID = "emailId"
+    private val PHONE_NUMBER = "phoneNumber"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,16 +77,12 @@ class SignupScreen2Otp : AppCompatActivity() {
                             otpCode5.text.toString() +
                             otpCode6.text.toString()
                     if (otpEntered.isEmpty()) {
-                        Toast.makeText(applicationContext, "Please enter Otp", Toast.LENGTH_SHORT)
-                            .show()
+                        makeToast("Please enter Otp")
                         return
                     }
                     if (otpEntered.length != 6) {
-                        Toast.makeText(
-                            applicationContext,
-                            "Please enter valid Otp",
-                            Toast.LENGTH_SHORT
-                        ).show()
+
+                        makeToast("Please enter valid Otp")
                         return
                     }
 
@@ -100,13 +98,10 @@ class SignupScreen2Otp : AppCompatActivity() {
                                     @SuppressLint("LogNotTimber")
                                     override fun onComplete(task: Task<AuthResult>) {
                                         if (task.isSuccessful) {
-                                            Log.d("auth", firebaseAuth.currentUser?.uid!!)
+                                            val fireBaseUser = firebaseAuth.currentUser
+                                            Log.d("auth", fireBaseUser?.uid!!)
                                             val docReference =
-                                                FirebaseFirestore.getInstance().collection("users")
-                                                    .whereEqualTo(
-                                                        "uid",
-                                                        firebaseAuth.currentUser?.uid!!.toString()
-                                                    )
+                                                getReferenceOfCurrentUserFromDatabase(fireBaseUser)
                                             docReference.get()
                                                 .addOnSuccessListener { querySnapshot ->
                                                     if (!querySnapshot.isEmpty) {
@@ -114,8 +109,8 @@ class SignupScreen2Otp : AppCompatActivity() {
                                                         val list: List<DocumentSnapshot> =
                                                             querySnapshot.documents
                                                         for (d in list) {
-                                                            Log.d("data", "${d.data?.get("user")}")
-                                                            if (d.data?.get("user") == selectedUser) {
+                                                            Log.d("data", "${d.data?.get(USER)}")
+                                                            if (d.data?.get(USER) == selectedUser) {
                                                                 startActivity(
                                                                     Intent(
                                                                         applicationContext,
@@ -123,47 +118,22 @@ class SignupScreen2Otp : AppCompatActivity() {
                                                                     )
                                                                 )
                                                             } else {
-                                                                Toast.makeText(
-                                                                    applicationContext,
-                                                                    "You have not registered as $selectedUser",
-                                                                    Toast.LENGTH_SHORT
-                                                                ).show()
+                                                                makeToast("You have not registered as $selectedUser")
                                                             }
                                                         }
 
                                                     } else {
                                                         Log.d("it is", "empty")
-                                                        val db = Firebase.firestore
-                                                        val user = hashMapOf(
-                                                            "phoneNumber" to phone,
-                                                            "user" to selectedUser,
-                                                            "name" to "",
-                                                            "emailId" to "",
-                                                            "uid" to firebaseAuth.currentUser?.uid!!.toString()
+                                                        val user = createUserHasMap(
+                                                            fireBaseUser.uid.toString(),
+                                                            "",
+                                                            "",
+                                                            selectedUser!!,
+                                                            phone!!
                                                         )
-                                                        db.collection("users")
-                                                            .document(firebaseAuth.currentUser?.uid!!)
-                                                            .set(user)
-                                                            .addOnSuccessListener { documentReference ->
-                                                                Log.d(
-                                                                    "database",
-                                                                    "DocumentSnapshot "
-                                                                )
-                                                                startActivity(
-                                                                    Intent(
-                                                                        applicationContext,
-                                                                        Dashboard::class.java
-                                                                    )
-                                                                )
-                                                            }.addOnFailureListener { e ->
-                                                                Log.w(
-                                                                    "error",
-                                                                    "Error adding documnent",
-                                                                    e
-                                                                )
-                                                            }
+                                                        addUserInDatabase(fireBaseUser, user)
                                                     }
-                                                }.addOnFailureListener { ep ->
+                                                }.addOnFailureListener { e ->
                                                     Log.d(
                                                         "error",
                                                         "error in accessing database"
@@ -171,11 +141,7 @@ class SignupScreen2Otp : AppCompatActivity() {
                                                 }
 
                                         } else {
-                                            Toast.makeText(
-                                                applicationContext,
-                                                "OTP is invalid",
-                                                Toast.LENGTH_SHORT
-                                            ).show()
+                                            makeToast("OTP is invalid")
                                         }
                                     }
                                 }
@@ -187,8 +153,53 @@ class SignupScreen2Otp : AppCompatActivity() {
 
     }
 
-    private fun xyz() = CoroutineScope(Dispatchers.IO).launch {
+    private fun getReferenceOfCurrentUserFromDatabase(currentUser: FirebaseUser): Query {
+        return FirebaseFirestore.getInstance().collection(USERS_COLLECTION)
+            .whereEqualTo(
+                UID,
+                currentUser.uid.toString()
+            )
+    }
 
+    private fun createUserHasMap(
+        uid: String,
+        name: String,
+        emailId: String,
+        selectedUser: String,
+        phoneNumber: String
+    ): HashMap<String, String> {
+        return hashMapOf(
+            UID to uid,
+            NAME to name,
+            EMAIL_ID to emailId,
+            USER to selectedUser,
+            PHONE_NUMBER to phoneNumber
+        )
+    }
+
+    @SuppressLint("LogNotTimber")
+    private fun addUserInDatabase(firebaseUser: FirebaseUser, user: HashMap<String, String>) {
+        val db = Firebase.firestore
+        db.collection(USERS_COLLECTION).document(firebaseUser.uid)
+            .set(user)
+            .addOnSuccessListener { documentReference ->
+                Log.d(
+                    "database",
+                    "DocumentSnapshot "
+                )
+                startActivity(
+                    Intent(
+                        applicationContext,
+                        Dashboard::class.java
+                    )
+                )
+            }.addOnFailureListener { e ->
+                Log.w("error", "Error adding documnent", e)
+            }
+    }
+
+    private fun makeToast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 
     private fun otpEditTextSetUp() {
