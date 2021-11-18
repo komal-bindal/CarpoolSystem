@@ -114,7 +114,7 @@ class SignupScreen2Otp : AppCompatActivity() {
                                                                 startActivity(
                                                                     Intent(
                                                                         applicationContext,
-                                                                        Dashboard::class.java
+                                                                        DashboardPassenger::class.java
                                                                     )
                                                                 )
                                                             } else {
@@ -190,7 +190,7 @@ class SignupScreen2Otp : AppCompatActivity() {
                 startActivity(
                     Intent(
                         applicationContext,
-                        Dashboard::class.java
+                        DashboardPassenger::class.java
                     )
                 )
             }.addOnFailureListener { e ->

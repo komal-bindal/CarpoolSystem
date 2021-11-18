@@ -33,7 +33,7 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageView3RideClub"
         android:layout_width="392dp"
         android:layout_height="282dp"
         android:layout_marginStart="200dp"
@@ -51,7 +51,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textView7addfeedback"
         android:layout_width="432dp"
         android:layout_height="98dp"
         android:layout_marginStart="400dp"
@@ -64,7 +64,7 @@
         android:text="Ride and share"
         android:textSize="60px"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3RideClub"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

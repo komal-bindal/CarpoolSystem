@@ -63,12 +63,9 @@
         tools:layout="@layout/activity_add_ride_screen" />
     <fragment
         android:id="@+id/dashboard"
-        android:name="com.example.carpoolsystem.screens.Dashboard"
+        android:name="com.example.carpoolsystem.screens.DashboardPassenger"
         android:label="activity_dashboard"
         tools:layout="@layout/activity_dashboard">
-        <action
-            android:id="@+id/action_dashboard_to_vehicleDetailsAdditionScreen"
-            app:destination="@id/vehicleDetailsAdditionScreen" />
         <action
             android:id="@+id/action_dashboard_to_addRideScreen"
             app:destination="@id/addRideScreen" />
@@ -82,11 +79,6 @@
             android:id="@+id/action_dashboard_to_changePassword3"
             app:destination="@id/changePassword" />
     </fragment>
-    <fragment
-        android:id="@+id/vehicleDetailsAdditionScreen"
-        android:name="com.example.carpoolsystem.screens.VehicleDetailsAdditionScreen"
-        android:label="activity_vehicle_details_addition_screen"
-        tools:layout="@layout/activity_vehicle_details_addition_screen" />
 
     <fragment
         android:id="@+id/noResultsFound"
