@@ -157,7 +157,7 @@ class SignInScreen : AppCompatActivity() {
                                                     startActivity(
                                                         Intent(
                                                             this,
-                                                            Dashboard::class.java
+                                                            DashboardPassenger::class.java
                                                         )
                                                     )
                                                 } else {

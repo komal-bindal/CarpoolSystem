@@ -37,7 +37,7 @@
         android:layout_marginTop="244dp"
         android:layout_marginBottom="36dp"
         android:src="@drawable/s"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintBottom_toTopOf="@+id/textView8logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -45,7 +45,7 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewRideClub"
         android:layout_width="282dp"
         android:layout_height="46dp"
 
@@ -67,7 +67,7 @@
 
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textView8logout"
         android:layout_width="315dp"
         android:layout_height="50dp"
         android:layout_marginStart="50dp"

@@ -50,7 +50,7 @@ class ChangePassword : AppCompatActivity() {
             }
         }
         imageViewBackButton.setOnClickListener {
-            val intent = Intent(this, Dashboard::class.java)
+            val intent = Intent(this, DashboardPassenger::class.java)
             startActivity(intent)
             finish()
         }
