@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
 import com.example.carpoolsystem.utility.RegistrationUtils
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -21,7 +22,8 @@ class SignupScreen1 : AppCompatActivity() {
 
     private var firebaseAuth: FirebaseAuth? = null
 
-    private val USERNAME_ERROR = "invalid Name"
+    private val USERNAME_ERROR =
+        "Name should not be empty and can contain only alphabets and spaces"
     private val PASSWORD_ERROR =
         "Password should contain at least one upper case letter, lower case letter, number, and special characters(@#\$%^&+=!)"
     private val EMAIL_ID_ERROR = "Enter your GLA Email address"
@@ -32,12 +34,20 @@ class SignupScreen1 : AppCompatActivity() {
     private lateinit var nextButton: Button
     private lateinit var OTPSignUpButton: Button
     private lateinit var progressDialog: ProgressDialog
+    private val UID = "uid"
+    private val NAME = "name"
+    private val EMAIL_ID = "emailId"
+    private val USER = "user"
+    private val PHONE_NUMBER = "phoneNumber"
+    private val USERS_COLLECTION = "users"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_screen1)
 
         firebaseAuth = FirebaseAuth.getInstance()
+
         passwordEditText = findViewById(R.id.editTextPassword)
         emailIdEditText = findViewById(R.id.editTextEmail)
         nameEditText = findViewById(R.id.editTextName)
@@ -62,8 +72,6 @@ class SignupScreen1 : AppCompatActivity() {
             progressDialog.show()
         }
 
-
-
         passwordEditText.addTextChangedListener(
             object : TextWatcher {
                 override fun beforeTextChanged(
@@ -72,7 +80,6 @@ class SignupScreen1 : AppCompatActivity() {
                 ) {
 
                 }
-
 
                 override fun onTextChanged(
                     s: CharSequence?,
@@ -107,7 +114,6 @@ class SignupScreen1 : AppCompatActivity() {
                 ) {
                     p0?.apply {
                         if (RegistrationUtils.isValidEmail(p0.toString())) {
-
                             emailIdEditText.error = null
                         } else {
                             emailIdEditText.error = EMAIL_ID_ERROR
@@ -143,7 +149,7 @@ class SignupScreen1 : AppCompatActivity() {
             })
     }
 
-    fun checkEmail() {
+    fun sendEmail() {
         val firebaseUser = firebaseAuth?.currentUser
         firebaseUser?.sendEmailVerification()?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
@@ -173,9 +179,13 @@ class SignupScreen1 : AppCompatActivity() {
         val emailId: String = emailIdEditText.text.toString()
         val password: String = passwordEditText.text.toString()
         val name: String = nameEditText.text.toString()
-        if (emailId.isEmpty() || password.isEmpty() || name.isEmpty()) {
+        if (emailId.isEmpty() || password.isEmpty() || name.isEmpty() || !RegistrationUtils.isValidPassword(
+                password
+            ) || !RegistrationUtils.isValidEmail(emailId) || !RegistrationUtils.isValidUserName(name)
+        ) {
             progressDialog.hide()
-            Toast.makeText(this, "Fill all the given fields", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please fill all the given fields correctly", Toast.LENGTH_SHORT)
+                .show()
         } else {
             firebaseAuth?.createUserWithEmailAndPassword(emailId, password)
                 ?.addOnCompleteListener { task ->
@@ -183,26 +193,17 @@ class SignupScreen1 : AppCompatActivity() {
                         progressDialog.hide()
                         val intent = intent
                         val selectedUser = intent.getStringExtra("User").toString()
-                        val db = Firebase.firestore
-                        val user = hashMapOf(
-                            "uid" to firebaseAuth?.currentUser?.uid!!.toString(),
-                            "name" to name,
-                            "emailId" to emailId,
-                            "user" to selectedUser,
-                            "phoneNumber" to ""
+                        val firebaseUser = firebaseAuth?.currentUser
+                        val user = createUserHasMap(
+                            firebaseUser?.uid!!.toString(),
+                            name,
+                            emailId,
+                            selectedUser,
+                            ""
                         )
                         Log.d("user", selectedUser)
-                        db.collection("users").document(firebaseAuth?.currentUser?.uid!!)
-                            .set(user)
-                            .addOnSuccessListener { documentReference ->
-                                Log.d(
-                                    "database",
-                                    "DocumentSnapshot "
-                                )
-                            }.addOnFailureListener { e ->
-                                Log.w("error", "Error adding documnent", e)
-                            }
-                        checkEmail()
+                        addUserInDatabase(firebaseUser, user)
+                        sendEmail()
                     } else {
                         progressDialog.hide()
                         Log.e("error", task.exception.toString())
@@ -214,5 +215,37 @@ class SignupScreen1 : AppCompatActivity() {
                     }
                 }
         }
+    }
+
+    @SuppressLint("LogNotTimber")
+    private fun addUserInDatabase(firebaseUser: FirebaseUser, user: HashMap<String, String>) {
+        val db = Firebase.firestore
+        db.collection(USERS_COLLECTION).document(firebaseUser.uid)
+            .set(user)
+            .addOnSuccessListener { documentReference ->
+                Log.d(
+                    "database",
+                    "DocumentSnapshot "
+                )
+            }.addOnFailureListener { e ->
+                Log.w("error", "Error adding documnent", e)
+            }
+    }
+
+
+    private fun createUserHasMap(
+        uid: String,
+        name: String,
+        emailId: String,
+        selectedUser: String,
+        phoneNumber: String
+    ): HashMap<String, String> {
+        return hashMapOf(
+            UID to uid,
+            NAME to name,
+            EMAIL_ID to emailId,
+            USER to selectedUser,
+            PHONE_NUMBER to phoneNumber
+        )
     }
 }
