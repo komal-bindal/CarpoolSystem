@@ -132,11 +132,11 @@
 
     <TextView
         android:id="@+id/textView11"
-        android:layout_width="248dp"
-        android:layout_height="57dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="168dp"
         android:drawableLeft="@drawable/ic_baseline_directions_car_filled_24"
-        android:drawablePadding="4dp"
+        android:drawablePadding="16dp"
         android:drawableTint="@color/black"
         android:gravity="center"
         android:padding="10dp"
@@ -144,7 +144,7 @@
         android:paddingRight="40dp"
         android:text="Car Details"
         android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -200,7 +200,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonChangeCarDetails"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginTop="36dp"

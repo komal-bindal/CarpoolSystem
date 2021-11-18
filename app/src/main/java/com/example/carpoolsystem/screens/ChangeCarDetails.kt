@@ -37,6 +37,7 @@ class ChangeCarDetails : AppCompatActivity() {
         letters = findViewById(R.id.letters)
         digits = findViewById(R.id.digits)
         districtCode = findViewById(R.id.districtcode)
+
         districtCode.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 p0: CharSequence?,
@@ -59,6 +60,7 @@ class ChangeCarDetails : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {}
         })
+
         letters.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 p0: CharSequence?,
@@ -81,6 +83,7 @@ class ChangeCarDetails : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {}
         })
+
         digits.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 p0: CharSequence?,
@@ -104,7 +107,7 @@ class ChangeCarDetails : AppCompatActivity() {
             override fun afterTextChanged(p0: Editable?) {}
         })
 
-        var textView = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView4)
+        var state = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView4)
         val array = arrayOf<String>(
             "UP",
             "UK",
@@ -135,10 +138,10 @@ class ChangeCarDetails : AppCompatActivity() {
             "WB",
             "TN",
             "Others",
-
             )
+
         val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, array)
-        textView.setAdapter(arrayAdapter)
+        state.setAdapter(arrayAdapter)
 
         var carMakeList = arrayListOf<String>()
         var carMakeAdapter = ArrayAdapter(this, R.layout.dropdown_item, carMakeList)
