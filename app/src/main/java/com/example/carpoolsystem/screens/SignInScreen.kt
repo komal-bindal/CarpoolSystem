@@ -6,7 +6,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -14,8 +13,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
 import com.example.carpoolsystem.utility.RegistrationUtils
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 
 class SignInScreen : AppCompatActivity() {
@@ -29,7 +30,9 @@ class SignInScreen : AppCompatActivity() {
     private lateinit var progressDialog: ProgressDialog
 
     private var firebaseAuth: FirebaseAuth? = null
-
+    private val UID = "uid"
+    private val USER = "user"
+    private val USERS_COLLECTION = "users"
     private val PASSWORD_ERROR =
         "Password should contain at least one upper case letter, lower case letter, number, and special characters(@#\$%^&+=!)"
     private val EMAIL_ID_ERROR = "Enter your GLA Email address"
@@ -44,6 +47,7 @@ class SignInScreen : AppCompatActivity() {
         loginButton = findViewById(R.id.buttonLogin)
         emailIdEditText = findViewById(R.id.editTextEnterEmail)
         passwordEditText = findViewById(R.id.editTextEnterPassword)
+
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Loading")
         progressDialog.setMessage("Please wait...")
@@ -52,6 +56,7 @@ class SignInScreen : AppCompatActivity() {
 
         val intent = intent
         val user = intent.getStringExtra("User")
+
         emailIdEditText.addTextChangedListener(
             object : TextWatcher {
                 override fun beforeTextChanged(
@@ -76,6 +81,7 @@ class SignInScreen : AppCompatActivity() {
 
                 override fun afterTextChanged(p0: Editable?) {}
             })
+
         passwordEditText.addTextChangedListener(
             object : TextWatcher {
                 override fun beforeTextChanged(
@@ -116,6 +122,7 @@ class SignInScreen : AppCompatActivity() {
             intent.putExtra("User", user)
             startActivity(intent)
         }
+
         forgetPasswordButton.setOnClickListener {
             val intent = Intent(this, ChangePassword::class.java)
             startActivity(intent)
@@ -125,31 +132,28 @@ class SignInScreen : AppCompatActivity() {
             progressDialog.show()
             val email = emailIdEditText.text.toString()
             val password = passwordEditText.text.toString()
-            if (email.isEmpty() || password.isEmpty()) {
+            if (email.isEmpty() || password.isEmpty() || !RegistrationUtils.isValidEmail(email) || !RegistrationUtils.isValidPassword(
+                    password
+                )
+            ) {
                 progressDialog.hide()
-                Toast.makeText(this, "Please enter email Id and password", Toast.LENGTH_SHORT)
-                    .show()
+                makeToast("Please enter email Id and password")
             } else {
                 firebaseAuth?.signInWithEmailAndPassword(email, password)
                     ?.addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            if (firebaseAuth?.currentUser?.isEmailVerified == true) {
+                            val currentUser = firebaseAuth?.currentUser
+                            if (currentUser?.isEmailVerified == true) {
                                 progressDialog.hide()
                                 val docReference =
-                                    FirebaseFirestore.getInstance().collection("users")
-                                        .whereEqualTo(
-                                            "uid",
-                                            firebaseAuth?.currentUser?.uid!!.toString()
-                                        )
+                                    getReferenceOfCurrentUserFromDatabase(currentUser)
                                 docReference.get()
                                     .addOnSuccessListener { querySnapshot ->
                                         if (!querySnapshot.isEmpty) {
-                                            Log.d("done", "tada")
                                             val list: List<DocumentSnapshot> =
                                                 querySnapshot.documents
                                             for (d in list) {
-                                                Log.d("data", "${d.data?.get("user")}")
-                                                if (d.data?.get("user") == user) {
+                                                if (d.data?.get(USER) == user) {
                                                     startActivity(
                                                         Intent(
                                                             this,
@@ -157,43 +161,37 @@ class SignInScreen : AppCompatActivity() {
                                                         )
                                                     )
                                                 } else {
-                                                    Toast.makeText(
-                                                        this,
-                                                        "You have not registered as $user",
-                                                        Toast.LENGTH_SHORT
-                                                    ).show()
+                                                    makeToast("You have not registered as $user")
                                                 }
                                             }
                                         } else {
-                                            Log.d("it is", "empty")
-                                            Toast.makeText(
-                                                this,
-                                                "User is not registered",
-                                                Toast.LENGTH_SHORT
-                                            ).show()
+                                            makeToast("User is not registered")
                                         }
-                                    }.addOnFailureListener { ep ->
-                                        Log.d(
-                                            "error",
-                                            "darling"
-                                        )
+                                    }.addOnFailureListener { e ->
+                                        makeToast(e.message.toString())
                                     }
                             } else {
                                 progressDialog.hide()
-                                Toast.makeText(
-                                    this,
-                                    "Please verify your Email Id",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-
+                                makeToast("Please verify your Email Id")
                             }
                         } else {
                             progressDialog.hide()
-                            Toast.makeText(this, "Some error occurred", Toast.LENGTH_SHORT).show()
+                            makeToast(task.exception.toString())
                         }
                     }
             }
         }
     }
 
+    private fun getReferenceOfCurrentUserFromDatabase(currentUser: FirebaseUser): Query {
+        return FirebaseFirestore.getInstance().collection(USERS_COLLECTION)
+            .whereEqualTo(
+                UID,
+                currentUser.uid.toString()
+            )
+    }
+
+    private fun makeToast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
 }
