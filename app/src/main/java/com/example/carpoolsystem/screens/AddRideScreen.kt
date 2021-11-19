@@ -10,6 +10,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
 import com.example.carpoolsystem.screens.map.MapActivity
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
 class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
@@ -44,18 +45,25 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         setContentView(R.layout.activity_add_ride_screen)
         val intent=intent
         val source=intent.getStringExtra("source")
-
-
         addDetails = findViewById(R.id.buttonSubmit)
         viewDateAndTime = findViewById(R.id.textViewempty)
         addDateAndTime = findViewById(R.id.btnPick)
         src = findViewById(R.id.textsource)
         dest = findViewById(R.id.textdestination)
+        addDetails=findViewById(R.id.buttonSubmit)
         addLocationButton = findViewById(R.id.buttonAddLocation)
         val sr=getIntent().getStringExtra("source")
         val des=getIntent().getStringExtra("destination")
         src.setText(sr.toString())
         dest.setText(des.toString())
+
+        addDetails.setOnClickListener {
+            val s1=src.text.toString()
+            val d1=dest.text.toString()
+            val dateTime= "Date = $day/$myMonth/$myYear\nTime = $myHour : $myMinute"
+            saveFireStore(s1,d1,dateTime)
+        }
+
 
         addLocationButton.setOnClickListener {
             val intent = Intent(this, MapActivity::class.java)
@@ -72,6 +80,23 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
                 DatePickerDialog(this@AddRideScreen, this@AddRideScreen, year, month, day)
             datePickerDialog.show()
         }
+
+    }
+
+    private fun saveFireStore(s1: String, d1: String, dateTime: String) {
+        val db=FirebaseFirestore.getInstance()
+        val user:MutableMap<String,Any> = HashMap()
+        user["source"]=s1
+        user["destination"]=d1
+        user["DateAndTime"]=dateTime
+        db.collection("addride")
+            .add(user)
+            .addOnSuccessListener {
+                Toast.makeText(this@AddRideScreen,"recordAddedSuccesfully",Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener{
+                Toast.makeText(this@AddRideScreen,"recordAddedFailed",Toast.LENGTH_SHORT).show()
+            }
 
     }
 
