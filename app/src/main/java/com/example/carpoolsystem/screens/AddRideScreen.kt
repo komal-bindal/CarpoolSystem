@@ -10,12 +10,14 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
 import com.example.carpoolsystem.screens.map.MapActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.mapmyindia.sdk.plugin.directions.view.s
 import java.util.*
 
 class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     TimePickerDialog.OnTimeSetListener {
-
+    //private var firebaseAuth: FirebaseAuth? = null
     private val SOURCE_ERROR = "invalid source format"
     private val DESTINATION_ERROR = "invalid destination format"
 
@@ -43,6 +45,7 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_ride_screen)
+        //firebaseAuth = FirebaseAuth.getInstance()
         val intent=intent
         val source=intent.getStringExtra("source")
         addDetails = findViewById(R.id.buttonSubmit)
@@ -58,10 +61,25 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         dest.setText(des.toString())
 
         addDetails.setOnClickListener {
-            val s1=src.text.toString()
-            val d1=dest.text.toString()
-            val dateTime= "Date = $day/$myMonth/$myYear\nTime = $myHour : $myMinute"
-            saveFireStore(s1,d1,dateTime)
+            val s1 = src.text.toString()
+            val d1 = dest.text.toString()
+            val dateTime = "Date=$day/$myMonth/$myYear"
+            val time = "Time=$myHour : $myMinute"
+            //val firebaseUser = firebaseAuth?.currentUser
+            //val uid=firebaseUser?.uid!!.toString()
+
+            if (s1.isEmpty() || d1.isEmpty() || dateTime.isEmpty() || time.isEmpty()) {
+                Toast.makeText(
+                    this@AddRideScreen,
+                    "Please fill all the details",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
+        else {
+
+                saveFireStore(s1, d1, dateTime, time)
+            }
         }
 
 
@@ -83,13 +101,15 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 
     }
 
-    private fun saveFireStore(s1: String, d1: String, dateTime: String) {
+    private fun saveFireStore(s1: String, d1: String, dateTime: String,time:String) {
         val db=FirebaseFirestore.getInstance()
         val user:MutableMap<String,Any> = HashMap()
         user["source"]=s1
         user["destination"]=d1
-        user["DateAndTime"]=dateTime
-        db.collection("addride")
+        user["time"]=time
+        user["date"]=dateTime
+       // user["uid"]=uid
+        db.collection("ride")
             .add(user)
             .addOnSuccessListener {
                 Toast.makeText(this@AddRideScreen,"recordAddedSuccesfully",Toast.LENGTH_SHORT).show()
