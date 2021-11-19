@@ -78,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Add Car Make"
+            android:hint="Add Car Make"
             tools:ignore="TouchTargetSizeCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -101,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Add Car Model"
+            android:hint="Add Car Model"
             tools:ignore="TouchTargetSizeCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -191,7 +191,7 @@
                 android:paddingEnd="10dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="10dp"
-                android:text="UP"
+                android:hint="UP"
                 tools:ignore="MissingConstraints,TouchTargetSizeCheck"
                 tools:layout_editor_absoluteX="32dp"
                 tools:layout_editor_absoluteY="224dp" />
