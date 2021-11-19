@@ -111,12 +111,22 @@ class SignupScreen2Otp : AppCompatActivity() {
                                                         for (d in list) {
                                                             Log.d("data", "${d.data?.get(USER)}")
                                                             if (d.data?.get(USER) == selectedUser) {
-                                                                startActivity(
-                                                                    Intent(
-                                                                        applicationContext,
-                                                                        Dashboard::class.java
+                                                                if (selectedUser == "Passenger") {
+                                                                    startActivity(
+                                                                        Intent(
+                                                                            applicationContext,
+                                                                            DashboardPassenger::class.java
+                                                                        )
                                                                     )
-                                                                )
+                                                                } else {
+                                                                    startActivity(
+                                                                        Intent(
+                                                                            applicationContext,
+                                                                            Dashboard::class.java
+                                                                        )
+                                                                    )
+                                                                }
+                                                                finish()
                                                             } else {
                                                                 makeToast("You have not registered as $selectedUser")
                                                             }
@@ -190,7 +200,7 @@ class SignupScreen2Otp : AppCompatActivity() {
                 startActivity(
                     Intent(
                         applicationContext,
-                        Dashboard::class.java
+                        DashboardPassenger::class.java
                     )
                 )
             }.addOnFailureListener { e ->

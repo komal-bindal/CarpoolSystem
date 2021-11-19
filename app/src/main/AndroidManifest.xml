@@ -18,8 +18,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarpoolSystem">
         <activity
+
             android:name=".screens.ViewCarDetails"
             android:exported="true" />
+    
+
+            android:name=".screens.DriversViewRequestScreen"
+            android:exported="true" />
+        <activity
+            android:name=".screens.SearchResults"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".screens.DashboardPassenger"
+            android:exported="true" />
+        <activity
+            android:name=".screens.Dashboard"
+            android:exported="true" />
+
         <activity
             android:name=".screens.map.MapActivity"
             android:exported="true"
@@ -56,10 +72,7 @@
             android:name=".screens.SignupScreen2Otp"
             android:exported="true"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".screens.Dashboard"
-            android:exported="true"
-            android:screenOrientation="portrait" />
+
         <activity
             android:name=".screens.UsersScreen"
             android:exported="true"

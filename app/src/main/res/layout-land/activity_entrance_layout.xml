@@ -14,7 +14,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="10dp"
         android:src="#99000000"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/textViewRideClub"
         app:layout_constraintEnd_toStartOf="@+id/circleImageView7"
         app:layout_constraintHorizontal_bias="0.394"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewRideClub"
         android:layout_width="282dp"
         android:layout_height="46dp"
         android:layout_marginStart="68dp"
@@ -66,13 +66,13 @@
         android:textColor="@color/black"
         android:textSize="100px"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintBottom_toTopOf="@+id/textView8logout"
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textView8logout"
         android:layout_width="315dp"
         android:layout_height="50dp"
         android:layout_marginStart="68dp"
@@ -88,6 +88,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewRideClub" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

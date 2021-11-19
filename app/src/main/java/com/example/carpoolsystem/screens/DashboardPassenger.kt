@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
 import com.google.firebase.auth.FirebaseAuth
 
-class Dashboard : AppCompatActivity() {
-    private lateinit var addride: TextView
-    private lateinit var addDetails: TextView
+class DashboardPassenger : AppCompatActivity() {
+    private lateinit var searchRide: TextView
+    private lateinit var addFeedback: TextView
     private lateinit var logout: TextView
     private lateinit var profile: TextView
     private lateinit var forgetPassword: TextView
@@ -19,46 +19,45 @@ class Dashboard : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dashboard)
-        addride = findViewById(R.id.textView4searchride)
-        addDetails = findViewById(R.id.textView7addfeedback)
+        setContentView(R.layout.activity_dashboard_passenger)
+        searchRide = findViewById(R.id.textView4searchride)
+        addFeedback = findViewById(R.id.textView7addfeedback)
         logout = findViewById(R.id.textView8logout)
         forgetPassword = findViewById(R.id.textView6forgetpassword)
         profile = findViewById(R.id.textView3profile)
         manageRides = findViewById(R.id.textViewmanageridesoption)
-
-        addride.setOnClickListener {
-            val intent = Intent(this, AddRideScreen::class.java)
+        searchRide.setOnClickListener {
+            val intent = Intent(this@DashboardPassenger, AddRideScreen::class.java)
             startActivity(intent)
 
 
         }
-        addDetails.setOnClickListener {
-            val intent = Intent(this, ChangeCarDetails::class.java)
+        addFeedback.setOnClickListener {
+            val intent = Intent(this@DashboardPassenger, ChangeCarDetails::class.java)
             startActivity(intent)
         }
         logout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this, UsersScreen::class.java)
+            val intent = Intent(this@DashboardPassenger, UsersScreen::class.java)
             startActivity(intent)
 
 
         }
         forgetPassword.setOnClickListener {
-            val intent = Intent(this, ChangePassword::class.java)
+            val intent = Intent(this@DashboardPassenger, ChangePassword::class.java)
             startActivity(intent)
 
         }
         profile.setOnClickListener {
 
-            val intent = Intent(this, PassengersProfile::class.java)
+            val intent = Intent(this@DashboardPassenger, PassengersProfile::class.java)
             startActivity(intent)
 
 
         }
         manageRides.setOnClickListener {
 
-            val intent = Intent(this, DriversProfile::class.java)
+            val intent = Intent(this@DashboardPassenger, DriversProfile::class.java)
             startActivity(intent)
 
 
