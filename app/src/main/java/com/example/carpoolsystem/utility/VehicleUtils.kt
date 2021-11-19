@@ -11,7 +11,7 @@ class VehicleUtils {
             return matcher.matches()
         }
         fun isValidLetters(letters: String): Boolean {
-            val carNumberPattern = "^[A-Z][A-Z]\$"
+            val carNumberPattern = "^[A-Za-z]{2}\$"
             val pattern = Pattern.compile(carNumberPattern)
             val matcher = pattern.matcher(letters)
             return matcher.matches()

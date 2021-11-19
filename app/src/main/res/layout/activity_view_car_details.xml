@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screens.ViewCarDetails">
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:orientation="vertical"
+            android:paddingStart="60dp">
+
+            <TextView
+                android:id="@+id/showCarModel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Car Model"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/carModel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Please add your car model"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:orientation="vertical"
+            android:paddingStart="60dp">
+
+            <TextView
+                android:id="@+id/showCarMake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Car Make"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/carMake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Please add your car make"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView3"
+        android:layout_width="230dp"
+        android:layout_height="202dp"
+        android:layout_marginStart="-80dp"
+        android:layout_marginTop="-40dp"
+        android:layout_marginEnd="19dp"
+        android:src="#99000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView4"
+        android:layout_width="309dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="-80dp"
+        android:src="#99000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="168dp"
+        android:drawableLeft="@drawable/ic_baseline_directions_car_filled_24"
+        android:drawablePadding="16dp"
+        android:drawableTint="@color/black"
+        android:gravity="center"
+        android:padding="10dp"
+        android:paddingLeft="80dp"
+        android:paddingRight="40dp"
+        android:text="Car Details"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="60dp">
+
+            <TextView
+                android:id="@+id/showCarNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Car Number"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/carNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Please add your car number"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonChangeCarDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="36dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="Change car details"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,18 +1,22 @@
 package com.example.carpoolsystem.screens
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.EditText
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
 import com.example.carpoolsystem.models.ApiInterface
 import com.example.carpoolsystem.models.VehicleCarMake
 import com.example.carpoolsystem.models.VehicleCarModel
 import com.example.carpoolsystem.utility.VehicleUtils
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,9 +28,18 @@ private const val BASE_URL: String = "https://vpic.nhtsa.dot.gov/api/"
 class ChangeCarDetails : AppCompatActivity() {
     private lateinit var carModelAutoCompleteTextView: AutoCompleteTextView
     private lateinit var carMakeAutoCompleteTextView: AutoCompleteTextView
-    lateinit var letters: EditText
-    lateinit var digits: EditText
-    lateinit var districtCode: EditText
+    private lateinit var state: AutoCompleteTextView
+
+    private lateinit var letters: EditText
+    private lateinit var digits: EditText
+    private lateinit var districtCode: EditText
+    private lateinit var saveCarChangeDetailsButton: Button
+    private val CAR_COLLECTION = "car"
+    private val CAR_NUMBER = "carNumber"
+    private val CAR_MODEL = "carModel"
+    private val CAR_MAKE = "carMake"
+    private val OWNER = "owner"
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -37,6 +50,63 @@ class ChangeCarDetails : AppCompatActivity() {
         letters = findViewById(R.id.letters)
         digits = findViewById(R.id.digits)
         districtCode = findViewById(R.id.districtcode)
+        saveCarChangeDetailsButton = findViewById(R.id.buttonSaveCarChangeDetails)
+
+
+        saveCarChangeDetailsButton.setOnClickListener {
+
+            val carMake = carMakeAutoCompleteTextView.text.toString()
+            val carModel = carModelAutoCompleteTextView.text.toString()
+            val carNumber = getCarNumber()
+
+            val firebaseUser = FirebaseAuth.getInstance().currentUser
+
+            val docReference = FirebaseFirestore.getInstance().collection(CAR_COLLECTION)
+                .whereEqualTo(OWNER, firebaseUser?.uid!!.toString())
+
+            docReference.get()
+                .addOnSuccessListener { querySnapshot ->
+                    if (!querySnapshot.isEmpty) {
+                        val list: List<DocumentSnapshot> =
+                            querySnapshot.documents
+                        for (d in list) {
+                            if ((!carMake.isEmpty() && carModel.isEmpty()) || (carMake.isEmpty() && !carModel.isEmpty())) {
+                                makeToast("Please enter both car make and model")
+                            } else if (!carMake.isEmpty() && !carModel.isEmpty()) {
+                                d.reference.update(CAR_MAKE, carMake)
+                                d.reference.update(CAR_MODEL, carModel)
+                                makeToast("data updated successfully")
+                                startActivity(Intent(this, ViewCarDetails::class.java))
+                            }
+                            if (carNumber != null) {
+                                d.reference.update(CAR_NUMBER, carNumber)
+                                makeToast("data updated successfully")
+                                startActivity(Intent(this, ViewCarDetails::class.java))
+                            }
+                        }
+                    } else {
+                        val db = Firebase.firestore
+                        if (carNumber == null || carModel.isEmpty() || carMake.isEmpty()) {
+                            makeToast("Please enter all fields")
+                        } else {
+                            val docData =
+                                createCarHashMap(carNumber, carModel, carMake, firebaseUser.uid)
+                            db.collection(CAR_COLLECTION)
+                                .add(docData)
+                                .addOnSuccessListener {
+                                    makeToast("data added successfully")
+                                    startActivity(Intent(this, ViewCarDetails::class.java))
+                                }
+                                .addOnFailureListener { e ->
+                                    makeToast(e.message.toString())
+                                }
+                        }
+                    }
+                }.addOnFailureListener { e ->
+                    makeToast(e.message.toString())
+                }
+        }
+
         districtCode.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 p0: CharSequence?,
@@ -52,13 +122,14 @@ class ChangeCarDetails : AppCompatActivity() {
                     if (VehicleUtils.isValidDistrictCode(p0.toString())) {
                         districtCode.error = null
                     } else {
-                        districtCode.error ="Enter two digit district Code"
+                        districtCode.error = "Enter two digit district Code"
                     }
                 }
             }
 
             override fun afterTextChanged(p0: Editable?) {}
         })
+
         letters.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 p0: CharSequence?,
@@ -74,13 +145,14 @@ class ChangeCarDetails : AppCompatActivity() {
                     if (VehicleUtils.isValidLetters(p0.toString())) {
                         letters.error = null
                     } else {
-                        letters.error ="Enter 2 Valid Capital Letters"
+                        letters.error = "Enter 2 Valid Capital Letters"
                     }
                 }
             }
 
             override fun afterTextChanged(p0: Editable?) {}
         })
+
         digits.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 p0: CharSequence?,
@@ -96,7 +168,7 @@ class ChangeCarDetails : AppCompatActivity() {
                     if (VehicleUtils.isValidDigits(p0.toString())) {
                         digits.error = null
                     } else {
-                        digits.error ="Enter four digit Valid Number"
+                        digits.error = "Enter four digit Valid Number"
                     }
                 }
             }
@@ -104,7 +176,7 @@ class ChangeCarDetails : AppCompatActivity() {
             override fun afterTextChanged(p0: Editable?) {}
         })
 
-        var textView = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView4)
+        state = findViewById(R.id.autoCompleteTextView4)
         val array = arrayOf<String>(
             "UP",
             "UK",
@@ -135,10 +207,10 @@ class ChangeCarDetails : AppCompatActivity() {
             "WB",
             "TN",
             "Others",
+        )
 
-            )
         val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, array)
-        textView.setAdapter(arrayAdapter)
+        state.setAdapter(arrayAdapter)
 
         var carMakeList = arrayListOf<String>()
         var carMakeAdapter = ArrayAdapter(this, R.layout.dropdown_item, carMakeList)
@@ -174,7 +246,7 @@ class ChangeCarDetails : AppCompatActivity() {
         var carModelData: Call<VehicleCarModel>
 
         carMakeAutoCompleteTextView.setOnItemClickListener { adapterView, view, i, l ->
-            Log.d("model", carMakeAutoCompleteTextView.text.toString())
+            makeToast("Fetching data")
             carModelData = retrofit.getCarModel(
                 carMakeAutoCompleteTextView.text.toString().lowercase(),
                 "json"
@@ -182,7 +254,6 @@ class ChangeCarDetails : AppCompatActivity() {
             carModelList.clear()
             carModelData.enqueue(object : Callback<VehicleCarModel?> {
                 override fun onFailure(call: Call<VehicleCarModel?>, t: Throwable) {
-                    Log.d("my", t.message.toString())
                 }
 
                 override fun onResponse(
@@ -192,10 +263,57 @@ class ChangeCarDetails : AppCompatActivity() {
                     val resposeBody = response.body()!!
                     for (x in resposeBody.Results) {
                         carModelList.add(x.Model_Name)
-                        Log.d("model", x.Model_Name)
                     }
                 }
             })
         }
+        carModelAutoCompleteTextView.setOnClickListener {
+            makeToast("fetching data")
+        }
+    }
+
+    private fun createCarHashMap(
+        carNumber: String,
+        carModel: String,
+        carMake: String,
+        owner: String
+    ): HashMap<String, String> {
+        return hashMapOf(
+            CAR_NUMBER to carNumber,
+            CAR_MODEL to carModel,
+            CAR_MAKE to carMake,
+            OWNER to owner
+        )
+    }
+
+    private fun getCarNumber(): String? {
+        if (!state.text.toString().isEmpty() || !districtCode.text.toString()
+                .isEmpty() || !letters.text.toString().isEmpty() || !digits.text.toString()
+                .isEmpty()
+        ) {
+            if (state.text.toString().isEmpty() || districtCode.text.toString()
+                    .isEmpty() || letters.text.toString().isEmpty() || digits.text.toString()
+                    .isEmpty()
+            ) {
+                makeToast("Please enter all fields of car number")
+                return null
+            } else {
+                val carNumber =
+                    state.text.toString() + districtCode.text.toString() + letters.text.toString()
+                        .uppercase() + digits.text.toString()
+                if (carNumber.length == 10) {
+                    return carNumber
+                } else {
+                    makeToast("Please enter valid car number")
+                    return null
+                }
+            }
+        } else {
+            return null
+        }
+    }
+
+    private fun makeToast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 }
