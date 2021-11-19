@@ -34,6 +34,8 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     private lateinit var addDateAndTime: Button
     private lateinit var viewDateAndTime: TextView
     private lateinit var addLocationButton: Button
+    private lateinit var src:TextView
+    private lateinit var dest: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +49,13 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         addDetails = findViewById(R.id.buttonSubmit)
         viewDateAndTime = findViewById(R.id.textViewempty)
         addDateAndTime = findViewById(R.id.btnPick)
+        src = findViewById(R.id.textsource)
+        dest = findViewById(R.id.textdestination)
         addLocationButton = findViewById(R.id.buttonAddLocation)
+        val sr=getIntent().getStringExtra("source")
+        val des=getIntent().getStringExtra("destination")
+        src.setText(sr.toString())
+        dest.setText(des.toString())
 
         addLocationButton.setOnClickListener {
             val intent = Intent(this, MapActivity::class.java)
