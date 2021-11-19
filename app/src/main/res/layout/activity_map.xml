@@ -16,7 +16,43 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="0dp"
-        android:layout_height="0dp" />
+        android:layout_height="0dp" >
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/container_actions"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_source"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#4DC274"
+                android:text="Pickup Point" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_dest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#4DC274"
+                android:text="Drop Point" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_pool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#4DC274"
+                android:text="Go" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.mapmyindia.sdk.maps.MapView>
 
 
     <FrameLayout
@@ -27,45 +63,6 @@
         android:layout_width="match_parent"
         android:visibility="gone"
         android:layout_height="400dp"/>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/container_actions"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_source"
-            android:layout_width="match_parent"
-            android:text="Pickup Point"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="#4DC274"
-            android:layout_height="wrap_content" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_dest"
-            android:text="Drop Point"
-            android:layout_width="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="#4DC274"
-            android:layout_height="wrap_content" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_pool"
-            android:layout_marginLeft="20dp"
-            android:text="Go"
-            android:layout_width="match_parent"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="#4DC274"
-            android:layout_height="wrap_content" />
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
