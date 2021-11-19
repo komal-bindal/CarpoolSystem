@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
+import com.google.firebase.auth.FirebaseAuth
 
 class DriversProfile : AppCompatActivity() {
     lateinit var phonenumberChangeDriver: TextView
@@ -33,6 +34,7 @@ class DriversProfile : AppCompatActivity() {
             startActivity(intent)
         }
         logoutDriver.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
             val intent= Intent(this@DriversProfile,UsersScreen::class.java)
             startActivity(intent)
         }

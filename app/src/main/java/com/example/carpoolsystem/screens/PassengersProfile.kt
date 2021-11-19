@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
+import com.google.firebase.auth.FirebaseAuth
 
 class PassengersProfile : AppCompatActivity() {
     lateinit var phonenumberChange: TextView
@@ -17,15 +18,19 @@ class PassengersProfile : AppCompatActivity() {
         phonenumberChange=findViewById(R.id.phonenumberchangepassenger)
         passwordChange=findViewById(R.id.passwordchangepassenger)
         logout=findViewById(R.id.buttonlogoutpassenger)
+
         phonenumberChange.setOnClickListener {
             val intent= Intent(this@PassengersProfile,SignInScreen::class.java)
             startActivity(intent)
         }
+
         passwordChange.setOnClickListener {
             val intent= Intent(this@PassengersProfile,ChangePassword::class.java)
             startActivity(intent)
         }
+
         logout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
             val intent= Intent(this@PassengersProfile,UsersScreen::class.java)
             startActivity(intent)
         }
