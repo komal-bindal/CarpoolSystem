@@ -60,56 +60,47 @@ class ChangeCarDetails : AppCompatActivity() {
             val carNumber = getCarNumber()
 
             val firebaseUser = FirebaseAuth.getInstance().currentUser
-            val docReference = FirebaseFirestore.getInstance().collection("car")
-                .whereEqualTo("owner", firebaseUser?.uid!!.toString())
+
+            val docReference = FirebaseFirestore.getInstance().collection(CAR_COLLECTION)
+                .whereEqualTo(OWNER, firebaseUser?.uid!!.toString())
+
             docReference.get()
                 .addOnSuccessListener { querySnapshot ->
                     if (!querySnapshot.isEmpty) {
                         val list: List<DocumentSnapshot> =
                             querySnapshot.documents
                         for (d in list) {
-                            Log.d("data", d.data?.get("uid").toString())
-                            if (!carMake.isEmpty()) {
+                            if ((!carMake.isEmpty() && carModel.isEmpty()) || (carMake.isEmpty() && !carModel.isEmpty())) {
+                                makeToast("Please enter both car make and model")
+                            } else if (!carMake.isEmpty() && !carModel.isEmpty()) {
                                 d.reference.update(CAR_MAKE, carMake)
-                                makeToast("data updated successfully")
-                            }
-                            if (!carModel.isEmpty()) {
                                 d.reference.update(CAR_MODEL, carModel)
                                 makeToast("data updated successfully")
-
+                                startActivity(Intent(this, ViewCarDetails::class.java))
                             }
                             if (carNumber != null) {
                                 d.reference.update(CAR_NUMBER, carNumber)
                                 makeToast("data updated successfully")
+                                startActivity(Intent(this, ViewCarDetails::class.java))
                             }
                         }
-                        startActivity(Intent(this, ViewCarDetails::class.java))
                     } else {
                         val db = Firebase.firestore
-                        val docData = hashMapOf(
-                            CAR_NUMBER to carNumber,
-                            CAR_MODEL to carModel,
-                            CAR_MAKE to carMake,
-                            OWNER to firebaseUser.uid.toString()
-                        )
-                        db.collection("car")
-                            .add(docData)
-                            .addOnSuccessListener {
-                                Log.d(
-                                    "done",
-                                    "DocumentSnapshot successfully written!"
-                                )
-                            }
-                            .addOnFailureListener { e ->
-                                Log.w(
-                                    "error",
-                                    "Error writing document",
-                                    e
-                                )
-                            }
-                        makeToast("data added successfully")
-                        startActivity(Intent(this, ViewCarDetails::class.java))
-
+                        if (carNumber == null || carModel.isEmpty() || carMake.isEmpty()) {
+                            makeToast("Please enter all fields")
+                        } else {
+                            val docData =
+                                createCarHashMap(carNumber, carModel, carMake, firebaseUser.uid)
+                            db.collection(CAR_COLLECTION)
+                                .add(docData)
+                                .addOnSuccessListener {
+                                    makeToast("data added successfully")
+                                    startActivity(Intent(this, ViewCarDetails::class.java))
+                                }
+                                .addOnFailureListener { e ->
+                                    makeToast(e.message.toString())
+                                }
+                        }
                     }
                 }.addOnFailureListener { e ->
                     makeToast(e.message.toString())
@@ -255,7 +246,7 @@ class ChangeCarDetails : AppCompatActivity() {
         var carModelData: Call<VehicleCarModel>
 
         carMakeAutoCompleteTextView.setOnItemClickListener { adapterView, view, i, l ->
-            Log.d("model", carMakeAutoCompleteTextView.text.toString())
+            makeToast("Fetching data")
             carModelData = retrofit.getCarModel(
                 carMakeAutoCompleteTextView.text.toString().lowercase(),
                 "json"
@@ -263,7 +254,6 @@ class ChangeCarDetails : AppCompatActivity() {
             carModelList.clear()
             carModelData.enqueue(object : Callback<VehicleCarModel?> {
                 override fun onFailure(call: Call<VehicleCarModel?>, t: Throwable) {
-                    Log.d("my", t.message.toString())
                 }
 
                 override fun onResponse(
@@ -273,11 +263,27 @@ class ChangeCarDetails : AppCompatActivity() {
                     val resposeBody = response.body()!!
                     for (x in resposeBody.Results) {
                         carModelList.add(x.Model_Name)
-                        Log.d("model", x.Model_Name)
                     }
                 }
             })
         }
+        carModelAutoCompleteTextView.setOnClickListener {
+            makeToast("fetching data")
+        }
+    }
+
+    private fun createCarHashMap(
+        carNumber: String,
+        carModel: String,
+        carMake: String,
+        owner: String
+    ): HashMap<String, String> {
+        return hashMapOf(
+            CAR_NUMBER to carNumber,
+            CAR_MODEL to carModel,
+            CAR_MAKE to carMake,
+            OWNER to owner
+        )
     }
 
     private fun getCarNumber(): String? {
@@ -292,7 +298,15 @@ class ChangeCarDetails : AppCompatActivity() {
                 makeToast("Please enter all fields of car number")
                 return null
             } else {
-                return state.text.toString() + districtCode.text.toString() + letters.text.toString() + digits.text.toString()
+                val carNumber =
+                    state.text.toString() + districtCode.text.toString() + letters.text.toString()
+                        .uppercase() + digits.text.toString()
+                if (carNumber.length == 10) {
+                    return carNumber
+                } else {
+                    makeToast("Please enter valid car number")
+                    return null
+                }
             }
         } else {
             return null
