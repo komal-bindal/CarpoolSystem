@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".screens.SearchResults">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView30"
+            android:layout_width="230dp"
+            android:layout_height="202dp"
+            android:layout_marginStart="-80dp"
+            android:layout_marginLeft="-80dp"
+            android:layout_marginTop="-40dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:layout_marginBottom="7dp"
+            android:src="#99000000"
+            app:layout_constraintBottom_toTopOf="@+id/textViewSearchPassenger"
+            app:layout_constraintEnd_toStartOf="@+id/textViewSearchPassenger"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView40"
+            android:layout_width="309dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="-80dp"
+            android:layout_marginEnd="102dp"
+            android:layout_marginRight="102dp"
+            android:src="#99000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+
+        <TextView
+            android:id="@+id/textViewSearchPassenger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="156dp"
+            android:drawableStart="@drawable/ic_baseline_directions_car_filled_24"
+            android:drawableLeft="@drawable/ic_baseline_directions_car_filled_24"
+            android:gravity="center"
+            android:text="Search Results"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="457dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            tools:listitem="@layout/parent_recycler_view" />
+
+    </RelativeLayout>
+</layout>
