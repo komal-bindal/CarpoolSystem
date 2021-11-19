@@ -21,6 +21,10 @@
             android:name=".screens.DriversViewRequestScreen"
             android:exported="true" />
         <activity
+            android:name=".screens.SearchResults"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".screens.DashboardPassenger"
             android:exported="true" />
         <activity

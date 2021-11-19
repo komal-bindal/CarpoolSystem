@@ -7,7 +7,7 @@
     tools:context=".screens.ChangeCarDetails">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView3"
+        android:id="@+id/circleImageView30"
         android:layout_width="230dp"
         android:layout_height="202dp"
         android:layout_marginStart="-80dp"
@@ -17,8 +17,8 @@
         android:layout_marginRight="19dp"
         android:layout_marginBottom="7dp"
         android:src="#99000000"
-        app:layout_constraintBottom_toTopOf="@+id/textViewCarDetails"
-        app:layout_constraintEnd_toStartOf="@+id/textViewCarDetails"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSearchPassenger"
+        app:layout_constraintEnd_toStartOf="@+id/textViewSearchPassenger"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,7 +26,7 @@
         tools:ignore="MissingConstraints" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView4"
+        android:id="@+id/circleImageView40"
         android:layout_width="309dp"
         android:layout_height="190dp"
         android:layout_marginTop="-80dp"
@@ -40,7 +40,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textViewCarDetails"
+        android:id="@+id/textViewSearchPassenger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="156dp"
@@ -271,7 +271,7 @@
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCarDetails"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSearchPassenger"
         tools:ignore="MissingConstraints" />
 
 
