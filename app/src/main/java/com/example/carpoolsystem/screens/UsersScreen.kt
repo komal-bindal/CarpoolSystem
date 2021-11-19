@@ -15,7 +15,7 @@ class UsersScreen : AppCompatActivity() {
         buttondriver = findViewById(R.id.buttonDriver)
         buttonpassenger = findViewById(R.id.buttonPassenger)
         buttondriver.setOnClickListener {
-            val intent = (Intent(this@UsersScreen, SignInScreen::class.java))
+            val intent = (Intent(this@UsersScreen, DriversProfile::class.java))
             intent.putExtra("User", "Driver")
             startActivity(intent)
             finish()
