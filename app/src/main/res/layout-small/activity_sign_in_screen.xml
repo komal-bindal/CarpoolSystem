@@ -145,7 +145,7 @@
 
     <Button
         android:id="@+id/buttonSignUp"
-        android:layout_width="405dp"
+        android:layout_width="match_parent"
         android:layout_height="65dp"
         android:layout_marginTop="16dp"
         android:background="@color/white"
@@ -156,7 +156,7 @@
         android:minHeight="48dp"
         android:text=""
         android:textColorHint="@color/black"
-        android:textSize="18dp"
+        android:textSize="16dp"
         android:textStyle="bold"
         app:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
