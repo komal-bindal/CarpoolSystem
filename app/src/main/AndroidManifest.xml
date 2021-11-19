@@ -25,10 +25,6 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".screens.CarNumber"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".screens.ChangeCarDetails"
             android:exported="true"
             android:screenOrientation="portrait" />
@@ -74,10 +70,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".screens.SignupScreen2PhoneNumber"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".screens.VehicleDetailsAdditionScreen"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
