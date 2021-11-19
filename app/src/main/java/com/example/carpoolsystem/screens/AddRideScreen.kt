@@ -40,6 +40,8 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_ride_screen)
+        val intent=intent
+        val source=intent.getStringExtra("source")
 
 
         addDetails = findViewById(R.id.buttonSubmit)
@@ -54,6 +56,7 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 
         addDateAndTime.setOnClickListener {
             val calendar: Calendar = Calendar.getInstance()
+            Toast.makeText(this,source,Toast.LENGTH_SHORT).show()
             day = calendar.get(Calendar.DAY_OF_MONTH)
             month = calendar.get(Calendar.MONTH)
             year = calendar.get(Calendar.YEAR)

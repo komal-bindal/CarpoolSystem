@@ -1,5 +1,6 @@
 package com.example.carpoolsystem.screens.map
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.LinearLayoutCompat
 import com.example.carpoolsystem.R
+import com.example.carpoolsystem.screens.AddRideScreen
 import com.google.gson.GsonBuilder
 import com.mapmyindia.sdk.maps.MapView
 import com.mapmyindia.sdk.maps.MapmyIndiaMap
@@ -37,6 +39,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private var mapMyIndiaMap: MapmyIndiaMap? = null
     private lateinit var btnSrc: AppCompatButton
     private lateinit var btnDest: AppCompatButton
+    private lateinit var btnpool: AppCompatButton
     private lateinit var actionContainer: LinearLayoutCompat
     private val gson = GsonBuilder().setPrettyPrinting().serializeNulls().create()
     private var selectSource: Boolean = false
@@ -50,6 +53,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         suggestionContainer = findViewById(R.id.container)
         btnSrc = findViewById(R.id.btn_source)
         btnDest = findViewById(R.id.btn_dest)
+        btnpool=findViewById(R.id.btn_pool)
         actionContainer = findViewById(R.id.container_actions)
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this);
@@ -83,6 +87,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
 
+
         findViewById<AppCompatButton>(R.id.btn_pool).setOnClickListener {
             val src = sourceLoc ?: return@setOnClickListener Toast.makeText(
                 this,
@@ -91,7 +96,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             ).show()
             val dest = destLoc ?: return@setOnClickListener Toast.makeText(
                 this,
-                "select source please",
+                "select destination please",
                 Toast.LENGTH_SHORT
             ).show()
 
@@ -121,6 +126,14 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                     22.0
                 )
             )
+            val destination=btnDest.text.toString()
+            val source=btnSrc.text.toString()
+            val intent= Intent(this@MapActivity,AddRideScreen::class.java)
+            intent.putExtra("source",source)
+            intent.putExtra("destination",destination)
+            startActivity(intent)
+
+
 
         }
 
