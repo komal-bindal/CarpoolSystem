@@ -154,12 +154,22 @@ class SignInScreen : AppCompatActivity() {
                                                 querySnapshot.documents
                                             for (d in list) {
                                                 if (d.data?.get(USER) == user) {
-                                                    startActivity(
-                                                        Intent(
-                                                            this,
-                                                            DashboardPassenger::class.java
+                                                    if (user == "Passenger") {
+                                                        startActivity(
+                                                            Intent(
+                                                                this,
+                                                                DashboardPassenger::class.java
+                                                            )
                                                         )
-                                                    )
+                                                    } else {
+                                                        startActivity(
+                                                            Intent(
+                                                                this,
+                                                                Dashboard::class.java
+                                                            )
+                                                        )
+                                                    }
+                                                    finish()
                                                 } else {
                                                     makeToast("You have not registered as $user")
                                                 }

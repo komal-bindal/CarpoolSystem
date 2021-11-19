@@ -28,6 +28,9 @@
             android:name=".screens.DashboardPassenger"
             android:exported="true" />
         <activity
+            android:name=".screens.Dashboard"
+            android:exported="true" />
+        <activity
             android:name=".screens.map.MapActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
