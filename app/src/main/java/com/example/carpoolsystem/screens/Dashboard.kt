@@ -34,7 +34,7 @@ class Dashboard : AppCompatActivity() {
 
         }
         addDetails.setOnClickListener {
-            val intent = Intent(this, ChangeCarDetails::class.java)
+            val intent = Intent(this, ViewCarDetails::class.java)
             startActivity(intent)
         }
         logout.setOnClickListener {
@@ -50,10 +50,8 @@ class Dashboard : AppCompatActivity() {
 
         }
         profile.setOnClickListener {
-
-            val intent = Intent(this, PassengersProfile::class.java)
+            val intent = Intent(this, DriversProfile::class.java)
             startActivity(intent)
-
 
         }
         manageRides.setOnClickListener {

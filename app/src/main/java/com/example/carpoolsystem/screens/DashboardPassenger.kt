@@ -29,8 +29,6 @@ class DashboardPassenger : AppCompatActivity() {
         searchRide.setOnClickListener {
             val intent = Intent(this@DashboardPassenger, AddRideScreen::class.java)
             startActivity(intent)
-
-
         }
         addFeedback.setOnClickListener {
             val intent = Intent(this@DashboardPassenger, ChangeCarDetails::class.java)
@@ -40,8 +38,6 @@ class DashboardPassenger : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(this@DashboardPassenger, UsersScreen::class.java)
             startActivity(intent)
-
-
         }
         forgetPassword.setOnClickListener {
             val intent = Intent(this@DashboardPassenger, ChangePassword::class.java)
@@ -49,14 +45,12 @@ class DashboardPassenger : AppCompatActivity() {
 
         }
         profile.setOnClickListener {
-
             val intent = Intent(this@DashboardPassenger, PassengersProfile::class.java)
             startActivity(intent)
 
 
         }
         manageRides.setOnClickListener {
-
             val intent = Intent(this@DashboardPassenger, DriversProfile::class.java)
             startActivity(intent)
 
