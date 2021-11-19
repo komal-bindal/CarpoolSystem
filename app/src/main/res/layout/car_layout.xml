@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp"
+    app:contentPadding="4dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="390dp"
+        android:layout_height="387dp"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/rounded_corners"
+        android:padding="16dp">
+
+
+        <TextView
+            android:id="@+id/drivername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Driver Name"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/vehiclenumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/vehiclenumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/drivername"
+            android:padding="5dp"
+            android:text="Vehicle Number"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/sourcedestiation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/drivername"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/sourcedestiation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/vehiclenumber"
+            android:padding="5dp"
+            android:text="Source->Destination"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.406"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vehiclenumber"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="357dp"
+            android:layout_height="54dp"
+            android:layout_alignBottom="@+id/sourcedestiation"
+            android:layout_alignParentEnd="true"
+            android:padding="5dp"
+            android:text="Date-20-Sept-2021"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/timings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.055"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sourcedestiation"
+            app:layout_constraintVertical_bias="0.441"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/timings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/date"
+            android:layout_marginTop="-30dp"
+            android:layout_marginBottom="50dp"
+            android:padding="5dp"
+            android:text="Timings-8:00 A.M."
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/buttonacceptrequest"
+            android:layout_width="157dp"
+            android:layout_height="46dp"
+            android:layout_alignBottom="@+id/timings"
+            android:layout_marginStart="3dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="#55B3BF"
+            android:text="Accept"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttoncancel"
+            app:layout_constraintHorizontal_bias="0.346"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timings"
+            app:layout_constraintVertical_bias="0.63"
+            tools:ignore="MissingConstraints">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/buttoncancel"
+            android:layout_width="160dp"
+            android:layout_height="43dp"
+            android:layout_alignBottom="@+id/timings"
+            android:layout_toRightOf="@+id/buttonacceptrequest"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="#55B3BF"
+            android:text="Cancel"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.929"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timings"
+            app:layout_constraintVertical_bias="0.61"
+            tools:ignore="MissingConstraints">
+
+        </TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
