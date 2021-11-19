@@ -18,23 +18,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
-        <TextView
-            android:id="@+id/iconForCarModel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_weight="1"
-            android:drawableStart="@drawable/ic_baseline_directions_car_filled_24"
-            android:drawableTint="@color/black"
-            android:gravity="center" />
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
             android:orientation="vertical"
-            android:paddingLeft="20dp">
+            android:paddingStart="60dp">
 
             <TextView
                 android:id="@+id/showCarModel"
@@ -67,23 +57,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
-        <TextView
-            android:id="@+id/iconForCarMake"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_weight="1"
-            android:drawableStart="@drawable/ic_baseline_directions_car_filled_24"
-            android:drawableTint="@color/black"
-            android:gravity="center" />
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
             android:orientation="vertical"
-            android:paddingLeft="20dp">
+            android:paddingStart="60dp">
 
             <TextView
                 android:id="@+id/showCarMake"
@@ -162,28 +142,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11">
 
-        <TextView
-            android:id="@+id/iconForCarNumber"
-            android:layout_width="10dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_weight="1"
-            android:drawableStart="@drawable/ic_baseline_directions_car_filled_24"
-            android:drawableTint="@color/black"
-            android:gravity="center" />
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="left"
             android:layout_weight="1"
-            android:gravity="left"
             android:orientation="vertical"
-            android:paddingLeft="20dp">
+            android:paddingStart="60dp">
 
             <TextView
                 android:id="@+id/showCarNumber"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="left"
                 android:text="Car Number"
                 android:textSize="18dp" />
 
