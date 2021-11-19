@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
+import com.google.firebase.auth.FirebaseAuth
 
 class DashboardPassenger : AppCompatActivity() {
     private lateinit var searchRide: TextView
@@ -36,6 +37,7 @@ class DashboardPassenger : AppCompatActivity() {
             startActivity(intent)
         }
         logout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
             val intent = Intent(this@DashboardPassenger, UsersScreen::class.java)
             startActivity(intent)
 

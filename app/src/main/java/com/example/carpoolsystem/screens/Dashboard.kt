@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
+import com.google.firebase.auth.FirebaseAuth
 
 class Dashboard : AppCompatActivity() {
     private lateinit var addride: TextView
@@ -25,6 +26,7 @@ class Dashboard : AppCompatActivity() {
         forgetPassword = findViewById(R.id.textView6forgetpassword)
         profile = findViewById(R.id.textView3profile)
         manageRides = findViewById(R.id.textViewmanageridesoption)
+
         addride.setOnClickListener {
             val intent = Intent(this, AddRideScreen::class.java)
             startActivity(intent)
@@ -36,6 +38,7 @@ class Dashboard : AppCompatActivity() {
             startActivity(intent)
         }
         logout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, UsersScreen::class.java)
             startActivity(intent)
 
