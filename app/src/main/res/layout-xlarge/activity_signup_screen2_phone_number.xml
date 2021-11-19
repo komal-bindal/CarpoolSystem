@@ -37,20 +37,20 @@
 
     <ImageView
         android:id="@+id/imageViewRideClub"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="152dp"
+        android:layout_width="224dp"
+        android:layout_height="157dp"
+        android:layout_marginTop="240dp"
         android:contentDescription="@string/otpsend"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/otpsend" />
+        app:srcCompat="@drawable/message_send" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="40dp"
         android:text="@string/otp_verification"
         android:textColor="@color/black"
         android:textSize="36sp"
@@ -64,10 +64,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
         android:gravity="center"
         android:text="@string/we_will_send_you_one_time_password_on_this_mobile_number"
         android:textColor="@color/black"
@@ -77,20 +75,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
+
     <TextView
         android:id="@+id/textView4searchride"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="@string/enter_mobile_number"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3profile" />
-
 
     <TextView
         android:id="@+id/textView5"
@@ -116,6 +114,7 @@
         android:foregroundGravity="left"
         android:gravity="center"
         android:hint="@string/_1234567890"
+        android:maxLength="10"
         android:inputType="phone"
         android:minHeight="48dp"
         android:text=""
@@ -128,18 +127,19 @@
 
     <Button
         android:id="@+id/buttonGetOtp"
-        android:layout_width="324dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
         android:layout_marginTop="28dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
+        android:textAllCaps="false"
         android:gravity="center"
         android:minHeight="48dp"
         android:text="@string/get_otp"
         android:textColor="@color/black"
-        android:textSize="22sp"
+        android:textSize="@dimen/button_text"
         android:textStyle="bold"
-        app:backgroundTint="#55B3BF"
+        app:backgroundTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
