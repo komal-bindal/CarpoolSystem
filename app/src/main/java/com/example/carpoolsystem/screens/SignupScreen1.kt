@@ -33,6 +33,7 @@ class SignupScreen1 : AppCompatActivity() {
     private lateinit var nameEditText: EditText
     private lateinit var nextButton: Button
     private lateinit var OTPSignUpButton: Button
+    private lateinit var SignInButton: Button
     private lateinit var progressDialog: ProgressDialog
     private val UID = "uid"
     private val NAME = "name"
@@ -53,7 +54,7 @@ class SignupScreen1 : AppCompatActivity() {
         nameEditText = findViewById(R.id.editTextName)
         nextButton = findViewById(R.id.buttonNext)
         OTPSignUpButton = findViewById(R.id.buttonNext2)
-
+        SignInButton = findViewById(R.id.buttonNext3)
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Loading")
         progressDialog.setMessage("Please wait...")
@@ -70,6 +71,11 @@ class SignupScreen1 : AppCompatActivity() {
         nextButton.setOnClickListener {
             register()
             progressDialog.show()
+        }
+        SignInButton.setOnClickListener {
+            val intent = Intent(this@SignupScreen1, SignInScreen::class.java)
+            startActivity(intent)
+            finish()
         }
 
         passwordEditText.addTextChangedListener(
