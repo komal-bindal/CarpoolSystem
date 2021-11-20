@@ -30,8 +30,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
-            android:text="Ride Club"
-            android:textSize="30sp"
+            android:text="Ride and Share"
+            android:textColor="@color/black"
+            android:textSize="20sp"
 
             app:layout_constraintEnd_toStartOf="@+id/imageViewRideClub"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +45,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:text="Start a new Journey"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toStartOf="@+id/imageViewRideClub"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewRideClub" />
@@ -51,13 +53,12 @@
         <ImageView
             android:id="@+id/imageViewRideClub"
             android:layout_width="0dp"
-            android:layout_height="160dp"
+            android:layout_height="120dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textViewRideClub"
             app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-            app:srcCompat="@drawable/ic_baseline_person_pin_24"
+            app:srcCompat="@drawable/undraw_fast_car_p4cu"
             tools:ignore="VectorDrawableCompat" />
 
         <LinearLayout
@@ -89,15 +90,16 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:text="Profile"
-                        android:textSize="24sp" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/button_text" />
 
                     <ImageView
                         android:id="@+id/busimage"
-                        android:layout_width="75dp"
+                        android:layout_width="90dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_baseline_aod_24"
+                        app:srcCompat="@drawable/profile_undraw"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -119,16 +121,18 @@
                         android:layout_below="@id/imageView3RideClub"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="AddRide"
-                        android:textSize="24sp" />
+                        android:text="Add Ride"
+                        android:textColor="@color/black"
+
+                        android:textSize="@dimen/button_text" />
 
                     <ImageView
                         android:id="@+id/imageView3RideClub"
-                        android:layout_width="75dp"
+                        android:layout_width="90dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_baseline_local_hospital_24"
+                        app:srcCompat="@drawable/add_ride_undraw"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -163,15 +167,16 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:text="View Request"
-                        android:textSize="20sp" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/button_text" />
 
                     <ImageView
                         android:id="@+id/bus1imageview"
-                        android:layout_width="75dp"
+                        android:layout_width="90dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_baseline_autorenew_24"
+                        app:srcCompat="@drawable/undraw_request"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -193,16 +198,17 @@
                         android:layout_below="@id/trainimageview"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="AddCarDetails"
-                        android:textSize="24sp" />
+                        android:text="Car Details"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/button_text" />
 
                     <ImageView
                         android:id="@+id/trainimageview"
-                        android:layout_width="75dp"
+                        android:layout_width="90dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_baseline_add_circle_outline_24"
+                        app:srcCompat="@drawable/undraw_details_8k13"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -237,15 +243,16 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:text="Logout"
-                        android:textSize="20sp" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/button_text" />
 
                     <ImageView
                         android:id="@+id/cycleimage"
-                        android:layout_width="75dp"
+                        android:layout_width="90dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_baseline_check_circle_outline_24"
+                        app:srcCompat="@drawable/undraw_logout"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -267,16 +274,17 @@
                         android:layout_below="@id/manageRidesImage"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="ManageRides"
-                        android:textSize="20sp" />
+                        android:text="Manage Rides"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/button_text" />
 
                     <ImageView
                         android:id="@+id/manageRidesImage"
-                        android:layout_width="75dp"
+                        android:layout_width="90dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_baseline_add_alert_24"
+                        app:srcCompat="@drawable/undraw_manage"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
