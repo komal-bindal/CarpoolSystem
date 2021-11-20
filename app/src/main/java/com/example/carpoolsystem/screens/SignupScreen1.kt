@@ -25,7 +25,7 @@ class SignupScreen1 : AppCompatActivity() {
     private val USERNAME_ERROR =
         "Name should not be empty and can contain only alphabets and spaces"
     private val PASSWORD_ERROR =
-        "Password should contain at least one upper case letter, lower case letter, number, and special characters(@#\$%^&+=!)"
+        "Password length should be 6"
     private val EMAIL_ID_ERROR = "Enter your GLA Email address"
 
     private lateinit var passwordEditText: EditText
@@ -160,7 +160,7 @@ class SignupScreen1 : AppCompatActivity() {
                 ).show()
                 firebaseAuth?.signOut()
                 finish()
-                val intent = Intent(this, SignInScreen::class.java)
+                val intent = Intent(this, UsersScreen::class.java)
                 intent.putExtra("name", nameEditText.text.toString())
                 startActivity(intent)
             } else {

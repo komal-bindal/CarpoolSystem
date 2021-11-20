@@ -53,20 +53,20 @@
         tools:ignore="VectorDrawableCompat" />
 
     <TextView
-
         android:id="@+id/fullNamePassenger"
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:gravity="center"
-        android:layout_marginTop="24dp"
         android:text="Passenger"
         android:textColor="#000"
         android:textSize="@dimen/heading_text"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profilePhoto" />
+
 
     <TextView
 
@@ -83,9 +83,9 @@
         android:textColor="#000"
         android:textSize="@dimen/default_text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fullNamePassenger" />
-
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextView" />
 
     <TextView
         android:id="@+id/phonenumberchangepassenger"
@@ -137,6 +137,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordchangepassenger"
         tools:text="logout" />
+
+    <TextView
+        android:id="@+id/phoneNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullNamePassenger" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
