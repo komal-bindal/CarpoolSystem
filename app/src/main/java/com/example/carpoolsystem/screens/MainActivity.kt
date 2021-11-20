@@ -13,7 +13,11 @@ class MainActivity : AppCompatActivity() {
         val sharedPref = applicationContext?.getSharedPreferences(
             getString(R.string.preference_file_key), Context.MODE_PRIVATE
         )
-        val intent = Intent(this@MainActivity, Dashboard::class.java)
+
+
+        val intent = Intent(this@MainActivity, EntranceLayout::class.java)
+
+
         startActivity(intent)
         finish()
     }
