@@ -52,7 +52,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="VectorDrawableCompat" />
     <TextView
-        android:id="@+id/fullNamePassenger"
+        android:id="@+id/fullNameDriver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -66,8 +66,13 @@
         app:layout_constraintTop_toBottomOf="@id/profilePhoto" />
 
     <TextView
-        android:id="@+id/emailofpassenger"
+
+        android:id="@+id/emailofDriver"
         android:layout_width="wrap_content"
+
+        android:id="@+id/emailofDriver"
+        android:layout_width="0dp"
+
         android:layout_height="wrap_content"
         android:drawablePadding="20dp"
         android:layout_marginTop="12dp"
@@ -76,10 +81,12 @@
         android:drawableLeft="@drawable/ic_baseline_email_24"
         android:gravity="center"
         android:textSize="@dimen/default_text"
+
         android:textColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fullNamePassenger" />
+        app:layout_constraintTop_toBottomOf="@id/fullNameDriver" />
+
 
     <TextView
         android:id="@+id/phonenumberdriver"

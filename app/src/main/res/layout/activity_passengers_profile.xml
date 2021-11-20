@@ -53,8 +53,10 @@
         tools:ignore="VectorDrawableCompat" />
 
     <TextView
+
         android:id="@+id/fullNamePassenger"
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginTop="24dp"
@@ -67,8 +69,10 @@
         app:layout_constraintTop_toBottomOf="@id/profilePhoto" />
 
     <TextView
+
         android:id="@+id/emailofpassenger"
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginTop="12dp"
@@ -80,7 +84,8 @@
         android:textSize="@dimen/default_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fullNamePassenger" />
+        app:layout_constraintTop_toBottomOf="@id/fullNameDriver" />
+
 
     <TextView
         android:id="@+id/phonenumberchangepassenger"
