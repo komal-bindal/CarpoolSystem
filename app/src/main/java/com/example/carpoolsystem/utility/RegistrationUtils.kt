@@ -20,10 +20,10 @@ class RegistrationUtils {
         }
 
         fun isValidPhoneNumber(phoneNumber: String): Boolean {
-            val phoneNumberPattern = "^[0-9]{10}$"
-            val pattern = Pattern.compile(phoneNumberPattern)
-            val matcher = pattern.matcher(phoneNumber)
-            return matcher.matches()
+//            val phoneNumberPattern = "^[0-9]{10}$"
+//            val pattern = Pattern.compile(phoneNumberPattern)
+//            val matcher = pattern.matcher(phoneNumber)
+            return phoneNumber.length == 6
         }
 
         fun isValidUserName(name: String): Boolean {

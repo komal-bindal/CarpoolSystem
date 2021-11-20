@@ -20,12 +20,14 @@ class PassengersProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_passengers_profile)
+
         phonenumberChange = findViewById(R.id.phonenumberchangepassenger)
         passwordChange = findViewById(R.id.passwordchangepassenger)
         logout = findViewById(R.id.buttonlogoutpassenger)
         name = findViewById(R.id.fullNamePassenger)
         emailTextView = findViewById(R.id.emailofpassenger)
         phone = findViewById(R.id.phoneNumberTextView)
+        fetchDetailsFromDatabase()
 
         emailTextView.setOnClickListener {
             if (emailTextView.text.toString().equals("Add your email id")) {
@@ -48,8 +50,11 @@ class PassengersProfile : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(this@PassengersProfile, UsersScreen::class.java)
             startActivity(intent)
+            finish()
         }
+    }
 
+    private fun fetchDetailsFromDatabase() {
         val firebaseUser = FirebaseAuth.getInstance().currentUser
         val docRef = FirebaseFirestore.getInstance().collection("users")
             .whereEqualTo("uid", firebaseUser?.uid.toString())
@@ -68,6 +73,8 @@ class PassengersProfile : AppCompatActivity() {
                     }
                     if (phoneNumber.isEmpty() == false) {
                         phone.text = phoneNumber
+                    } else {
+                        phonenumberChange.text = "Add phone number"
                     }
                 }
             }
