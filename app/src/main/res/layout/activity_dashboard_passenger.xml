@@ -30,8 +30,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
-            android:text="Ride Club"
-            android:textSize="30sp"
+            android:text="Ride and Share"
+            android:textColor="@color/black"
+            android:textSize="20sp"
 
             app:layout_constraintEnd_toStartOf="@+id/imageViewRideClub"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +44,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
+            android:textColor="@color/black"
             android:text="Start a new Journey"
+            android:textSize="14sp"
             app:layout_constraintEnd_toStartOf="@+id/imageViewRideClub"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewRideClub" />
@@ -51,19 +54,19 @@
         <ImageView
             android:id="@+id/imageViewRideClub"
             android:layout_width="0dp"
-            android:layout_height="160dp"
+            android:layout_height="120dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textViewRideClub"
             app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-            app:srcCompat="@drawable/ic_baseline_person_pin_24"
+            app:srcCompat="@drawable/undraw_fast_car_p4cu"
             tools:ignore="VectorDrawableCompat" />
 
         <LinearLayout
             android:id="@+id/linearLayoutsecond"
             android:layout_width="0dp"
-            android:layout_height="175dp"
+            android:layout_height="190dp"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -83,21 +86,23 @@
 
                     <TextView
                         android:id="@+id/textView3profile"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_below="@id/busimage"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:text="Profile"
-                        android:textSize="24sp" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/button_text" />
 
                     <ImageView
                         android:id="@+id/busimage"
-                        android:layout_width="75dp"
+                        android:layout_width="90dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_baseline_aod_24"
+                        app:srcCompat="@drawable/profile_undraw"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -114,21 +119,23 @@
 
                     <TextView
                         android:id="@+id/textView4searchride"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_below="@id/imageView3RideClub"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:text="Search Ride"
-                        android:textSize="24sp" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/button_text" />
 
                     <ImageView
                         android:id="@+id/imageView3RideClub"
-                        android:layout_width="75dp"
+                        android:layout_width="90dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_baseline_local_hospital_24"
+                        app:srcCompat="@drawable/undraw_people_search"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -137,7 +144,7 @@
         <LinearLayout
             android:id="@+id/linearLayout2sec"
             android:layout_width="0dp"
-            android:layout_height="175dp"
+            android:layout_height="190dp"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -157,21 +164,23 @@
 
                     <TextView
                         android:id="@+id/textView6forgetpassword"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/bus1imageview"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
+                        android:gravity="center"
                         android:text="Forget Password"
-                        android:textSize="20sp" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/button_text" />
 
                     <ImageView
                         android:id="@+id/bus1imageview"
-                        android:layout_width="75dp"
+                        android:layout_width="90dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_baseline_autorenew_24"
+                        app:srcCompat="@drawable/undraw_forgot_password"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -188,21 +197,23 @@
 
                     <TextView
                         android:id="@+id/textView7addfeedback"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/trainimageview"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:text="Feedback"
-                        android:textSize="24sp" />
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/button_text" />
 
                     <ImageView
                         android:id="@+id/trainimageview"
-                        android:layout_width="75dp"
+                        android:layout_width="90dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_baseline_add_circle_outline_24"
+                        app:srcCompat="@drawable/undraw_feedback"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -210,7 +221,7 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="175dp"
+            android:layout_height="190dp"
             android:layout_marginTop="4dp"
             android:orientation="horizontal"
             android:padding="10dp"
@@ -231,21 +242,23 @@
 
                     <TextView
                         android:id="@+id/textView8logout"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/cycleimage"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
+                        android:gravity="center"
                         android:text="Logout"
-                        android:textSize="20sp" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/button_text" />
 
                     <ImageView
                         android:id="@+id/cycleimage"
-                        android:layout_width="75dp"
+                        android:layout_width="90dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_baseline_check_circle_outline_24"
+                        app:srcCompat="@drawable/undraw_logout"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -262,22 +275,26 @@
 
                     <TextView
                         android:id="@+id/textViewmanageridesoption"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/manageRidesImage"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginBottom="11dp"
-                        android:text="Manage Rides"
-                        android:textSize="20sp" />
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="28dp"
+                        android:gravity="center"
+                        android:text="Request status"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/button_text" />
 
                     <ImageView
                         android:id="@+id/manageRidesImage"
-                        android:layout_width="75dp"
+                        android:layout_width="90dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_baseline_add_alert_24"
+                        app:srcCompat="@drawable/undraw_request"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>

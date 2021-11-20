@@ -46,6 +46,7 @@
             android:layout_marginLeft="16dp"
             android:text="Start a new Journey"
             android:textColor="@color/black"
+            android:textSize="14sp"
             app:layout_constraintEnd_toStartOf="@+id/imageViewRideClub"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewRideClub" />
@@ -64,7 +65,7 @@
         <LinearLayout
             android:id="@+id/linearLayoutsecond"
             android:layout_width="0dp"
-            android:layout_height="175dp"
+            android:layout_height="190dp"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -84,8 +85,9 @@
 
                     <TextView
                         android:id="@+id/textView3profile"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_below="@id/busimage"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
@@ -116,8 +118,9 @@
 
                     <TextView
                         android:id="@+id/textView4searchride"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_below="@id/imageView3RideClub"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
@@ -141,7 +144,7 @@
         <LinearLayout
             android:id="@+id/linearLayout2sec"
             android:layout_width="0dp"
-            android:layout_height="175dp"
+            android:layout_height="190dp"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -161,8 +164,9 @@
 
                     <TextView
                         android:id="@+id/textView6forgetpassword"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_below="@id/bus1imageview"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
@@ -193,8 +197,9 @@
 
                     <TextView
                         android:id="@+id/textView7addfeedback"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_below="@id/trainimageview"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
@@ -216,7 +221,7 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="175dp"
+            android:layout_height="190dp"
             android:layout_marginTop="4dp"
             android:orientation="horizontal"
             android:padding="10dp"
@@ -237,8 +242,9 @@
 
                     <TextView
                         android:id="@+id/textView8logout"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_below="@id/cycleimage"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
@@ -269,8 +275,9 @@
 
                     <TextView
                         android:id="@+id/textViewmanageridesoption"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_below="@id/manageRidesImage"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
