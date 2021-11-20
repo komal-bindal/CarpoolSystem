@@ -31,13 +31,11 @@ class AddNewPhoneNumber : AppCompatActivity() {
 
         setContentView(R.layout.activity_add_new_phone_number)
 
-        phoneNumberEditText = findViewById(R.id.editTextNewPhoneNumberAddNew)
-        getOtpButton = findViewById(R.id.buttonGetNewOtpNew)
+        phoneNumberEditText = findViewById(R.id.editTextNewPhoneNumber)
+        getOtpButton = findViewById(R.id.buttonGetNewOtp)
 
         phoneNumberEditText.requestFocus()
 
-        val intent = intent
-        val user = intent.getStringExtra("User")
 
         phoneNumberEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
@@ -95,7 +93,6 @@ class AddNewPhoneNumber : AppCompatActivity() {
                                     Intent(applicationContext, NewOtp::class.java)
                                 intent.putExtra("PhoneNumber", phoneNumber.toString())
                                 intent.putExtra("VerificationOTP", verificationOTP.toString())
-                                intent.putExtra("User", user)
                                 startActivity(intent)
                                 finish()
                             }
