@@ -80,6 +80,7 @@
                 android:layout_weight="1">
 
                 <RelativeLayout
+                    android:id="@+id/driverProfileLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -113,6 +114,7 @@
                 android:layout_weight="1">
 
                 <RelativeLayout
+                    android:id="@+id/driverAddRideLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -159,6 +161,7 @@
                 android:layout_weight="1">
 
                 <RelativeLayout
+                    android:id="@+id/driverViewRequestLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -192,6 +195,7 @@
                 android:layout_weight="1">
 
                 <RelativeLayout
+                    android:id="@+id/driverCarDetailsLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -237,6 +241,7 @@
                 android:layout_weight="1">
 
                 <RelativeLayout
+                    android:id="@+id/driverLogoutLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -270,6 +275,7 @@
                 android:layout_weight="1">
 
                 <RelativeLayout
+                    android:id="@+id/driverManageRideLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 

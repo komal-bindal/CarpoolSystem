@@ -83,7 +83,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Enter Your Password"
-        android:inputType="textVisiblePassword"
+        android:inputType="textPassword"
         android:minHeight="48dp"
         android:text=""
         android:textSize="18dp"
