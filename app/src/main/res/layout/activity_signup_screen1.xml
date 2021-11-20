@@ -83,7 +83,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Enter Your Password"
-        android:inputType="textVisiblePassword"
+        android:inputType="textPassword"
         android:minHeight="48dp"
         android:text=""
         android:textSize="18dp"
@@ -137,7 +137,7 @@
 
     <Button
         android:id="@+id/buttonNext3"
-        android:layout_width="413dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
         android:background="@color/white"
@@ -148,7 +148,7 @@
         android:minHeight="48dp"
         android:text=""
         android:textColorHint="@color/black"
-        android:textSize="20dp"
+        android:textSize="16dp"
         android:textStyle="bold"
         app:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
