@@ -12,30 +12,30 @@ class DriversProfile : AppCompatActivity() {
     lateinit var phonenumberChangeDriver: TextView
     lateinit var passwordChangeDriver: TextView
     lateinit var logoutDriver: Button
-    lateinit var changeCarDetails:TextView
+    lateinit var feedbackForm: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drivers_profile)
         phonenumberChangeDriver=findViewById(R.id.phonenumberdriver)
         passwordChangeDriver=findViewById(R.id.passwordchangedriver)
-        logoutDriver=findViewById(R.id.buttonlogoutdriver)
-        changeCarDetails=findViewById(R.id.changecardetails)
+        logoutDriver = findViewById(R.id.buttonlogoutdriver)
+        feedbackForm = findViewById(R.id.feedbackForm)
         phonenumberChangeDriver.setOnClickListener {
             val intent= Intent(this@DriversProfile,SignInScreen::class.java)
             startActivity(intent)
         }
         passwordChangeDriver.setOnClickListener {
-            val intent= Intent(this@DriversProfile,ChangePassword::class.java)
+            val intent = Intent(this@DriversProfile, ChangePassword::class.java)
             startActivity(intent)
         }
-        changeCarDetails.setOnClickListener {
-            val intent= Intent(this@DriversProfile,ChangeCarDetails::class.java)
+        feedbackForm.setOnClickListener {
+            val intent = Intent(this@DriversProfile, ChangeCarDetails::class.java)
             startActivity(intent)
         }
         logoutDriver.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            val intent= Intent(this@DriversProfile,UsersScreen::class.java)
+            val intent = Intent(this@DriversProfile, UsersScreen::class.java)
             startActivity(intent)
         }
     }

@@ -88,10 +88,10 @@
                         android:id="@+id/textView3profile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:layout_below="@id/busimage"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
+                        android:gravity="center"
                         android:text="Profile"
                         android:textColor="@color/black"
                         android:textSize="@dimen/button_text" />
