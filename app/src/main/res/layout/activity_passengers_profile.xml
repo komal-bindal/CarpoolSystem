@@ -84,7 +84,7 @@
         android:textSize="@dimen/default_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fullNameDriver" />
+        app:layout_constraintTop_toBottomOf="@id/fullNamePassenger" />
 
 
     <TextView

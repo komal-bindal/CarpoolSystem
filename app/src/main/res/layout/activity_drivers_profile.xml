@@ -66,10 +66,6 @@
         app:layout_constraintTop_toBottomOf="@id/profilePhoto" />
 
     <TextView
-
-        android:id="@+id/emailofDriver"
-        android:layout_width="wrap_content"
-
         android:id="@+id/emailofDriver"
         android:layout_width="0dp"
 
@@ -102,7 +98,7 @@
         android:textSize="@dimen/default_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailofpassenger" />
+        app:layout_constraintTop_toBottomOf="@+id/emailofDriver" />
 
     <TextView
         android:id="@+id/passwordchangedriver"
