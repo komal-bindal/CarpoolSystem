@@ -17,7 +17,7 @@ import java.util.*
 
 class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     TimePickerDialog.OnTimeSetListener {
-    //private var firebaseAuth: FirebaseAuth? = null
+    private var firebaseAuth: FirebaseAuth? = null
     private val SOURCE_ERROR = "invalid source format"
     private val DESTINATION_ERROR = "invalid destination format"
 
@@ -45,9 +45,10 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_ride_screen)
-        //firebaseAuth = FirebaseAuth.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
         val intent=intent
         val source=intent.getStringExtra("source")
+
         addDetails = findViewById(R.id.buttonSubmit)
         viewDateAndTime = findViewById(R.id.textViewempty)
         addDateAndTime = findViewById(R.id.btnPick)
@@ -55,30 +56,48 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         dest = findViewById(R.id.textdestination)
         addDetails=findViewById(R.id.buttonSubmit)
         addLocationButton = findViewById(R.id.buttonAddLocation)
+
         val sr=getIntent().getStringExtra("source")
         val des=getIntent().getStringExtra("destination")
+
         src.setText(sr.toString())
         dest.setText(des.toString())
 
         addDetails.setOnClickListener {
             val s1 = src.text.toString()
             val d1 = dest.text.toString()
-            val dateTime = "Date=$day/$myMonth/$myYear"
-            val time = "Time=$myHour : $myMinute"
-            //val firebaseUser = firebaseAuth?.currentUser
-            //val uid=firebaseUser?.uid!!.toString()
+            val dateTime = "$day/$myMonth/$myYear"
+            val time = "$myHour : $myMinute"
+            val firebaseUser = firebaseAuth?.currentUser
+            val uid=firebaseUser?.uid!!.toString()
+            if(uid==readFirestoreDataFromUser().toString()) {
+                if (uid == readFirestoreData().toString()) {
+                    if (s1 != "null" && d1 != "null" && dateTime != "0/0/0" && time != "0:0") {
+                        saveFireStore(s1, d1, dateTime, time, uid)
+                    } else {
+                        Toast.makeText(
+                            this@AddRideScreen,
+                            "Please fill all the details ",
+                            Toast.LENGTH_SHORT
+                        ).show()
 
-            if (s1.isEmpty() || d1.isEmpty() || dateTime.isEmpty() || time.isEmpty()) {
+                    }
+                } else {
+                    Toast.makeText(
+                        this@AddRideScreen,
+                        "Add the Car Details",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                }
+            }
+            else{
                 Toast.makeText(
                     this@AddRideScreen,
-                    "Please fill all the details",
+                    "Enter your EmailId",
                     Toast.LENGTH_SHORT
                 ).show()
-            }
 
-        else {
-
-                saveFireStore(s1, d1, dateTime, time)
             }
         }
 
@@ -101,14 +120,14 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 
     }
 
-    private fun saveFireStore(s1: String, d1: String, dateTime: String,time:String) {
+    private fun saveFireStore(s1: String, d1: String, dateTime: String,time:String,uid:String) {
         val db=FirebaseFirestore.getInstance()
         val user:MutableMap<String,Any> = HashMap()
         user["source"]=s1
         user["destination"]=d1
         user["time"]=time
         user["date"]=dateTime
-       // user["uid"]=uid
+        user["uid"]=uid
         db.collection("ride")
             .add(user)
             .addOnSuccessListener {
@@ -132,6 +151,32 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
             is24HourFormat(this)
         )
         timePickerDialog.show()
+    }
+    fun readFirestoreData(){
+        val db=FirebaseFirestore.getInstance()
+        db.collection("car")
+            .get()
+            .addOnCompleteListener {
+                val result:StringBuffer=StringBuffer()
+                if(it.isSuccessful){
+                    for(document in it.result){
+                        result.append(document.data.getValue("owner")).append(" ")
+                    }
+                }
+            }
+    }
+    fun readFirestoreDataFromUser(){
+        val db=FirebaseFirestore.getInstance()
+        db.collection("users")
+            .get()
+            .addOnCompleteListener {
+                val result:StringBuffer=StringBuffer()
+                if(it.isSuccessful){
+                    for(document in it.result){
+                        result.append(document.data.getValue("uid")).append(" ")
+                    }
+                }
+            }
     }
 
     @SuppressLint("SetTextI18n")
