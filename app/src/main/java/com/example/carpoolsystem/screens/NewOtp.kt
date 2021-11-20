@@ -22,7 +22,7 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class SignupScreen2Otp : AppCompatActivity() {
+class NewOtp : AppCompatActivity() {
 
     private lateinit var otpCode1: EditText
     private lateinit var otpCode2: EditText
@@ -43,7 +43,7 @@ class SignupScreen2Otp : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_signup_screen2_otp)
+        setContentView(R.layout.activity_new_otp)
 
         otpCode1 = findViewById(R.id.otpCode1new)
         otpCode2 = findViewById(R.id.otpCode2new)

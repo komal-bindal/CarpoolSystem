@@ -19,7 +19,7 @@ import com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCall
 import java.util.concurrent.TimeUnit
 
 
-class SignupScreen2PhoneNumber : AppCompatActivity() {
+class AddNewPhoneNumber : AppCompatActivity() {
     private lateinit var phoneNumberEditText: EditText
     private lateinit var getOtpButton: Button
     private lateinit var verificationOTP: String
@@ -29,7 +29,7 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_signup_screen2_phone_number)
+        setContentView(R.layout.activity_add_new_phone_number)
 
         phoneNumberEditText = findViewById(R.id.editTextNewPhoneNumberAddNew)
         getOtpButton = findViewById(R.id.buttonGetNewOtpNew)
@@ -82,7 +82,7 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
                         "+91" + phoneNumberEditText.text.toString(),
                         60,
                         TimeUnit.SECONDS,
-                        this@SignupScreen2PhoneNumber,
+                        this@AddNewPhoneNumber,
                         object : OnVerificationStateChangedCallbacks() {
                             override fun onCodeSent(
                                 verificationId: String,
@@ -92,7 +92,7 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
                                 verificationOTP = verificationId
                                 val phoneNumber = "+91 " + phoneNumberEditText.text.toString()
                                 val intent =
-                                    Intent(applicationContext, SignupScreen2Otp::class.java)
+                                    Intent(applicationContext, NewOtp::class.java)
                                 intent.putExtra("PhoneNumber", phoneNumber.toString())
                                 intent.putExtra("VerificationOTP", verificationOTP.toString())
                                 intent.putExtra("User", user)
