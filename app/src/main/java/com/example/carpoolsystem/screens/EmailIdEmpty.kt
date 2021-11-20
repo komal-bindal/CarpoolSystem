@@ -11,6 +11,8 @@ import com.example.carpoolsystem.R
 import com.example.carpoolsystem.utility.RegistrationUtils
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 
 class EmailIdEmpty : AppCompatActivity() {
     private lateinit var emailIdEditText: EditText
@@ -95,6 +97,9 @@ class EmailIdEmpty : AppCompatActivity() {
                             "EmailId added successfully",
                             Toast.LENGTH_SHORT
                         ).show()
+                        addEmailtoDatabase(email)
+                        emailIdEditText.text.clear()
+                        passwordEditText.text.clear()
                     } else {
                         Toast.makeText(
                             baseContext, "Authentication failed.",
@@ -105,5 +110,25 @@ class EmailIdEmpty : AppCompatActivity() {
                     Toast.makeText(this, a.message.toString(), Toast.LENGTH_SHORT).show()
                 }
         }
+    }
+
+    private fun addEmailtoDatabase(email: String) {
+        val firebaseUser = FirebaseAuth.getInstance().currentUser
+
+        val docReference = FirebaseFirestore.getInstance().collection("users")
+            .whereEqualTo("uid", firebaseUser?.uid!!.toString())
+
+        docReference.get()
+            .addOnSuccessListener { querySnapshot ->
+                if (!querySnapshot.isEmpty) {
+                    val list: List<DocumentSnapshot> =
+                        querySnapshot.documents
+                    for (d in list) {
+                        d.reference.update("emailId", email)
+                    }
+                }
+            }.addOnFailureListener { e ->
+                Toast.makeText(this, e.message.toString(), Toast.LENGTH_SHORT).show()
+            }
     }
 }

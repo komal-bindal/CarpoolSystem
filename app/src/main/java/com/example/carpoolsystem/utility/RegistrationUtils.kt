@@ -5,11 +5,11 @@ import java.util.regex.Pattern
 class RegistrationUtils {
     companion object {
         fun isValidPassword(password: String): Boolean {
-            val passwordPattern =
-                "^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,12}$"
-            val pattern = Pattern.compile(passwordPattern)
-            val matcher = pattern.matcher(password)
-            return matcher.matches()
+//            val passwordPattern =
+//                "^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,12}$"
+//            val pattern = Pattern.compile(passwordPattern)
+//            val matcher = pattern.matcher(password)
+            return password.length >= 6
         }
 
         fun isValidEmail(emailId: String): Boolean {
@@ -20,10 +20,10 @@ class RegistrationUtils {
         }
 
         fun isValidPhoneNumber(phoneNumber: String): Boolean {
-//            val phoneNumberPattern = "^[0-9]{10}$"
-//            val pattern = Pattern.compile(phoneNumberPattern)
-//            val matcher = pattern.matcher(phoneNumber)
-            return phoneNumber.length == 6
+            val phoneNumberPattern = "^[0-9]{10}$"
+            val pattern = Pattern.compile(phoneNumberPattern)
+            val matcher = pattern.matcher(phoneNumber)
+            return matcher.matches()
         }
 
         fun isValidUserName(name: String): Boolean {

@@ -33,6 +33,7 @@ class PassengersProfile : AppCompatActivity() {
             if (emailTextView.text.toString().equals("Add your email id")) {
                 val intent = Intent(this, EmailIdEmpty::class.java)
                 startActivity(intent)
+                finish()
             }
         }
 
