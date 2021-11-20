@@ -20,18 +20,24 @@ class DriversProfile : AppCompatActivity() {
     lateinit var nameDriver: TextView
     lateinit var passwordChangeDriver: TextView
     lateinit var logoutDriver: Button
-    lateinit var changeCarDetails: TextView
+
+    lateinit var feedbackForm: TextView
+
+
     lateinit var emailIdDriver: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drivers_profile)
-        phonenumberChangeDriver = findViewById(R.id.phonenumberdriver)
-        passwordChangeDriver = findViewById(R.id.passwordchangedriver)
+
+        phonenumberChangeDriver=findViewById(R.id.phonenumberdriver)
+        passwordChangeDriver=findViewById(R.id.passwordchangedriver)
         logoutDriver = findViewById(R.id.buttonlogoutdriver)
-        changeCarDetails = findViewById(R.id.changecardetails)
+        feedbackForm = findViewById(R.id.feedbackForm)
         emailIdDriver = findViewById(R.id.emailofDriver)
         nameDriver = findViewById(R.id.fullNameDriver)
+
         phonenumberChangeDriver.setOnClickListener {
             val intent = Intent(this@DriversProfile, SignInScreen::class.java)
             startActivity(intent)
@@ -40,7 +46,8 @@ class DriversProfile : AppCompatActivity() {
             val intent = Intent(this@DriversProfile, ChangePassword::class.java)
             startActivity(intent)
         }
-        changeCarDetails.setOnClickListener {
+
+        feedbackForm.setOnClickListener {
             val intent = Intent(this@DriversProfile, ChangeCarDetails::class.java)
             startActivity(intent)
         }
