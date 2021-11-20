@@ -24,6 +24,9 @@
             android:name=".screens.DriversViewRequestScreen"
             android:exported="true" />
         <activity
+            android:name=".screens.EmailIdEmpty"
+            android:exported="true" />
+        <activity
             android:name=".screens.SearchResults"
             android:exported="true"
             android:screenOrientation="portrait" />
@@ -97,10 +100,8 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

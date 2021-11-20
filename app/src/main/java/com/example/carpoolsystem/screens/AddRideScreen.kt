@@ -37,7 +37,7 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     private lateinit var addDateAndTime: Button
     private lateinit var viewDateAndTime: TextView
     private lateinit var addLocationButton: Button
-    private lateinit var src:TextView
+    private lateinit var src: TextView
     private lateinit var dest: TextView
 
 
@@ -45,9 +45,11 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_ride_screen)
+
         firebaseAuth = FirebaseAuth.getInstance()
         val intent=intent
         val source=intent.getStringExtra("source")
+
 
         addDetails = findViewById(R.id.buttonSubmit)
         viewDateAndTime = findViewById(R.id.textViewempty)
@@ -56,6 +58,7 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         dest = findViewById(R.id.textdestination)
         addDetails=findViewById(R.id.buttonSubmit)
         addLocationButton = findViewById(R.id.buttonAddLocation)
+
 
         val sr=getIntent().getStringExtra("source")
         val des=getIntent().getStringExtra("destination")
@@ -109,7 +112,7 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 
         addDateAndTime.setOnClickListener {
             val calendar: Calendar = Calendar.getInstance()
-            Toast.makeText(this,source,Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, source, Toast.LENGTH_SHORT).show()
             day = calendar.get(Calendar.DAY_OF_MONTH)
             month = calendar.get(Calendar.MONTH)
             year = calendar.get(Calendar.YEAR)

@@ -53,7 +53,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         suggestionContainer = findViewById(R.id.container)
         btnSrc = findViewById(R.id.btn_source)
         btnDest = findViewById(R.id.btn_dest)
-        btnpool=findViewById(R.id.btn_pool)
+        btnpool = findViewById(R.id.btn_pool)
         actionContainer = findViewById(R.id.container_actions)
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this);
@@ -126,13 +126,12 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                     22.0
                 )
             )
-            val destination=btnDest.text.toString()
-            val source=btnSrc.text.toString()
-            val intent= Intent(this@MapActivity,AddRideScreen::class.java)
-            intent.putExtra("source",source)
-            intent.putExtra("destination",destination)
+            val destination = btnDest.text.toString()
+            val source = btnSrc.text.toString()
+            val intent = Intent(this@MapActivity, AddRideScreen::class.java)
+            intent.putExtra("source", source)
+            intent.putExtra("destination", destination)
             startActivity(intent)
-
 
 
         }
