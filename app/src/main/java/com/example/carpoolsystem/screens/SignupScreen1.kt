@@ -160,7 +160,7 @@ class SignupScreen1 : AppCompatActivity() {
                 ).show()
                 firebaseAuth?.signOut()
                 finish()
-                val intent = Intent(this, SignInScreen::class.java)
+                val intent = Intent(this, UsersScreen::class.java)
                 intent.putExtra("name", nameEditText.text.toString())
                 startActivity(intent)
             } else {

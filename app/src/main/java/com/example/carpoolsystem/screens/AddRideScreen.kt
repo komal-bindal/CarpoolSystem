@@ -43,7 +43,7 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_ride_screen)
         val intent = intent
-        val source = intent.getStringExtra("source")
+//        val source = intent.getStringExtra("source")
 
 
         addDetails = findViewById(R.id.buttonSubmit)
@@ -54,8 +54,8 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         addLocationButton = findViewById(R.id.buttonAddLocation)
         val sr = getIntent().getStringExtra("source")
         val des = getIntent().getStringExtra("destination")
-        src.setText(sr.toString())
-        dest.setText(des.toString())
+        src.text = sr.toString()
+        dest.text = des.toString()
 
         addLocationButton.setOnClickListener {
             val intent = Intent(this, MapActivity::class.java)
@@ -64,7 +64,7 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 
         addDateAndTime.setOnClickListener {
             val calendar: Calendar = Calendar.getInstance()
-            Toast.makeText(this, source, Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, source, Toast.LENGTH_SHORT).show()
             day = calendar.get(Calendar.DAY_OF_MONTH)
             month = calendar.get(Calendar.MONTH)
             year = calendar.get(Calendar.YEAR)

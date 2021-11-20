@@ -7,32 +7,70 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class PassengersProfile : AppCompatActivity() {
     lateinit var phonenumberChange: TextView
     lateinit var passwordChange: TextView
-    lateinit var logout:Button
+    lateinit var logout: Button
+    lateinit var name: TextView
+    lateinit var emailTextView: TextView
+    lateinit var phone: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_passengers_profile)
-        phonenumberChange=findViewById(R.id.phonenumberchangepassenger)
-        passwordChange=findViewById(R.id.passwordchangepassenger)
-        logout=findViewById(R.id.buttonlogoutpassenger)
+        phonenumberChange = findViewById(R.id.phonenumberchangepassenger)
+        passwordChange = findViewById(R.id.passwordchangepassenger)
+        logout = findViewById(R.id.buttonlogoutpassenger)
+        name = findViewById(R.id.fullNamePassenger)
+        emailTextView = findViewById(R.id.emailofpassenger)
+        phone = findViewById(R.id.phoneNumberTextView)
+
+        emailTextView.setOnClickListener {
+            if (emailTextView.text.toString().equals("Add your email id")) {
+                val intent = Intent(this, EmailIdEmpty::class.java)
+                startActivity(intent)
+            }
+        }
 
         phonenumberChange.setOnClickListener {
-            val intent= Intent(this@PassengersProfile,SignInScreen::class.java)
+            val intent = Intent(this@PassengersProfile, SignInScreen::class.java)
             startActivity(intent)
         }
 
         passwordChange.setOnClickListener {
-            val intent= Intent(this@PassengersProfile,ChangePassword::class.java)
+            val intent = Intent(this@PassengersProfile, ChangePassword::class.java)
             startActivity(intent)
         }
 
         logout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            val intent= Intent(this@PassengersProfile,UsersScreen::class.java)
+            val intent = Intent(this@PassengersProfile, UsersScreen::class.java)
             startActivity(intent)
+        }
+
+        val firebaseUser = FirebaseAuth.getInstance().currentUser
+        val docRef = FirebaseFirestore.getInstance().collection("users")
+            .whereEqualTo("uid", firebaseUser?.uid.toString())
+        docRef.get().addOnSuccessListener { querySnapshot ->
+            if (querySnapshot.isEmpty == false) {
+                var list = querySnapshot.documents
+                for (item in list) {
+                    val userName = item.data?.get("name").toString()
+                    val emailId = item.data?.get("emailId").toString()
+                    val phoneNumber = item.data?.get("phoneNumber").toString()
+                    if (!userName.isEmpty()) {
+                        name.text = userName
+                    }
+                    if (emailId.isEmpty() == false) {
+                        emailTextView.text = emailId
+                    }
+                    if (phoneNumber.isEmpty() == false) {
+                        phone.text = phoneNumber
+                    }
+                }
+            }
         }
     }
 }
