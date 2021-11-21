@@ -3,6 +3,7 @@ package com.example.carpoolsystem.screens
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -11,10 +12,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class NewOtp : AppCompatActivity() {
 
@@ -55,6 +60,7 @@ class NewOtp : AppCompatActivity() {
         val phone = intent.getStringExtra("PhoneNumber")
         phoneNumber.text = phone.toString()
         val verificationOtp = intent.getStringExtra("VerificationOTP")
+        val phoneAddOrChange = intent.getStringExtra("phone")
 
         otpCode1.requestFocus()
 
@@ -86,38 +92,84 @@ class NewOtp : AppCompatActivity() {
                                 otpEntered
                             )
                         val auth = FirebaseAuth.getInstance()
-                        auth.currentUser!!.linkWithCredential(phoneAuthCredential)
-                            .addOnCompleteListener { task ->
-                                if (task.isSuccessful) {
-                                    makeToast("phoneNumber added successfully")
-                                    val firebaseUser = auth.currentUser
-                                    val docReference =
-                                        FirebaseFirestore.getInstance().collection(USERS_COLLECTION)
-                                            .whereEqualTo(UID, firebaseUser?.uid!!.toString())
-
-                                    docReference.get()
-                                        .addOnSuccessListener { querySnapshot ->
-                                            if (!querySnapshot.isEmpty) {
-                                                val list: List<DocumentSnapshot> =
-                                                    querySnapshot.documents
-                                                for (d in list) {
-                                                    d.reference.update(PHONE_NUMBER, phone)
-
-                                                }
-                                            } else {
-                                                makeToast("error in updating")
-                                            }
-                                        }
-                                }
-                            }.addOnFailureListener { e ->
-                                makeToast(e.message.toString())
-                            }
+                        val currentUser = auth.currentUser
+                        if (phoneAddOrChange!! == "change") {
+                            Log.d("otp", phoneAddOrChange)
+                            updatePhoneNumber(currentUser, phoneAuthCredential, phone!!)
+                        } else {
+                            Log.d("otp", phoneAddOrChange)
+                            addPhoneNumber(currentUser, phoneAuthCredential, phone!!)
+                        }
                     }
                 }
             }
         )
     }
 
+
+    private fun updatePhoneNumberinDatabase(currentUser: FirebaseUser?, phone: String) {
+        val docReference = FirebaseFirestore.getInstance().collection(USERS_COLLECTION)
+            .whereEqualTo(UID, currentUser?.uid!!.toString())
+
+        docReference.get()
+            .addOnSuccessListener { querySnapshot ->
+                if (!querySnapshot.isEmpty) {
+                    val list: List<DocumentSnapshot> =
+                        querySnapshot.documents
+                    for (d in list) {
+                        d.reference.update(PHONE_NUMBER, phone)
+                    }
+                }
+            }.addOnFailureListener { e ->
+                Toast.makeText(this, e.message.toString(), Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun updatePhoneNumber(
+        currentUser: FirebaseUser?,
+        phoneAuthCredential: PhoneAuthCredential, phone: String
+    ) {
+        val list = currentUser?.providerData
+        for (i in list!!) {
+            if (i.providerId == "phone") {
+                currentUser.unlink(i.providerId)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            makeToast("unlinked")
+                        }
+                    }
+            }
+            Log.d("provider", i.providerId.toString())
+        }
+        GlobalScope.launch {
+            delay(1000L)
+            currentUser.linkWithCredential(phoneAuthCredential)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        makeToast("phoneNumber updated successfully")
+                        updatePhoneNumberinDatabase(currentUser, phone)
+                    }
+                }.addOnFailureListener { e ->
+                    makeToast(e.message.toString())
+                }
+        }
+
+    }
+
+    private fun addPhoneNumber(
+        currentUser: FirebaseUser?,
+        phoneAuthCredential: PhoneAuthCredential, phone: String
+    ) {
+        currentUser!!.linkWithCredential(phoneAuthCredential)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    makeToast("phoneNumber added successfully")
+                    updatePhoneNumberinDatabase(currentUser, phone)
+                }
+            }.addOnFailureListener { e ->
+                makeToast(e.message.toString())
+            }
+    }
 
     private fun makeToast(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()

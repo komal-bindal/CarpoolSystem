@@ -2,6 +2,7 @@ package com.example.carpoolsystem.screens
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -39,7 +40,15 @@ class PassengersProfile : AppCompatActivity() {
 
         phonenumberChange.setOnClickListener {
             val intent = Intent(this@PassengersProfile, AddNewPhoneNumber::class.java)
+            if (phonenumberChange.text.toString().equals("Add phone number")) {
+                Log.d("Passenger", "add")
+                intent.putExtra("Phone", "add")
+            } else {
+                Log.d("Passenger", "change")
+                intent.putExtra("phone", "change")
+            }
             startActivity(intent)
+            finish()
         }
 
         passwordChange.setOnClickListener {

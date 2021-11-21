@@ -18,9 +18,16 @@ class EmailIdEmpty : AppCompatActivity() {
     private lateinit var emailIdEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
+    private lateinit var nameEditText: EditText
+    private val USERNAME_ERROR =
+        "Name should not be empty and can contain only alphabets and spaces"
     private val PASSWORD_ERROR =
         "Password length should be 6"
     private val EMAIL_ID_ERROR = "Enter your GLA Email address"
+    private val UID = "uid"
+    private val NAME = "name"
+    private val EMAIL_ID = "emailId"
+    private val USERS_COLLECTION = "users"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +36,36 @@ class EmailIdEmpty : AppCompatActivity() {
         emailIdEditText = findViewById(R.id.EnterEmailIdentity)
         passwordEditText = findViewById(R.id.EnterpasswordPassword)
         loginButton = findViewById(R.id.login_Button)
+        nameEditText = findViewById(R.id.enterName)
 
+
+        nameEditText.addTextChangedListener(
+            object : TextWatcher {
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int, count: Int, after: Int
+                ) {
+
+                }
+
+                override fun onTextChanged(
+                    s: CharSequence?,
+                    start: Int, before: Int, count: Int
+                ) {
+                    s?.apply {
+                        if (RegistrationUtils.isValidUserName(s.toString())) {
+                            nameEditText.error = null
+
+                        } else {
+                            nameEditText.error = USERNAME_ERROR
+                        }
+                    }
+                }
+
+                override fun afterTextChanged(s: Editable?) {
+
+                }
+            })
 
         emailIdEditText.addTextChangedListener(
             object : TextWatcher {
@@ -86,6 +122,16 @@ class EmailIdEmpty : AppCompatActivity() {
         loginButton.setOnClickListener {
             val email = emailIdEditText.text.toString()
             val password = passwordEditText.text.toString()
+            val name = nameEditText.text.toString()
+            if (email.isEmpty() || password.isEmpty() || name.isEmpty() || !RegistrationUtils.isValidUserName(
+                    name
+                ) || !RegistrationUtils.isValidEmail(email) || !RegistrationUtils.isValidPassword(
+                    password
+                )
+            ) {
+                Toast.makeText(this, "Please enter all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             val credential = EmailAuthProvider.getCredential(email, password)
             var auth = FirebaseAuth.getInstance()
             auth.currentUser!!.linkWithCredential(credential)
@@ -97,7 +143,7 @@ class EmailIdEmpty : AppCompatActivity() {
                             "EmailId added successfully",
                             Toast.LENGTH_SHORT
                         ).show()
-                        addEmailtoDatabase(email)
+                        addEmailtoDatabase(email, name)
                         emailIdEditText.text.clear()
                         passwordEditText.text.clear()
                         passwordEditText.error = null
@@ -114,11 +160,11 @@ class EmailIdEmpty : AppCompatActivity() {
         }
     }
 
-    private fun addEmailtoDatabase(email: String) {
+    private fun addEmailtoDatabase(email: String, name: String) {
         val firebaseUser = FirebaseAuth.getInstance().currentUser
 
-        val docReference = FirebaseFirestore.getInstance().collection("users")
-            .whereEqualTo("uid", firebaseUser?.uid!!.toString())
+        val docReference = FirebaseFirestore.getInstance().collection(USERS_COLLECTION)
+            .whereEqualTo(UID, firebaseUser?.uid!!.toString())
 
         docReference.get()
             .addOnSuccessListener { querySnapshot ->
@@ -126,7 +172,8 @@ class EmailIdEmpty : AppCompatActivity() {
                     val list: List<DocumentSnapshot> =
                         querySnapshot.documents
                     for (d in list) {
-                        d.reference.update("emailId", email)
+                        d.reference.update(EMAIL_ID, email)
+                        d.reference.update(NAME, name)
                     }
                 }
             }.addOnFailureListener { e ->
