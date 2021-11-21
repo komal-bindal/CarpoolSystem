@@ -1,14 +1,19 @@
 package com.example.carpoolsystem.screens
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+
 
 class DriversProfile : AppCompatActivity() {
     private val USERS_COLLECTION = "users"
@@ -24,6 +29,7 @@ class DriversProfile : AppCompatActivity() {
     private lateinit var feedbackFormTextView: TextView
     private lateinit var emailIdDriverTextView: TextView
     private lateinit var driverPhoneNumberTextView: TextView
+    private lateinit var deleteAccountButton: Button
     private var FEEDBACK_URL = "https://forms.gle/2zD9AoMWGegbTwmg8"
 
 
@@ -38,8 +44,38 @@ class DriversProfile : AppCompatActivity() {
         emailIdDriverTextView = findViewById(R.id.emailofDriver)
         nameDriverTextView = findViewById(R.id.fullNameDriver)
         driverPhoneNumberTextView = findViewById(R.id.driverPhoneNumber)
+        deleteAccountButton = findViewById(R.id.deleteAcoountDriver)
 
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Confirm")
+        builder.setMessage("Are you sure?")
+
+        builder.setPositiveButton(
+            "YES"
+        ) { dialog, which ->
+            val user = FirebaseAuth.getInstance().currentUser
+            user?.delete()?.addOnCompleteListener { task ->
+                Toast.makeText(this, "account deleted successfully", Toast.LENGTH_SHORT).show()
+                deleteAccountFromDatabase(user)
+                startActivity(Intent(this, UsersScreen::class.java))
+                finish()
+            }?.addOnFailureListener { e ->
+                Toast.makeText(this, e.message.toString(), Toast.LENGTH_SHORT).show()
+            }
+            dialog.dismiss()
+        }
+
+        builder.setNegativeButton(
+            "NO"
+        ) { dialog, which ->
+            dialog.dismiss()
+        }
         fetchDetailsFromDatabase()
+
+        deleteAccountButton.setOnClickListener {
+            val alert: AlertDialog = builder.create()
+            alert.show()
+        }
 
         passwordChangeDriverTextView.setOnClickListener {
             val intent = Intent(this@DriversProfile, ChangePassword::class.java)
@@ -98,10 +134,29 @@ class DriversProfile : AppCompatActivity() {
                     if (phoneNumber.isEmpty() == false) {
                         driverPhoneNumberTextView.text = phoneNumber
                     } else {
-                        passwordChangeDriverTextView.text = "Add phone number"
+                        phonenumberChangeDriverTextView.text = "Add phone number"
                     }
                 }
             }
         }
+    }
+
+    private fun deleteAccountFromDatabase(user: FirebaseUser) {
+        val db = FirebaseFirestore.getInstance()
+        val docReference = db.collection(USERS_COLLECTION)
+            .whereEqualTo(UID, user.uid.toString())
+        docReference.get()
+            .addOnSuccessListener { querySnapshot ->
+                if (!querySnapshot.isEmpty) {
+                    val list: List<DocumentSnapshot> =
+                        querySnapshot.documents
+                    for (d in list) {
+                        d.reference.delete()
+                    }
+                }
+            }.addOnFailureListener { e ->
+                Toast.makeText(this, e.message.toString(), Toast.LENGTH_SHORT).show()
+            }
+
     }
 }

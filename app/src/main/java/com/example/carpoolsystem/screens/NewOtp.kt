@@ -136,6 +136,7 @@ class NewOtp : AppCompatActivity() {
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
                             makeToast("unlinked")
+                            updatePhoneNumberinDatabase(currentUser, "")
                         }
                     }
             }
