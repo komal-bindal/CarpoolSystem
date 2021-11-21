@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:background="#4DB7ECF3"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".screens.MapActivity">
+
+
+    <AutoCompleteTextView
+        android:id="@+id/autocompleteTextViewsource"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:completionHint="Select the pickup point"
+        android:completionThreshold="1"
+        android:drawableLeft="@drawable/mapmyindia_direction_start_loc"
+        android:hint="Select the pickup point"
+        android:minHeight="48dp"
+        android:padding="20dp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autocompleteTextViewdestination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:completionHint="Select the destination point"
+        android:completionThreshold="1"
+        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+        android:hint="Select the destination point"
+        android:minHeight="48dp"
+        android:padding="20dp" />
+
+    <Button
+        android:id="@+id/buttonPool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pool" />
+
+
+</LinearLayout>
