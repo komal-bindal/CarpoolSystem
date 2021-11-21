@@ -12,12 +12,10 @@
         android:layout_width="230dp"
         android:layout_height="202dp"
         android:layout_marginStart="-80dp"
-        android:layout_marginLeft="-80dp"
         android:layout_marginTop="-40dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:src="#99000000"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNewPhoneNumberAddNew"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -45,7 +43,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/otpsend" />
+        app:srcCompat="@drawable/message_send" />
 
     <TextView
         android:id="@+id/textView2"
@@ -110,7 +108,7 @@
     <EditText
         android:id="@+id/editTextNewPhoneNumber"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:foregroundGravity="left"
         android:gravity="center"
@@ -127,16 +125,17 @@
 
     <Button
         android:id="@+id/buttonGetNewOtp"
-        android:layout_width="324dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
         android:layout_marginTop="28dp"
+        android:textAllCaps="false"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
         android:minHeight="48dp"
         android:text="@string/get_otp"
         android:textColor="@color/black"
-        android:textSize="22sp"
+        android:textSize="@dimen/button_text"
         android:textStyle="bold"
         app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"

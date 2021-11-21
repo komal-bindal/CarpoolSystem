@@ -32,7 +32,7 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
         setContentView(R.layout.activity_signup_screen2_phone_number)
 
         phoneNumberEditText = findViewById(R.id.editTextNewPhoneNumberAddNew)
-        getOtpButton = findViewById(R.id.buttonGetNewOtpNew)
+        getOtpButton = findViewById(R.id.buttonGetOtpNew)
 
         phoneNumberEditText.requestFocus()
 
