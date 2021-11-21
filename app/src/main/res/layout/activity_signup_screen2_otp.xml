@@ -35,15 +35,15 @@
 
     <ImageView
         android:id="@+id/imageViewRideClub"
-        android:layout_width="120dp"
+        android:layout_width="140dp"
         android:layout_height="120dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="156dp"
         android:contentDescription="@string/otpreceived"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/otpreceived" />
+        app:srcCompat="@drawable/message_received" />
 
     <TextView
         android:id="@+id/textView6forgetpassword"
@@ -104,7 +104,7 @@
         <EditText
             android:id="@+id/otpCode1new"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -120,7 +120,7 @@
         <EditText
             android:id="@+id/otpCode2new"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -136,7 +136,7 @@
         <EditText
             android:id="@+id/otpCode3new"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -152,7 +152,7 @@
         <EditText
             android:id="@+id/otpCode4new"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -168,7 +168,7 @@
         <EditText
             android:id="@+id/otpCode5new"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -184,7 +184,7 @@
         <EditText
             android:id="@+id/otpCode6new"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -201,18 +201,20 @@
 
     <Button
         android:id="@+id/buttonVerifyNew"
-        android:layout_width="324dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+
         android:layout_marginTop="44dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
+        android:textAllCaps="false"
         android:gravity="center"
         android:minHeight="48dp"
         android:text="@string/verify"
         android:textColor="@color/black"
-        android:textSize="22sp"
+        android:textSize="@dimen/button_text"
         android:textStyle="bold"
-        app:backgroundTint="#55B3BF"
+        app:backgroundTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"

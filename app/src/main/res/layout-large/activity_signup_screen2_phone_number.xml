@@ -37,25 +37,27 @@
 
     <ImageView
         android:id="@+id/imageViewRideClub"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="152dp"
+        android:layout_width="172dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="204dp"
         android:contentDescription="@string/otpsend"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/otpsend" />
+        app:srcCompat="@drawable/message_send" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="40dp"
         android:text="@string/otp_verification"
         android:textColor="@color/black"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewRideClub" />
 
@@ -117,6 +119,7 @@
         android:gravity="center"
         android:hint="@string/_1234567890"
         android:inputType="phone"
+        android:maxLength="10"
         android:minHeight="48dp"
         android:text=""
         android:textSize="26sp"
@@ -127,19 +130,22 @@
         tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints" />
 
     <Button
-        android:id="@+id/buttonGetNewOtpNew"
-        android:layout_width="324dp"
-        android:layout_height="48dp"
+
+        android:id="@+id/buttonGetOtpNew"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+
         android:layout_marginTop="28dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:gravity="center"
         android:minHeight="48dp"
         android:text="@string/get_otp"
+        android:textAllCaps="false"
         android:textColor="@color/black"
-        android:textSize="22sp"
+        android:textSize="@dimen/button_text"
         android:textStyle="bold"
-        app:backgroundTint="#55B3BF"
+        app:backgroundTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
