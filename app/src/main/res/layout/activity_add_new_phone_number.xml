@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.AddRideScreen">
+    tools:context=".screens.AddNewPhoneNumber">
 
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -29,7 +29,7 @@
         android:layout_height="190dp"
         android:layout_marginTop="-80dp"
         android:src="#99000000"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNewPhoneNumberAddNew"
+        app:layout_constraintEnd_toStartOf="@+id/editTextNewPhoneNumber"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -37,15 +37,15 @@
 
     <ImageView
         android:id="@+id/imageViewRideClub"
-        android:layout_width="140dp"
+        android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="124dp"
         android:contentDescription="@string/otpsend"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/message_send" />
+        app:srcCompat="@drawable/otpsend" />
 
     <TextView
         android:id="@+id/textView2"
@@ -66,8 +66,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
-        android:gravity="center"
         android:layout_marginEnd="50dp"
+        android:gravity="center"
         android:text="@string/we_will_send_you_one_time_password_on_this_mobile_number"
         android:textColor="@color/black"
         android:textSize="14sp"
@@ -96,24 +96,23 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginLeft="80dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="26dp"
         android:text="@string/_91"
         android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNewPhoneNumberAddNew"
+        app:layout_constraintEnd_toStartOf="@+id/editTextNewPhoneNumber"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4searchride" />
 
 
     <EditText
-        android:id="@+id/editTextNewPhoneNumberAddNew"
+        android:id="@+id/editTextNewPhoneNumber"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:foregroundGravity="left"
-        android:maxLength="10"
         android:gravity="center"
         android:hint="@string/_1234567890"
         android:inputType="phone"
@@ -121,30 +120,29 @@
         android:text=""
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.633"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4searchride"
         tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints" />
 
     <Button
-        android:id="@+id/buttonGetOtpNew"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
+        android:id="@+id/buttonGetNewOtp"
+        android:layout_width="324dp"
+        android:layout_height="48dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
-        android:textAllCaps="false"
         android:gravity="center"
         android:minHeight="48dp"
         android:text="@string/get_otp"
         android:textColor="@color/black"
-        android:textSize="@dimen/button_text"
+        android:textSize="22sp"
         android:textStyle="bold"
-        app:backgroundTint="@color/button_color"
+        app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNewPhoneNumberAddNew"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNewPhoneNumber"
         tools:ignore="MissingConstraints" />
 
 
