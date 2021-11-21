@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -20,6 +21,7 @@ import java.util.concurrent.TimeUnit
 
 
 class AddNewPhoneNumber : AppCompatActivity() {
+
     private lateinit var phoneNumberEditText: EditText
     private lateinit var getOtpButton: Button
     private lateinit var verificationOTP: String
@@ -28,7 +30,6 @@ class AddNewPhoneNumber : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_add_new_phone_number)
 
         phoneNumberEditText = findViewById(R.id.editTextNewPhoneNumber)
@@ -36,6 +37,8 @@ class AddNewPhoneNumber : AppCompatActivity() {
 
         phoneNumberEditText.requestFocus()
 
+        val intent = intent
+        val phoneAddOrChange = intent.getStringExtra("phone").toString()
 
         phoneNumberEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
@@ -93,6 +96,8 @@ class AddNewPhoneNumber : AppCompatActivity() {
                                     Intent(applicationContext, NewOtp::class.java)
                                 intent.putExtra("PhoneNumber", phoneNumber.toString())
                                 intent.putExtra("VerificationOTP", verificationOTP.toString())
+                                intent.putExtra("phone", phoneAddOrChange)
+                                Log.d("phone", phoneAddOrChange)
                                 startActivity(intent)
                                 finish()
                             }

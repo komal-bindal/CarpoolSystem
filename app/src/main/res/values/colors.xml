@@ -11,5 +11,6 @@
     <color name="colorDefault">#9e9e9e</color>
     <color name="colordarkblue">#00008b</color>
     <color name="colorwhiteblueshade">#DF949DCD</color>
+    <color name="danger">#CA0B00</color>
 
 </resources>

@@ -44,13 +44,14 @@
         android:id="@+id/profilePhoto"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="164dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/undraw_male_avatar"
+        android:layout_marginTop="124dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/undraw_male_avatar"
         tools:ignore="VectorDrawableCompat" />
+
     <TextView
         android:id="@+id/fullNameDriver"
         android:layout_width="match_parent"
@@ -65,23 +66,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profilePhoto" />
 
+
     <TextView
         android:id="@+id/emailofDriver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawablePadding="20dp"
         android:layout_marginTop="12dp"
-        android:text="Add your email id"
         android:drawableStart="@drawable/ic_baseline_email_24"
         android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:drawablePadding="20dp"
         android:gravity="center"
-        android:textSize="@dimen/default_text"
+        android:text="Add your email id"
 
         android:textColor="#000"
+        android:textSize="@dimen/default_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fullNameDriver" />
-
+        app:layout_constraintTop_toBottomOf="@+id/driverPhoneNumber" />
 
     <TextView
         android:id="@+id/phonenumberdriver"
@@ -137,7 +138,7 @@
         android:id="@+id/buttonlogoutdriver"
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="@color/button_color"
         android:text="Logout"
@@ -146,9 +147,37 @@
         android:textSize="@dimen/button_text"
         app:backgroundTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/feedbackForm"
         tools:text="logout" />
+
+    <TextView
+        android:id="@+id/driverPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullNameDriver" />
+
+    <Button
+        android:id="@+id/deleteAcoountDriver"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/danger"
+        android:text="Delete account"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/button_text"
+        app:backgroundTint="@color/danger"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonlogoutdriver" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

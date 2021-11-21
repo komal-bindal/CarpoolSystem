@@ -111,14 +111,14 @@ class SignupScreen2Otp : AppCompatActivity() {
                                                         for (d in list) {
                                                             Log.d("data", "${d.data?.get(USER)}")
                                                             if (d.data?.get(USER) == selectedUser) {
-                                                                if (selectedUser == "Passenger") {
+                                                                if (selectedUser.toString() == "Passenger") {
                                                                     startActivity(
                                                                         Intent(
                                                                             applicationContext,
                                                                             DashboardPassenger::class.java
                                                                         )
                                                                     )
-                                                                } else {
+                                                                } else if (selectedUser.toString() == "Driver") {
                                                                     startActivity(
                                                                         Intent(
                                                                             applicationContext,
