@@ -17,7 +17,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:src="#99000000"
-        app:layout_constraintEnd_toStartOf="@+id/editTextPhoneNumber"
+        app:layout_constraintEnd_toStartOf="@+id/editTextNewPhoneNumberAddNew"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,7 +29,7 @@
         android:layout_height="190dp"
         android:layout_marginTop="-80dp"
         android:src="#99000000"
-        app:layout_constraintEnd_toStartOf="@+id/editTextPhoneNumber"
+        app:layout_constraintEnd_toStartOf="@+id/editTextNewPhoneNumberAddNew"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -101,13 +101,13 @@
         android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/editTextPhoneNumber"
+        app:layout_constraintEnd_toStartOf="@+id/editTextNewPhoneNumberAddNew"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4searchride" />
 
 
     <EditText
-        android:id="@+id/editTextPhoneNumber"
+        android:id="@+id/editTextNewPhoneNumberAddNew"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
@@ -126,9 +126,10 @@
         tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints" />
 
     <Button
-        android:id="@+id/buttonGetOtp"
+        android:id="@+id/buttonGetOtpNew"
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
+
         android:layout_marginTop="28dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
@@ -143,7 +144,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNumber"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNewPhoneNumberAddNew"
         tools:ignore="MissingConstraints" />
 
 

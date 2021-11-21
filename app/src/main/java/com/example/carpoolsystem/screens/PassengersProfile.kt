@@ -38,7 +38,7 @@ class PassengersProfile : AppCompatActivity() {
         }
 
         phonenumberChange.setOnClickListener {
-            val intent = Intent(this@PassengersProfile, SignInScreen::class.java)
+            val intent = Intent(this@PassengersProfile, AddNewPhoneNumber::class.java)
             startActivity(intent)
         }
 

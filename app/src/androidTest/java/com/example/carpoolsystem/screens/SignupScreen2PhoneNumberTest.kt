@@ -28,10 +28,10 @@ class SignupScreen2PhoneNumberTest {
     @Test
     fun testGetOtpButtonClickedScenario() {
         val phoneNumber = "1234567890"
-        Espresso.onView(withId(R.id.editTextPhoneNumber))
+        Espresso.onView(withId(R.id.editTextNewPhoneNumberAddNew))
             .perform(ViewActions.typeText(phoneNumber))
         Espresso.closeSoftKeyboard()
-        Espresso.onView(withId(R.id.buttonGetOtp)).perform(ViewActions.click())
+        Espresso.onView(withId(R.id.buttonGetNewOtpNew)).perform(ViewActions.click())
         Espresso.onView(withId(R.id.mobile)).check(
             matches(
                 withText(
