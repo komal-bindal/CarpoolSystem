@@ -43,7 +43,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/otpreceived" />
+        app:srcCompat="@drawable/message_received" />
 
     <TextView
         android:id="@+id/textView6forgetpassword"
@@ -104,7 +104,7 @@
         <EditText
             android:id="@+id/otpCode1"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -120,7 +120,7 @@
         <EditText
             android:id="@+id/otpCode2"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -136,7 +136,7 @@
         <EditText
             android:id="@+id/otpCode3"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -152,7 +152,7 @@
         <EditText
             android:id="@+id/otpCode4"
             android:layout_width="40dp"
-            android:layout_height="38dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -167,8 +167,8 @@
 
         <EditText
             android:id="@+id/otpCode5"
-            android:layout_width="32dp"
-            android:layout_height="36dp"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -184,7 +184,7 @@
         <EditText
             android:id="@+id/otpCode6"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -201,16 +201,17 @@
 
     <Button
         android:id="@+id/buttonVerify"
-        android:layout_width="324dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
         android:layout_marginTop="44dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
+        android:textAllCaps="false"
         android:gravity="center"
         android:minHeight="48dp"
         android:text="@string/verify"
         android:textColor="@color/black"
-        android:textSize="22sp"
+        android:textSize="@dimen/button_text"
         android:textStyle="bold"
         app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"
