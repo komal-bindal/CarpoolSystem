@@ -20,7 +20,7 @@ class PassengersProfile : AppCompatActivity() {
         logout=findViewById(R.id.buttonlogoutpassenger)
 
         phonenumberChange.setOnClickListener {
-            val intent= Intent(this@PassengersProfile,SignInScreen::class.java)
+            val intent = Intent(this@PassengersProfile, AddNewPhoneNumber::class.java)
             startActivity(intent)
         }
 

@@ -109,6 +109,8 @@ class NewOtp : AppCompatActivity() {
                                             }
                                         }
                                 }
+                            }.addOnFailureListener { e ->
+                                makeToast(e.message.toString())
                             }
                     }
                 }
