@@ -15,7 +15,7 @@ class DriversProfile : AppCompatActivity() {
     private val EMAIL_ID = "emailId"
     private val NAME = "name"
     private val PHONE_NUMBER = "phoneNumber"
-    private val UID = "uId"
+    private val UID = "uid"
     private val USER = "user"
     private lateinit var phonenumberChangeDriverTextView: TextView
     private lateinit var nameDriverTextView: TextView
@@ -83,12 +83,12 @@ class DriversProfile : AppCompatActivity() {
         val docRef = FirebaseFirestore.getInstance().collection(USERS_COLLECTION)
             .whereEqualTo(UID, firebaseUser?.uid.toString())
         docRef.get().addOnSuccessListener { querySnapshot ->
-            if (!querySnapshot.isEmpty) {
+            if (querySnapshot.isEmpty == false) {
                 var list = querySnapshot.documents
                 for (item in list) {
-                    val userName = item.data?.get("name").toString()
-                    val emailId = item.data?.get("emailId").toString()
-                    val phoneNumber = item.data?.get("phoneNumber").toString()
+                    val userName = item.data?.get(NAME).toString()
+                    val emailId = item.data?.get(EMAIL_ID).toString()
+                    val phoneNumber = item.data?.get(PHONE_NUMBER).toString()
                     if (!userName.isEmpty()) {
                         nameDriverTextView.text = userName
                     }
