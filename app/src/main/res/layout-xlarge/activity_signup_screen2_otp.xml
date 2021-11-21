@@ -35,7 +35,7 @@
 
     <ImageView
         android:id="@+id/imageViewRideClub"
-        android:layout_width="140dp"
+        android:layout_width="160dp"
         android:layout_height="140dp"
         android:layout_marginTop="148dp"
         android:contentDescription="@string/otpreceived"
@@ -43,13 +43,13 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/otpreceived" />
+        app:srcCompat="@drawable/message_received" />
 
     <TextView
         android:id="@+id/textView6forgetpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="56dp"
         android:text="@string/otp_verification"
         android:textColor="@color/black"
         android:textSize="40sp"
@@ -102,9 +102,9 @@
         tools:ignore="MissingConstraints">
 
         <EditText
-            android:id="@+id/otpCode1"
+            android:id="@+id/otpCode1new"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -118,9 +118,9 @@
             tools:layout_editor_absoluteY="367dp" />
 
         <EditText
-            android:id="@+id/otpCode2"
+            android:id="@+id/otpCode2new"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -134,9 +134,9 @@
             tools:layout_editor_absoluteY="367dp" />
 
         <EditText
-            android:id="@+id/otpCode3"
+            android:id="@+id/otpCode3new"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -150,9 +150,9 @@
             tools:layout_editor_absoluteY="367dp" />
 
         <EditText
-            android:id="@+id/otpCode4"
+            android:id="@+id/otpCode4new"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -166,9 +166,9 @@
             tools:layout_editor_absoluteY="367dp" />
 
         <EditText
-            android:id="@+id/otpCode5"
+            android:id="@+id/otpCode5new"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -182,9 +182,9 @@
             tools:layout_editor_absoluteY="367dp" />
 
         <EditText
-            android:id="@+id/otpCode6"
+            android:id="@+id/otpCode6new"
             android:layout_width="40dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
@@ -200,19 +200,21 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/buttonVerify"
-        android:layout_width="324dp"
-        android:layout_height="48dp"
+        android:id="@+id/buttonVerifyNew"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+
         android:layout_marginTop="44dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
+        android:textAllCaps="false"
         android:gravity="center"
         android:minHeight="48dp"
         android:text="@string/verify"
         android:textColor="@color/black"
-        android:textSize="22sp"
+        android:textSize="@dimen/button_text"
         android:textStyle="bold"
-        app:backgroundTint="#55B3BF"
+        app:backgroundTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"

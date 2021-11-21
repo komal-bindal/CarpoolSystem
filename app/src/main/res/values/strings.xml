@@ -12,6 +12,40 @@
     <string name="verify">Verify</string>
     <string name="enter_the_otp_sent_to">Enter the OTP sent to</string>
     <string name="preference_file_key">com.example.myapp.PREFERENCE_FILE_KEY</string>
+    <string-array name="locations">
+        <item>Agra
+        </item>
+        <item>Farah
+        </item>
+        <item>Agra-Mathura Toll
+        </item>
+        <item>Refinery mathura
+        </item>
+        <item>Goverdhan chauraha mathura
+        </item>
+        <item>Krishna Nagar
+        </item>
+        <item>Radhapuram</item>
+        <item>KrishVatika</item>
+        <item>Gulmohar</item>
+        <item>Radha Valley</item>
+        <item>Railway Colony</item>
+        <item>Azad Nagar
+        </item>
+        <item>Masani
+        </item>
+        <item>ByPass
+        </item>
+        <item>Chaumuhan
+        </item>
+        <item>GLA University</item>
+        <item>Maholi Road</item>
+        <item>Township</item>
+        <item>Refinary Nagar</item>
+        <item>Sadar Bazar Mathura</item>
+        <item>Other</item>
+
+    </string-array>
 
 
 </resources>

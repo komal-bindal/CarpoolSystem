@@ -42,141 +42,142 @@
 
     <ImageView
         android:id="@+id/profilePhoto"
-        android:layout_width="106dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="164dp"
-        android:background="@drawable/ic_baseline_person_pin_24"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="124dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_baseline_person_pin_24" />
+        app:srcCompat="@drawable/undraw_male_avatar"
+        tools:ignore="VectorDrawableCompat" />
 
     <TextView
-        android:id="@+id/fullNamePassenger"
-        android:layout_width="wrap_content"
+        android:id="@+id/fullNameDriver"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:layout_marginTop="16dp"
-        android:text="Kritika Sharma"
+        android:text="Driver"
         android:textColor="#000"
-        android:textSize="32sp"
+        android:textSize="@dimen/heading_text"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profilePhoto" />
 
+
     <TextView
-        android:id="@+id/emailofpassenger"
-        android:layout_width="0dp"
+        android:id="@+id/emailofDriver"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:drawableStart="@drawable/ic_baseline_email_24"
         android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:drawablePadding="20dp"
         android:gravity="center"
-        android:text="kritika.sharma_cs19@gla.ac.in"
-        android:textColor="#000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fullNamePassenger" />
+        android:text="Add your email id"
 
-    <View
-        android:id="@+id/lineOne"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="12dp"
-        android:background="#888"
+        android:textColor="#000"
+        android:textSize="@dimen/default_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emailofpassenger" />
+        app:layout_constraintTop_toBottomOf="@+id/driverPhoneNumber" />
 
     <TextView
         android:id="@+id/phonenumberdriver"
-        android:layout_width="414dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:drawableStart="@drawable/ic_baseline_local_phone_24"
         android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+        android:drawablePadding="20dp"
         android:gravity="center"
         android:text="Change phone number"
         android:textColor="#000"
+        android:textSize="@dimen/default_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lineOne" />
-
-    <View
-        android:id="@+id/lineTwo"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="12dp"
-        android:background="#888"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phonenumberdriver" />
+        app:layout_constraintTop_toBottomOf="@+id/emailofDriver" />
 
     <TextView
         android:id="@+id/passwordchangedriver"
-        android:layout_width="414dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:drawableStart="@drawable/ic_baseline_lock_24"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="20dp"
         android:gravity="center"
         android:text="Change password"
         android:textColor="#000"
+        android:textSize="@dimen/default_text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lineTwo" />
-
-    <View
-        android:id="@+id/lineThree"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="12dp"
-        android:background="#888"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordchangedriver" />
+        app:layout_constraintTop_toBottomOf="@+id/phonenumberdriver" />
 
     <TextView
-        android:id="@+id/changecardetails"
-        android:layout_width="414dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="12dp"
+        android:id="@+id/feedbackForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:drawableStart="@drawable/ic_baseline_directions_car_filled_24"
         android:drawableLeft="@drawable/ic_baseline_directions_car_filled_24"
+        android:drawablePadding="@dimen/default_text"
         android:gravity="center"
-        android:text="Change car details"
+        android:text="Feedback"
         android:textColor="#000"
+        android:textSize="@dimen/default_text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lineThree" />
-
-    <View
-        android:id="@+id/lineFour"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="12dp"
-        android:background="#888"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/changecardetails" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordchangedriver" />
 
     <Button
         android:id="@+id/buttonlogoutdriver"
-        android:layout_width="403dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
         android:layout_marginTop="12dp"
-        android:text="logout"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/button_color"
+        android:text="Logout"
+        android:textAllCaps="false"
         android:textColor="@color/black"
-        app:backgroundTint="#74FFFFFF"
+        android:textSize="@dimen/button_text"
+        app:backgroundTint="@color/button_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feedbackForm"
+        tools:text="logout" />
+
+    <TextView
+        android:id="@+id/driverPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lineFour"
-        tools:text="logout" />
+        app:layout_constraintTop_toBottomOf="@+id/fullNameDriver" />
+
+    <Button
+        android:id="@+id/deleteAcoountDriver"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/danger"
+        android:text="Delete account"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/button_text"
+        app:backgroundTint="@color/danger"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonlogoutdriver" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

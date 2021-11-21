@@ -25,7 +25,7 @@ class SignupScreen1 : AppCompatActivity() {
     private val USERNAME_ERROR =
         "Name should not be empty and can contain only alphabets and spaces"
     private val PASSWORD_ERROR =
-        "Password should contain at least one upper case letter, lower case letter, number, and special characters(@#\$%^&+=!)"
+        "Password length should be 6"
     private val EMAIL_ID_ERROR = "Enter your GLA Email address"
 
     private lateinit var passwordEditText: EditText
@@ -33,6 +33,7 @@ class SignupScreen1 : AppCompatActivity() {
     private lateinit var nameEditText: EditText
     private lateinit var nextButton: Button
     private lateinit var OTPSignUpButton: Button
+    private lateinit var SignInButton: Button
     private lateinit var progressDialog: ProgressDialog
     private val UID = "uid"
     private val NAME = "name"
@@ -53,7 +54,7 @@ class SignupScreen1 : AppCompatActivity() {
         nameEditText = findViewById(R.id.editTextName)
         nextButton = findViewById(R.id.buttonNext)
         OTPSignUpButton = findViewById(R.id.buttonNext2)
-
+        SignInButton = findViewById(R.id.buttonNext3)
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Loading")
         progressDialog.setMessage("Please wait...")
@@ -70,6 +71,11 @@ class SignupScreen1 : AppCompatActivity() {
         nextButton.setOnClickListener {
             register()
             progressDialog.show()
+        }
+        SignInButton.setOnClickListener {
+            val intent = Intent(this@SignupScreen1, SignInScreen::class.java)
+            startActivity(intent)
+            finish()
         }
 
         passwordEditText.addTextChangedListener(
@@ -160,7 +166,7 @@ class SignupScreen1 : AppCompatActivity() {
                 ).show()
                 firebaseAuth?.signOut()
                 finish()
-                val intent = Intent(this, SignInScreen::class.java)
+                val intent = Intent(this, UsersScreen::class.java)
                 intent.putExtra("name", nameEditText.text.toString())
                 startActivity(intent)
             } else {

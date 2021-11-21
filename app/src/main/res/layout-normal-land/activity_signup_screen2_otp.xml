@@ -43,7 +43,7 @@
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/otpreceived" />
+        app:srcCompat="@drawable/message_received" />
 
     <TextView
         android:id="@+id/textView6forgetpassword"
@@ -103,7 +103,7 @@
         tools:ignore="MissingConstraints">
 
         <EditText
-            android:id="@+id/otpCode1"
+            android:id="@+id/otpCode1new"
             android:layout_width="40dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -119,7 +119,7 @@
             tools:layout_editor_absoluteY="367dp" />
 
         <EditText
-            android:id="@+id/otpCode2"
+            android:id="@+id/otpCode2new"
             android:layout_width="40dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -135,7 +135,7 @@
             tools:layout_editor_absoluteY="367dp" />
 
         <EditText
-            android:id="@+id/otpCode3"
+            android:id="@+id/otpCode3new"
             android:layout_width="40dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -151,7 +151,7 @@
             tools:layout_editor_absoluteY="367dp" />
 
         <EditText
-            android:id="@+id/otpCode4"
+            android:id="@+id/otpCode4new"
             android:layout_width="40dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -167,7 +167,7 @@
             tools:layout_editor_absoluteY="367dp" />
 
         <EditText
-            android:id="@+id/otpCode5"
+            android:id="@+id/otpCode5new"
             android:layout_width="40dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -183,7 +183,7 @@
             tools:layout_editor_absoluteY="367dp" />
 
         <EditText
-            android:id="@+id/otpCode6"
+            android:id="@+id/otpCode6new"
             android:layout_width="40dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -201,7 +201,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/buttonVerify"
+        android:id="@+id/buttonVerifyNew"
         android:layout_width="324dp"
         android:layout_height="48dp"
         android:layout_marginTop="4dp"

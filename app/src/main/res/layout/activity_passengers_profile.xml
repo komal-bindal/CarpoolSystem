@@ -42,121 +42,128 @@
 
     <ImageView
         android:id="@+id/profilePhoto"
-        android:layout_width="123dp"
-        android:layout_height="124dp"
-        android:layout_marginTop="172dp"
-        android:background="#999"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="124dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_baseline_person_pin_24" />
+        app:srcCompat="@drawable/undraw_female_avatar"
+        tools:ignore="VectorDrawableCompat" />
 
     <TextView
         android:id="@+id/fullNamePassenger"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Kritika Sharma"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="Passenger"
         android:textColor="#000"
-        android:textSize="32sp"
+        android:textSize="@dimen/heading_text"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profilePhoto" />
 
+
     <TextView
+
         android:id="@+id/emailofpassenger"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginTop="16dp"
-        android:drawableStart="@drawable/ic_baseline_email_24"
-        android:drawableLeft="@drawable/ic_baseline_email_24"
-        android:gravity="center"
-        android:text="kritika.sharma_cs19@gla.ac.in"
-        android:textColor="#000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fullNamePassenger" />
-
-    <View
-        android:id="@+id/lineOne"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
         android:layout_marginTop="12dp"
-        android:background="#888"
+        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:drawablePadding="20dp"
+        android:gravity="center"
+        android:text="Add your email id"
+        android:textColor="#000"
+        android:textSize="@dimen/default_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emailofpassenger" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextView" />
 
     <TextView
         android:id="@+id/phonenumberchangepassenger"
-        android:layout_width="409dp"
-        android:layout_height="22dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:drawableStart="@drawable/ic_baseline_local_phone_24"
         android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+        android:drawablePadding="20dp"
         android:gravity="center"
         android:text="Change phone number"
         android:textColor="#000"
+        android:textSize="@dimen/default_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lineOne" />
-
-    <View
-        android:id="@+id/lineTwo"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="12dp"
-        android:background="#888"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phonenumberchangepassenger" />
+        app:layout_constraintTop_toBottomOf="@+id/emailofpassenger" />
 
     <TextView
         android:id="@+id/passwordchangepassenger"
-        android:layout_width="414dp"
-        android:layout_height="22dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:drawableStart="@drawable/ic_baseline_lock_24"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="20dp"
         android:gravity="center"
         android:text="Change password"
         android:textColor="#000"
+        android:textSize="@dimen/default_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lineTwo" />
-
-    <View
-        android:id="@+id/lineThree"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="12dp"
-        android:background="#888"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordchangepassenger" />
+        app:layout_constraintTop_toBottomOf="@+id/phonenumberchangepassenger" />
 
     <Button
         android:id="@+id/buttonlogoutpassenger"
-        android:layout_width="403dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        android:text="logout"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/button_color"
+        android:text="Logout"
+        android:textAllCaps="false"
         android:textColor="@color/black"
-        app:backgroundTint="#74FFFFFF"
+        android:textSize="@dimen/button_text"
+        app:backgroundTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lineThree"
+        app:layout_constraintTop_toBottomOf="@+id/passwordchangepassenger"
         tools:text="logout" />
+
+    <TextView
+        android:id="@+id/phoneNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullNamePassenger" />
+
+    <Button
+        android:id="@+id/deleteAccountPassenger"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/danger"
+        android:text="Delete account"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/button_text"
+        app:backgroundTint="@color/danger"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonlogoutpassenger" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

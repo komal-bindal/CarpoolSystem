@@ -45,17 +45,17 @@ class SignupScreen2Otp : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_screen2_otp)
 
-        otpCode1 = findViewById(R.id.otpCode1)
-        otpCode2 = findViewById(R.id.otpCode2)
-        otpCode3 = findViewById(R.id.otpCode3)
-        otpCode4 = findViewById(R.id.otpCode4)
-        otpCode5 = findViewById(R.id.otpCode5)
-        otpCode6 = findViewById(R.id.otpCode6)
+        otpCode1 = findViewById(R.id.otpCode1new)
+        otpCode2 = findViewById(R.id.otpCode2new)
+        otpCode3 = findViewById(R.id.otpCode3new)
+        otpCode4 = findViewById(R.id.otpCode4new)
+        otpCode5 = findViewById(R.id.otpCode5new)
+        otpCode6 = findViewById(R.id.otpCode6new)
 
         phoneNumber = findViewById(R.id.mobile)
         firebaseAuth = FirebaseAuth.getInstance()
 
-        verifyButton = findViewById(R.id.buttonVerify)
+        verifyButton = findViewById(R.id.buttonVerifyNew)
 
         val intent = intent
         val phone = intent.getStringExtra("PhoneNumber")
@@ -111,14 +111,14 @@ class SignupScreen2Otp : AppCompatActivity() {
                                                         for (d in list) {
                                                             Log.d("data", "${d.data?.get(USER)}")
                                                             if (d.data?.get(USER) == selectedUser) {
-                                                                if (selectedUser == "Passenger") {
+                                                                if (selectedUser.toString() == "Passenger") {
                                                                     startActivity(
                                                                         Intent(
                                                                             applicationContext,
                                                                             DashboardPassenger::class.java
                                                                         )
                                                                     )
-                                                                } else {
+                                                                } else if (selectedUser.toString() == "Driver") {
                                                                     startActivity(
                                                                         Intent(
                                                                             applicationContext,
