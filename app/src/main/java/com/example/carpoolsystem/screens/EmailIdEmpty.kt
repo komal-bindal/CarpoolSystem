@@ -100,6 +100,8 @@ class EmailIdEmpty : AppCompatActivity() {
                         addEmailtoDatabase(email)
                         emailIdEditText.text.clear()
                         passwordEditText.text.clear()
+                        passwordEditText.error = null
+                        emailIdEditText.error = null
                     } else {
                         Toast.makeText(
                             baseContext, "Authentication failed.",
