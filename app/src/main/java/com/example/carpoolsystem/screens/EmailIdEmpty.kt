@@ -3,6 +3,7 @@ package com.example.carpoolsystem.screens
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -137,12 +138,7 @@ class EmailIdEmpty : AppCompatActivity() {
             auth.currentUser!!.linkWithCredential(credential)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        val user = task.result?.user
-                        Toast.makeText(
-                            applicationContext,
-                            "EmailId added successfully",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        sendEmail(auth)
                         addEmailtoDatabase(email, name)
                         emailIdEditText.text.clear()
                         passwordEditText.text.clear()
@@ -157,6 +153,26 @@ class EmailIdEmpty : AppCompatActivity() {
                 }.addOnFailureListener(this) { a ->
                     Toast.makeText(this, a.message.toString(), Toast.LENGTH_SHORT).show()
                 }
+        }
+    }
+
+    fun sendEmail(firebaseAuth: FirebaseAuth) {
+        val firebaseUser = firebaseAuth.currentUser
+        firebaseUser?.sendEmailVerification()?.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(
+                    this,
+                    "Verification mail send. Please verify your email now",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                Toast.makeText(
+                    this,
+                    "Error occurred." + task.exception.toString(),
+                    Toast.LENGTH_SHORT
+                ).show()
+                Log.e("error", task.exception.toString())
+            }
         }
     }
 
