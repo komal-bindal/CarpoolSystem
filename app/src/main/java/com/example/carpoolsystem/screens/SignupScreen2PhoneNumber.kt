@@ -37,7 +37,7 @@ class SignupScreen2PhoneNumber : AppCompatActivity() {
         phoneNumberEditText.requestFocus()
 
         val intent = intent
-        val user = intent.getStringExtra("User")
+        val user = intent.getStringExtra("User").toString()
 
         phoneNumberEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(

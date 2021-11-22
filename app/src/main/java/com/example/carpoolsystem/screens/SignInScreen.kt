@@ -55,7 +55,7 @@ class SignInScreen : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         val intent = intent
-        val user = intent.getStringExtra("User")
+        val user = intent.getStringExtra("User").toString()
 
         emailIdEditText.addTextChangedListener(
             object : TextWatcher {
