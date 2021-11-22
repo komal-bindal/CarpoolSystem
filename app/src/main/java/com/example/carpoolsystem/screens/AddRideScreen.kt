@@ -60,10 +60,10 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         addDetails = findViewById(R.id.buttonSubmit)
         addLocationButton = findViewById(R.id.buttonAddLocation)
 
-        val currentDate = sdf.format(Date())
-        val dateTime = currentDate.split(" ")
-        val date = dateTime.get(0)
-        val time = dateTime.get(1)
+        var currentDate = sdf.format(Date())
+        var dateTime = currentDate.split(" ")
+        var date = dateTime.get(0)
+        var time = dateTime.get(1)
         viewDateAndTime.text =
             "Date: $date\nTime: $time"
 
@@ -83,6 +83,11 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
             val drop = dropPoint
             val dateTime = "$day/$myMonth/$myYear"
             val time = "$myHour : $myMinute"
+            currentDate = sdf.format(Date())
+//            val dateNow = currentDate.split(" ").get(0)
+//            val timeNow = currentDate.split(" ").get(1)
+
+
             if (pick.isEmpty() || drop.isEmpty() || day == 0 || myMonth == 0 || myYear == 0 || myHour == 0 || myMinute == 0) {
                 Toast.makeText(
                     this,
@@ -147,27 +152,6 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 
     }
 
-    private fun isCarDetailsAdded(uid: String): Boolean {
-        val db = FirebaseFirestore.getInstance()
-        var result = false
-        val docReference = db.collection("car")
-            .whereEqualTo("owner", uid)
-        docReference.get().addOnSuccessListener { querySnapshot ->
-            if (!querySnapshot.isEmpty) {
-                val list = querySnapshot.documents
-                for (i in list) {
-                    Log.d("car", i.data?.get("carMake").toString())
-                    if (i.data?.get("carMake").toString() != "") {
-                        result = true
-                    }
-                }
-            }
-        }.addOnFailureListener { e ->
-            Toast.makeText(applicationContext, e.message.toString(), Toast.LENGTH_SHORT).show()
-        }
-
-        return result
-    }
 
     private fun isEmailIdLinked(currentUser: FirebaseUser): Boolean {
         val list = currentUser.providerData
