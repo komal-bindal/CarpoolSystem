@@ -6,13 +6,14 @@ import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.format.DateFormat.is24HourFormat
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
-import com.example.carpoolsystem.screens.map.MapActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
-import com.mapmyindia.sdk.plugin.directions.view.s
+import java.text.SimpleDateFormat
 import java.util.*
 
 class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
@@ -32,6 +33,8 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     var myHour: Int = 0
     var myMinute: Int = 0
 
+    @SuppressLint("SimpleDateFormat")
+    val sdf = SimpleDateFormat("dd/M/yyyy hh:mm")
 
     private lateinit var addDetails: Button
     private lateinit var addDateAndTime: Button
@@ -41,70 +44,86 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     private lateinit var dest: TextView
 
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_ride_screen)
 
-
         firebaseAuth = FirebaseAuth.getInstance()
-        val intent=intent
-        val source=intent.getStringExtra("source")
+        val intent = intent
 
-
-
-        addDetails = findViewById(R.id.buttonSubmit)
         viewDateAndTime = findViewById(R.id.textViewempty)
         addDateAndTime = findViewById(R.id.btnPick)
         src = findViewById(R.id.textsource)
         dest = findViewById(R.id.textdestination)
-        addDetails=findViewById(R.id.buttonSubmit)
+        addDetails = findViewById(R.id.buttonSubmit)
         addLocationButton = findViewById(R.id.buttonAddLocation)
 
+        val currentDate = sdf.format(Date())
+        val dateTime = currentDate.split(" ")
+        val date = dateTime.get(0)
+        val time = dateTime.get(1)
+        viewDateAndTime.text =
+            "Date: $date\nTime: $time"
 
+        val pickUpPoint = intent.getStringExtra("pickUpPoint").toString()
+        val dropPoint = intent.getStringExtra("dropPoint").toString()
 
-        val sr=getIntent().getStringExtra("source")
-        val des=getIntent().getStringExtra("destination")
-
-        src.setText(sr.toString())
-        dest.setText(des.toString())
-
+        if (pickUpPoint.isEmpty() || dropPoint.isEmpty() || pickUpPoint == null || dropPoint == null) {
+            src.text = "Pickup: "
+            dest.text = "Drop: "
+        } else {
+            src.text = "Pickup: $pickUpPoint"
+            dest.text = "Drop: $dropPoint"
+        }
 
         addDetails.setOnClickListener {
-            val s1 = src.text.toString()
-            val d1 = dest.text.toString()
+            val pick = pickUpPoint
+            val drop = dropPoint
             val dateTime = "$day/$myMonth/$myYear"
             val time = "$myHour : $myMinute"
-            val firebaseUser = firebaseAuth?.currentUser
-            val uid=firebaseUser?.uid!!.toString()
-            if(uid==readFirestoreDataFromUser().toString()) {
-                if (uid == readFirestoreData().toString()) {
-                    if (s1 != "null" && d1 != "null" && dateTime != "0/0/0" && time != "0:0") {
-                        saveFireStore(s1, d1, dateTime, time, uid)
-                    } else {
-                        Toast.makeText(
-                            this@AddRideScreen,
-                            "Please fill all the details ",
-                            Toast.LENGTH_SHORT
-                        ).show()
-
+            if (pick.isEmpty() || drop.isEmpty() || day == 0 || myMonth == 0 || myYear == 0 || myHour == 0 || myMinute == 0) {
+                Toast.makeText(
+                    this,
+                    "please enter the locations, time and date",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                val firebaseUser = firebaseAuth?.currentUser
+                val uid = firebaseUser?.uid!!.toString()
+                if (isEmailIdLinked(firebaseUser)) {
+                    val db = FirebaseFirestore.getInstance()
+                    val docReference = db.collection("car")
+                        .whereEqualTo("owner", uid)
+                    docReference.get().addOnSuccessListener { querySnapshot ->
+                        if (!querySnapshot.isEmpty) {
+                            val list = querySnapshot.documents
+                            for (i in list) {
+                                Log.d("car", i.data?.get("carMake").toString())
+                                if (i.data?.get("carMake").toString() != "") {
+                                    saveFireStore(pick, drop, dateTime, time, uid)
+                                }
+                            }
+                        } else {
+                            Toast.makeText(
+                                this@AddRideScreen,
+                                "Add the Car Details",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }.addOnFailureListener { e ->
+                        Toast.makeText(applicationContext, e.message.toString(), Toast.LENGTH_SHORT)
+                            .show()
                     }
                 } else {
                     Toast.makeText(
                         this@AddRideScreen,
-                        "Add the Car Details",
+                        "Please link your EmailId first",
                         Toast.LENGTH_SHORT
                     ).show()
 
                 }
-            }
-            else{
-                Toast.makeText(
-                    this@AddRideScreen,
-                    "Enter your EmailId",
-                    Toast.LENGTH_SHORT
-                ).show()
-
             }
         }
 
@@ -112,6 +131,7 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         addLocationButton.setOnClickListener {
             val intent = Intent(this, MapActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         addDateAndTime.setOnClickListener {
@@ -127,21 +147,55 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 
     }
 
-    private fun saveFireStore(s1: String, d1: String, dateTime: String,time:String,uid:String) {
-        val db=FirebaseFirestore.getInstance()
-        val user:MutableMap<String,Any> = HashMap()
-        user["source"]=s1
-        user["destination"]=d1
-        user["time"]=time
-        user["date"]=dateTime
-        user["uid"]=uid
+    private fun isCarDetailsAdded(uid: String): Boolean {
+        val db = FirebaseFirestore.getInstance()
+        var result = false
+        val docReference = db.collection("car")
+            .whereEqualTo("owner", uid)
+        docReference.get().addOnSuccessListener { querySnapshot ->
+            if (!querySnapshot.isEmpty) {
+                val list = querySnapshot.documents
+                for (i in list) {
+                    Log.d("car", i.data?.get("carMake").toString())
+                    if (i.data?.get("carMake").toString() != "") {
+                        result = true
+                    }
+                }
+            }
+        }.addOnFailureListener { e ->
+            Toast.makeText(applicationContext, e.message.toString(), Toast.LENGTH_SHORT).show()
+        }
+
+        return result
+    }
+
+    private fun isEmailIdLinked(currentUser: FirebaseUser): Boolean {
+        val list = currentUser.providerData
+        for (i in list) {
+            if (i.providerId == "password") {
+                return true
+            }
+        }
+        return false
+    }
+
+    private fun saveFireStore(s1: String, d1: String, dateTime: String, time: String, uid: String) {
+        val db = FirebaseFirestore.getInstance()
+        val user: MutableMap<String, Any> = HashMap()
+        user["source"] = s1
+        user["destination"] = d1
+        user["time"] = time
+        user["date"] = dateTime
+        user["uid"] = uid
         db.collection("ride")
             .add(user)
             .addOnSuccessListener {
-                Toast.makeText(this@AddRideScreen,"recordAddedSuccesfully",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@AddRideScreen, "record added succesfully", Toast.LENGTH_SHORT)
+                    .show()
             }
-            .addOnFailureListener{
-                Toast.makeText(this@AddRideScreen,"recordAddedFailed",Toast.LENGTH_SHORT).show()
+            .addOnFailureListener {
+                Toast.makeText(this@AddRideScreen, "failed to add record", Toast.LENGTH_SHORT)
+                    .show()
             }
 
     }
@@ -159,38 +213,13 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         )
         timePickerDialog.show()
     }
-    fun readFirestoreData(){
-        val db=FirebaseFirestore.getInstance()
-        db.collection("car")
-            .get()
-            .addOnCompleteListener {
-                val result:StringBuffer=StringBuffer()
-                if(it.isSuccessful){
-                    for(document in it.result){
-                        result.append(document.data.getValue("owner")).append(" ")
-                    }
-                }
-            }
-    }
-    fun readFirestoreDataFromUser(){
-        val db=FirebaseFirestore.getInstance()
-        db.collection("users")
-            .get()
-            .addOnCompleteListener {
-                val result:StringBuffer=StringBuffer()
-                if(it.isSuccessful){
-                    for(document in it.result){
-                        result.append(document.data.getValue("uid")).append(" ")
-                    }
-                }
-            }
-    }
+
 
     @SuppressLint("SetTextI18n")
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
         myHour = hourOfDay
         myMinute = minute
         viewDateAndTime.text =
-            "Date = $day/$myMonth/$myYear\nTime = $myHour : $myMinute"
+            "Date: $day/$myMonth/$myYear\nTime: $myHour : $myMinute"
     }
 }
