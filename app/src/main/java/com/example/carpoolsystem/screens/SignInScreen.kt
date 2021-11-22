@@ -55,7 +55,7 @@ class SignInScreen : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         val intent = intent
-        val user = intent.getStringExtra("User")
+        val user = intent.getStringExtra("User").toString()
 
         emailIdEditText.addTextChangedListener(
             object : TextWatcher {
@@ -154,7 +154,7 @@ class SignInScreen : AppCompatActivity() {
                                                 querySnapshot.documents
                                             for (d in list) {
                                                 if (d.data?.get(USER) == user) {
-                                                    if (user == "Passenger") {
+                                                    if (user.toString() == "Passenger") {
                                                         startActivity(
                                                             Intent(
                                                                 this,
