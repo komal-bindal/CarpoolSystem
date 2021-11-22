@@ -59,7 +59,8 @@ class SignupScreen2Otp : AppCompatActivity() {
 
         val intent = intent
         val phone = intent.getStringExtra("PhoneNumber")
-        val selectedUser = intent.getStringExtra("User")
+        val selectedUser = intent.getStringExtra("User").toString()
+
         phoneNumber.text = phone.toString()
         val verificationOtp = intent.getStringExtra("VerificationOTP")
 
@@ -118,7 +119,7 @@ class SignupScreen2Otp : AppCompatActivity() {
                                                                             DashboardPassenger::class.java
                                                                         )
                                                                     )
-                                                                } else if (selectedUser.toString() == "Driver") {
+                                                                } else {
                                                                     startActivity(
                                                                         Intent(
                                                                             applicationContext,
@@ -138,7 +139,7 @@ class SignupScreen2Otp : AppCompatActivity() {
                                                             fireBaseUser.uid.toString(),
                                                             "",
                                                             "",
-                                                            selectedUser!!,
+                                                            selectedUser,
                                                             phone!!
                                                         )
                                                         addUserInDatabase(fireBaseUser, user)
@@ -197,12 +198,21 @@ class SignupScreen2Otp : AppCompatActivity() {
                     "database",
                     "DocumentSnapshot "
                 )
-                startActivity(
-                    Intent(
-                        applicationContext,
-                        DashboardPassenger::class.java
+                if (user[USER] == "Driver") {
+                    startActivity(
+                        Intent(
+                            applicationContext,
+                            Dashboard::class.java
+                        )
                     )
-                )
+                } else {
+                    startActivity(
+                        Intent(
+                            applicationContext,
+                            DashboardPassenger::class.java
+                        )
+                    )
+                }
             }.addOnFailureListener { e ->
                 Log.w("error", "Error adding documnent", e)
             }

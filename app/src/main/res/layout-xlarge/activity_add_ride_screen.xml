@@ -27,16 +27,17 @@
         android:layout_marginEnd="102dp"
         android:src="#99000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
 
     <TextView
         android:id="@+id/textViewAddRide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="160dp"
         android:drawableStart="@drawable/ic_baseline_add_circle_24"
         android:drawableLeft="@drawable/ic_baseline_add_circle_24"
         android:gravity="center"
@@ -49,13 +50,12 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-
     <Button
         android:id="@+id/btnPick"
         android:layout_width="237dp"
         android:layout_height="60dp"
         android:layout_centerInParent="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#4DC274"
         android:text="Pick Date and Time"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,11 +65,11 @@
 
     <TextView
         android:id="@+id/textViewempty"
-        android:layout_width="180dp"
-        android:layout_height="57dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/btnPick"
         android:layout_centerInParent="true"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Date: dd/mm/yy\nTime: hh : mm am/pm"
         android:textColor="@android:color/background_dark"
@@ -78,14 +78,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPick"
+        app:layout_constraintTop_toBottomOf="@+id/textdestination"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/buttonSubmit"
         android:layout_width="280dp"
         android:layout_height="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#55B3BF"
         android:ems="10"
@@ -94,7 +94,7 @@
         android:minHeight="48dp"
         android:text=""
         android:textColorHint="@color/black"
-        android:textSize="22dp"
+        android:textSize="@dimen/button_text"
         android:textStyle="bold"
         app:backgroundTint="#55B3BF"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,47 +107,36 @@
     <Button
         android:id="@+id/buttonAddLocation"
         android:layout_width="231dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="52dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="#4DC274"
         android:text="Add Location"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewAddRide" />
 
     <TextView
         android:id="@+id/textsource"
-        android:layout_width="109dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Source"
-        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnPick"
-        app:layout_constraintEnd_toEndOf="@+id/buttonAddLocation"
-        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAddLocation"
-        app:layout_constraintVertical_bias="0.421"
+        app:layout_constraintTop_toBottomOf="@+id/btnPick"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textdestination"
-        android:layout_width="128dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Deatination"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnPick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.602"
-        app:layout_constraintStart_toStartOf="@+id/buttonAddLocation"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAddLocation"
-        app:layout_constraintVertical_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textsource"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

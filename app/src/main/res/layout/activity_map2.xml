@@ -1,44 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    android:background="#4DB7ECF3"
-    android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".screens.MapActivity">
 
 
-    <AutoCompleteTextView
-        android:id="@+id/autocompleteTextViewsource"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dropLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:completionHint="Select the pickup point"
-        android:completionThreshold="1"
-        android:drawableLeft="@drawable/mapmyindia_direction_start_loc"
-        android:hint="Select the pickup point"
-        android:minHeight="48dp"
-        android:padding="20dp" />
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickUpLayout"
+        tools:ignore="MissingConstraints">
 
-    <AutoCompleteTextView
-        android:id="@+id/autocompleteTextViewdestination"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:completionHint="Select the destination point"
-        android:completionThreshold="1"
-        android:drawableLeft="@drawable/ic_baseline_location_on_24"
-        android:hint="Select the destination point"
-        android:minHeight="48dp"
-        android:padding="20dp" />
+        <AutoCompleteTextView
+            android:id="@+id/autocompleteTextViewdestination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:completionThreshold="1"
+            android:hint="Select the drop point"
+            android:minHeight="48dp"
+            android:padding="20dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
-        android:id="@+id/buttonPool"
+        android:id="@+id/buttonPool1"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/button_color"
+        android:text="Pool"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/button_text"
+        app:backgroundTint="@color/button_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dropLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pickUpLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pool" />
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <AutoCompleteTextView
+            android:id="@+id/autocompleteTextViewsource"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select the pickup point"
+            android:minHeight="48dp"
+            android:padding="20dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

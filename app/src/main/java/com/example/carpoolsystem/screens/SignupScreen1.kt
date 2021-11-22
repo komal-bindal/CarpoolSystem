@@ -60,7 +60,7 @@ class SignupScreen1 : AppCompatActivity() {
         progressDialog.setMessage("Please wait...")
 
         val intent = intent
-        val user = intent.getStringExtra("User")
+        val user = intent.getStringExtra("User").toString()
 
         OTPSignUpButton.setOnClickListener {
             val intent = Intent(this@SignupScreen1, SignupScreen2PhoneNumber::class.java)
