@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+import com.example.carpoolsystem.screens.model.UsersClass
+
+class RecyclerAdapter(private val userList:ArrayList<UsersClass>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     private var name= arrayOf("Deepanshi","Komal","kritika")
     private var number= arrayOf("UP80 12 AB 1234","UP80 12 AB 1234","UP80 12 AB 1234")
     private var source= arrayOf("agra->Mathura","mathura->GlA","agra->Aligarh")
@@ -20,11 +22,12 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
-        holder.driverName.text=name[position]
-        holder.vehicleNumber.text=number[position]
-        holder.sourceDestination.text=source[position]
-        holder.date.text=date1[position]
-        holder.timings.text=timings1[position]
+        val currentitem=userList[position]
+        holder.driverName.text=currentitem.name
+        holder.vehicleNumber.text=currentitem.carNumber
+        holder.sourceDestination.text=currentitem.source
+        holder.date.text=currentitem.date
+        holder.timings.text=currentitem.time
         holder.acceptRequest.text=accept[position]
         holder.cancelRequest.text=cancel[position]
 
