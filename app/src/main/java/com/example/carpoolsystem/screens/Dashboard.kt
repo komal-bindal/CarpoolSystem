@@ -54,7 +54,7 @@ class Dashboard : AppCompatActivity() {
         }
 
         driverManageRideLayout.setOnClickListener {
-            val intent = Intent(this, DriversProfile::class.java)
+            val intent = Intent(this, ManageRide::class.java)
             startActivity(intent)
         }
     }
