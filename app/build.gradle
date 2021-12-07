@@ -19,7 +19,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -95,7 +95,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
     implementation 'com.razorpay:checkout:1.6.12'
-
+    implementation 'com.ramotion.paperonboarding:paper-onboarding:1.1.3'
 
 
 }
