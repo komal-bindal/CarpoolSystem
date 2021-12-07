@@ -11,7 +11,6 @@
         </intent>
     </queries>
 
-
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -27,6 +26,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CarpoolSystem">
+        <activity
+            android:name=".screens.model.SearchResults"
+            android:exported="true" />
         <activity
             android:name=".screens.PaymentIntegration"
             android:exported="true" />
@@ -133,7 +135,6 @@
             </intent-filter>
         </receiver>
 
-
         <activity
             android:name="com.razorpay.CheckoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
@@ -141,17 +142,16 @@
             android:theme="@style/CheckoutTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <data
                     android:host="rzp.io"
                     android:scheme="io.rzp" />
             </intent-filter>
         </activity>
 
-
         <meta-data
             android:name="com.razorpay.ApiKey"
             android:value="rzp_test_0Fz5oipur0X9XI" />
-
     </application>
 
 </manifest>
