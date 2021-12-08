@@ -28,6 +28,11 @@
         android:theme="@style/Theme.CarpoolSystem">
         <activity
             android:name=".screens.model.SearchResults"
+            android:name=".screens.WaitingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".screens.Animation"
+
             android:exported="true" />
         <activity
             android:name=".screens.PaymentIntegration"
