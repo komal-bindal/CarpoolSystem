@@ -18,8 +18,10 @@
 <!--    </item>-->
 <!--</layer-list>-->
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="8dp"></corners>
     <gradient
         android:angle="270"
-        android:endColor="@android:color/transparent"
-        android:startColor="#20000000"></gradient>
+        android:centerColor="@android:color/transparent"
+        android:endColor="#20A39F9F"
+        android:startColor="#20A39F9F" />
 </shape>
