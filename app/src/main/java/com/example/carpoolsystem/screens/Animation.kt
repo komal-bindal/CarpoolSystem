@@ -25,7 +25,7 @@ class Animation : AppCompatActivity() {
 
         }
         getStarted.setOnClickListener {
-            startActivity(Intent(this, SignupScreen1::class.java))
+            startActivity(Intent(this, UsersScreen::class.java))
             finish()
         }
         fragmentManager = supportFragmentManager
