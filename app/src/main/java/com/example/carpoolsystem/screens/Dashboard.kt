@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carpoolsystem.R
-import com.example.carpoolsystem.screens.model.SearchResults
 import com.google.firebase.auth.FirebaseAuth
 
 class Dashboard : AppCompatActivity() {

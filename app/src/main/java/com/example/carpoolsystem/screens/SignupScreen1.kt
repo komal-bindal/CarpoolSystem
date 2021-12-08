@@ -15,6 +15,7 @@ import com.example.carpoolsystem.R
 import com.example.carpoolsystem.utility.RegistrationUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -208,6 +209,23 @@ class SignupScreen1 : AppCompatActivity() {
                             ""
                         )
                         Log.d("user", selectedUser)
+                        val profileUpdates = UserProfileChangeRequest.Builder()
+                            .setDisplayName(name)
+                            .build()
+
+                        firebaseUser.updateProfile(profileUpdates)
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    Log.d("Email", "name added")
+                                } else {
+                                    Toast.makeText(
+                                        this,
+                                        "error in updating database",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+
+                            }
                         addUserInDatabase(firebaseUser, user)
                         sendEmail()
                     } else {
