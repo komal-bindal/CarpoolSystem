@@ -96,6 +96,7 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
                 ).show()
             } else {
                 val firebaseUser = firebaseAuth?.currentUser
+                val name = firebaseUser?.displayName.toString()
                 val uid = firebaseUser?.uid!!.toString()
                 if (isEmailIdLinked(firebaseUser)) {
                     val db = FirebaseFirestore.getInstance()
@@ -107,7 +108,7 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
                             for (i in list) {
                                 Log.d("car", i.data?.get("carMake").toString())
                                 if (i.data?.get("carMake").toString() != "") {
-                                    saveFireStore(pick, drop, dateTime, time, uid)
+                                    saveFireStore(pick, drop, dateTime, time, uid, name)
                                 }
                             }
                         } else {
@@ -163,13 +164,21 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         return false
     }
 
-    private fun saveFireStore(s1: String, d1: String, dateTime: String, time: String, uid: String) {
+    private fun saveFireStore(
+        s1: String,
+        d1: String,
+        dateTime: String,
+        time: String,
+        uid: String,
+        name: String
+    ) {
         val db = FirebaseFirestore.getInstance()
         val user: MutableMap<String, Any> = HashMap()
         user["source"] = s1
         user["destination"] = d1
         user["time"] = time
         user["date"] = dateTime
+        user["name"] = name
         user["uid"] = uid
         db.collection("ride")
             .add(user)

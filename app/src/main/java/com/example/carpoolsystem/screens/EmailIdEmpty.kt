@@ -12,8 +12,10 @@ import com.example.carpoolsystem.R
 import com.example.carpoolsystem.utility.RegistrationUtils
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+
 
 class EmailIdEmpty : AppCompatActivity() {
     private lateinit var emailIdEditText: EditText
@@ -140,6 +142,23 @@ class EmailIdEmpty : AppCompatActivity() {
                     if (task.isSuccessful) {
                         sendEmail(auth)
                         addEmailtoDatabase(email, name)
+                        val profileUpdates = UserProfileChangeRequest.Builder()
+                            .setDisplayName(name)
+                            .build()
+
+                        auth.currentUser?.updateProfile(profileUpdates)
+                            ?.addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    Log.d("Email", "name added")
+                                } else {
+                                    Toast.makeText(
+                                        this,
+                                        "error in updating database",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+
+                            }
                         emailIdEditText.text.clear()
                         passwordEditText.text.clear()
                         passwordEditText.error = null
