@@ -36,13 +36,13 @@ class EntranceLayout : AppCompatActivity() {
                             }
                         }
                     } else {
-                        val intent = Intent(this@EntranceLayout, UsersScreen::class.java)
+                        val intent = Intent(this@EntranceLayout, Animation::class.java)
                         startActivity(intent)
                         finish()
                     }
                 }
             } else {
-                val intent = Intent(this@EntranceLayout, UsersScreen::class.java)
+                val intent = Intent(this@EntranceLayout, Animation::class.java)
                 startActivity(intent)
                 finish()
             }

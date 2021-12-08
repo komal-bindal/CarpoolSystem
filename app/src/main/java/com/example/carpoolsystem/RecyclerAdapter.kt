@@ -6,35 +6,36 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.carpoolsystem.screens.User
 import com.example.carpoolsystem.screens.model.UsersClass
 
-class RecyclerAdapter(private val userList:ArrayList<UsersClass>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
-    private var name= arrayOf("Deepanshi","Komal","kritika")
-    private var number= arrayOf("UP80 12 AB 1234","UP80 12 AB 1234","UP80 12 AB 1234")
-    private var source= arrayOf("agra->Mathura","mathura->GlA","agra->Aligarh")
-    private var date1= arrayOf("20-Sept-2021","23-Sept-2021","19-Sept-2021")
-    private var timings1= arrayOf("8:00 A.M","9:00 A.M","10:00 A.M")
-    private var accept= arrayOf("Accept","Accept","Accept")
-    private var cancel= arrayOf("Cancel","Cancel","Cancel")
+class RecyclerAdapter(private val userList:ArrayList<User>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+//    private var name= arrayOf("Deepanshi","Komal","kritika")
+//    private var number= arrayOf("UP80 12 AB 1234","UP80 12 AB 1234","UP80 12 AB 1234")
+//    private var source= arrayOf("agra->Mathura","mathura->GlA","agra->Aligarh")
+//    private var date1= arrayOf("20-Sept-2021","23-Sept-2021","19-Sept-2021")
+//    private var timings1= arrayOf("8:00 A.M","9:00 A.M","10:00 A.M")
+//    private var accept= arrayOf("Accept","Accept","Accept")
+//    private var cancel= arrayOf("Cancel","Cancel","Cancel")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
         val v=LayoutInflater.from(parent.context).inflate(R.layout.car_layout,parent,false)
         return  ViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
-        val currentitem=userList[position]
-        holder.driverName.text=currentitem.name
-        holder.vehicleNumber.text=currentitem.carNumber
-        holder.sourceDestination.text=currentitem.source
-        holder.date.text=currentitem.date
-        holder.timings.text=currentitem.time
-        holder.acceptRequest.text=accept[position]
-        holder.cancelRequest.text=cancel[position]
+        val user: User=userList[position]
+        holder.driverName.text=user.Drivername
+        holder.vehicleNumber.text=user.VehicleNo
+        holder.sourceDestination.text=user.sourceDestination
+        holder.date.text=user.Date
+        holder.timings.text=user.Time
+//        holder.acceptRequest.text=accept[position]
+//        holder.cancelRequest.text=cancel[position]
 
     }
 
     override fun getItemCount(): Int {
-        return name.size
+        return userList.size
     }
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         var driverName:TextView
