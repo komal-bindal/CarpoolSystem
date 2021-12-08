@@ -1,3 +1,3 @@
 package com.example.carpoolsystem.screens
 
-data class User(var drivername:String?=null,var vehiclenumber:String ?=null,var sourcedestination:String ?=null,var date:String ?=null,var time:String ?=null)
+data class User(var Drivername:String?=null,var VehicleNo:String ?=null,var sourceDestination:String ?=null,var Date:String ?=null,var Time:String ?=null)
