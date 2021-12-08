@@ -1,11 +1,8 @@
 package com.example.carpoolsystem.screens
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.Button
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +18,7 @@ class SearchResults : AppCompatActivity() {
     private lateinit var dropPointAutoCompleteTextView: AutoCompleteTextView
     private lateinit var searchButton: Button
     private lateinit var searchResultsRecyclerView: RecyclerView
+    private lateinit var infoTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +28,7 @@ class SearchResults : AppCompatActivity() {
         dropPointAutoCompleteTextView = findViewById(R.id.dropEt)
         searchButton = findViewById(R.id.searchButton)
         searchResultsRecyclerView = findViewById(R.id.searchResultsRecyclerView)
+        infoTextView = findViewById(R.id.infoTextView)
         searchResultsRecyclerView.layoutManager = LinearLayoutManager(this)
         searchResultsRecyclerView.setHasFixedSize(true)
 
@@ -51,8 +50,13 @@ class SearchResults : AppCompatActivity() {
                     }
                 }
             }
+        val rideList: ArrayList<Ride> = arrayListOf()
 
         searchButton.setOnClickListener {
+            rideList.clear()
+            searchResultsRecyclerView.adapter = SearchRideAdapter(rideList)
+            infoTextView.visibility = View.VISIBLE
+            infoTextView.text = "Loading"
             val dropLoc = dropPointAutoCompleteTextView.text.toString()
             val pickUpLoc = pickUpPointAutoCompleteTextView.text.toString()
             if (dropLoc.isEmpty() || pickUpLoc.isEmpty()) {
@@ -70,28 +74,29 @@ class SearchResults : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-                val rideList: ArrayList<Ride> = arrayListOf()
                 val user = FirebaseAuth.getInstance().currentUser
                 val database = FirebaseFirestore.getInstance()
-                val docRef = database.collection("ride").whereEqualTo("source", pickUpLoc)
+                val docRef = database.collection("ride").whereEqualTo("destination", dropLoc)
                 docRef.get().addOnSuccessListener { querySnapshot ->
                     if (!querySnapshot.isEmpty) {
                         val list: List<DocumentSnapshot> =
                             querySnapshot.documents
                         for (d in list) {
                             val r = Ride(
+                                d.get("uid").toString(),
                                 d.get("name").toString(),
                                 d.get("source").toString(),
                                 d.get("destination").toString(),
                                 d.get("date").toString(),
                                 d.get("time").toString(),
                             )
-                            Log.d("ride", r.date + r.destination + r.source + r.time)
                             rideList.add(r)
-                            Log.d("ride", rideList.toString())
-
                         }
                         searchResultsRecyclerView.adapter = SearchRideAdapter(rideList)
+                        infoTextView.visibility = View.GONE
+                    } else {
+                        infoTextView.visibility = View.VISIBLE
+                        infoTextView.text = "No results found"
                     }
                 }
 

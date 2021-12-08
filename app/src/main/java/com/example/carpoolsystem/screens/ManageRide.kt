@@ -40,6 +40,7 @@ class ManageRide : AppCompatActivity() {
                     querySnapshot.documents
                 for (d in list) {
                     val r = Ride(
+                        d.get("uid").toString(),
                         d.get("name").toString(),
                         d.get("source").toString(),
                         d.get("destination").toString(),
