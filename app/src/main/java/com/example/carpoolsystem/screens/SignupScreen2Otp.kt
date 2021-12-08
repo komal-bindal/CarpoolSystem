@@ -67,6 +67,7 @@ class SignupScreen2Otp : AppCompatActivity() {
         otpCode1.requestFocus()
 
         otpEditTextSetUp()
+        otpDeleteTextSetUp()
 
         verifyButton.setOnClickListener(
             object : View.OnClickListener {
@@ -162,6 +163,124 @@ class SignupScreen2Otp : AppCompatActivity() {
             }
         )
 
+    }
+
+    private fun otpDeleteTextSetUp() {
+        otpCode2.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int, count: Int, after: Int
+            ) {
+
+            }
+
+            override fun onTextChanged(
+                s: CharSequence?,
+                start: Int, before: Int, count: Int
+            ) {
+                s?.apply {
+                    if (s.toString().trim().isEmpty()) {
+                        otpCode1.requestFocus()
+                    }
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+        })
+        otpCode3.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int, count: Int, after: Int
+            ) {
+
+            }
+
+            override fun onTextChanged(
+                s: CharSequence?,
+                start: Int, before: Int, count: Int
+            ) {
+                s?.apply {
+                    if (s.toString().trim().isEmpty()) {
+                        otpCode2.requestFocus()
+                    }
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+        })
+        otpCode4.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int, count: Int, after: Int
+            ) {
+
+            }
+
+            override fun onTextChanged(
+                s: CharSequence?,
+                start: Int, before: Int, count: Int
+            ) {
+                s?.apply {
+                    if (s.toString().trim().isEmpty()) {
+                        otpCode3.requestFocus()
+                    }
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+        })
+        otpCode5.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int, count: Int, after: Int
+            ) {
+
+            }
+
+            override fun onTextChanged(
+                s: CharSequence?,
+                start: Int, before: Int, count: Int
+            ) {
+                s?.apply {
+                    if (s.toString().trim().isEmpty()) {
+                        otpCode4.requestFocus()
+                    }
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+        })
+        otpCode6.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int, count: Int, after: Int
+            ) {
+
+            }
+
+            override fun onTextChanged(
+                s: CharSequence?,
+                start: Int, before: Int, count: Int
+            ) {
+                s?.apply {
+                    if (s.toString().trim().isEmpty()) {
+                        otpCode5.requestFocus()
+                    }
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+        })
     }
 
     private fun getReferenceOfCurrentUserFromDatabase(currentUser: FirebaseUser): Query {
