@@ -24,11 +24,11 @@ class RecyclerAdapter(private val userList:ArrayList<User>): RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
         val user: User=userList[position]
-        holder.driverName.text=user.drivername
-        holder.vehicleNumber.text=user.vehiclenumber
-        holder.sourceDestination.text=user.sourcedestination
-        holder.date.text=user.date
-        holder.timings.text=user.time
+        holder.driverName.text=user.Drivername
+        holder.vehicleNumber.text=user.VehicleNo
+        holder.sourceDestination.text=user.sourceDestination
+        holder.date.text=user.Date
+        holder.timings.text=user.Time
 //        holder.acceptRequest.text=accept[position]
 //        holder.cancelRequest.text=cancel[position]
 
