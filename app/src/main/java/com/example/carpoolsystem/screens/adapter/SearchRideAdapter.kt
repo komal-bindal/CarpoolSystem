@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carpoolsystem.R
-import com.example.carpoolsystem.models.Driver2
+import com.example.carpoolsystem.models.Ride
 
-class SearchRideAdapter(var drivers: List<Driver2>) :
+class SearchRideAdapter(var rides: List<Ride>) :
     RecyclerView.Adapter<SearchRideAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -22,16 +22,16 @@ class SearchRideAdapter(var drivers: List<Driver2>) :
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val driver: Driver2 = drivers[position]
-        holder.name.text = driver.name
-        holder.pickup.text = driver.source
-        holder.drop.text = driver.destination
-        holder.date.text = driver.date
-        holder.time.text = driver.time
+        val ride: Ride = rides[position]
+        holder.name.text = ride.name
+        holder.pickup.text = ride.source
+        holder.drop.text = ride.destination
+        holder.date.text = ride.date
+        holder.time.text = ride.time
     }
 
     override fun getItemCount(): Int {
-        return drivers.size
+        return rides.size
     }
 
     inner class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {

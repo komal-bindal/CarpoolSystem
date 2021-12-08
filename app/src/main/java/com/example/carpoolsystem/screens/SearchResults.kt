@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carpoolsystem.R
-import com.example.carpoolsystem.models.Driver2
+import com.example.carpoolsystem.models.Ride
 import com.example.carpoolsystem.screens.adapter.SearchRideAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
@@ -70,7 +70,7 @@ class SearchResults : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-                val driverList: ArrayList<Driver2> = arrayListOf()
+                val rideList: ArrayList<Ride> = arrayListOf()
                 val user = FirebaseAuth.getInstance().currentUser
                 val database = FirebaseFirestore.getInstance()
                 val docRef = database.collection("ride").whereEqualTo("source", pickUpLoc)
@@ -79,7 +79,7 @@ class SearchResults : AppCompatActivity() {
                         val list: List<DocumentSnapshot> =
                             querySnapshot.documents
                         for (d in list) {
-                            val r = Driver2(
+                            val r = Ride(
                                 d.get("name").toString(),
                                 d.get("source").toString(),
                                 d.get("destination").toString(),
@@ -87,11 +87,11 @@ class SearchResults : AppCompatActivity() {
                                 d.get("time").toString(),
                             )
                             Log.d("ride", r.date + r.destination + r.source + r.time)
-                            driverList.add(r)
-                            Log.d("ride", driverList.toString())
+                            rideList.add(r)
+                            Log.d("ride", rideList.toString())
 
                         }
-                        searchResultsRecyclerView.adapter = SearchRideAdapter(driverList)
+                        searchResultsRecyclerView.adapter = SearchRideAdapter(rideList)
                     }
                 }
 
