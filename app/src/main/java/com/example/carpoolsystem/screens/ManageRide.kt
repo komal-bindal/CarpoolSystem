@@ -53,7 +53,15 @@ class ManageRide : AppCompatActivity() {
 
                 }
                 loadingTextView.visibility = View.GONE
-                recyclerView.adapter = ManageRideAdapter(rideList)
+                var adapter = ManageRideAdapter(rideList)
+                recyclerView.adapter = adapter
+//                adapter.setOnItemClickListener(object :ManageRideAdapter.OnItemClickListener{
+//                    override fun onItemClick(position: Int) {
+//                        Log.d("click", "click" +
+//                                "")
+//                    }
+//
+//                })
             }
         }
 
