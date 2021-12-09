@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
             getString(R.string.preference_file_key), Context.MODE_PRIVATE
         )
         val intent =
-            Intent(this@MainActivity, Dashboard::class.java)
+            Intent(this@MainActivity, Animation::class.java)
         startActivity(intent)
         finish()
     }
