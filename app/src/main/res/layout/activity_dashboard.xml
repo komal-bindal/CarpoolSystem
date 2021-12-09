@@ -137,7 +137,7 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/add_ride_undraw"
+                        app:srcCompat="@drawable/addride"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -183,7 +183,7 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/undraw_request"
+                        app:srcCompat="@drawable/viewrequest"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -217,7 +217,7 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/undraw_details_8k13"
+                        app:srcCompat="@drawable/cardetails"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -263,7 +263,7 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/undraw_logout"
+                        app:srcCompat="@drawable/logout"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -297,7 +297,7 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/undraw_manage"
+                        app:srcCompat="@drawable/managerides"
                         tools:ignore="VectorDrawableCompat" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
