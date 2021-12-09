@@ -5,6 +5,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -123,14 +124,22 @@ class DriversProfile : AppCompatActivity() {
             finish()
         }
 
+
         emailIdDriverTextView.setOnClickListener {
             if (emailIdDriverTextView.text.toString().equals("Add your email id")) {
                 val intent = Intent(this, EmailIdEmpty::class.java)
                 startActivity(intent)
+                if (emailIdDriverTextView.text.toString().length == 0) {
+                    buttonEmailVerify.setVisibility(View.GONE)
+                } else {
+                    buttonEmailVerify.setVisibility(View.VISIBLE)
+                }
                 finish()
             }
         }
     }
+
+
 
     private fun fetchDetailsFromDatabase() {
         val firebaseUser = FirebaseAuth.getInstance().currentUser
