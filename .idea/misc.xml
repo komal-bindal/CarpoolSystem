@@ -52,7 +52,6 @@
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_users_screen.xml" value="0.1921875" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_vehicle_details_addition_screen.xml" value="0.1921875" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_vehicle_details_screen.xml" value="0.1921875" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/drawable/cardshape.xml" value="0.2703125" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2703125" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/drawable/ic_baseline_directions_car_filled_24.xml" value="0.2703125" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/drawable/ic_baseline_directions_walk_24.xml" value="0.2703125" />
@@ -79,12 +78,7 @@
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_drivers_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_home_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_main.xml" value="0.17572463768115942" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_manage_ride.xml" value="0.24728260869565216" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_map2.xml" value="0.23369565217391305" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_passengers_profile.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_payment_integration.xml" value="0.23369565217391305" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_search_results.xml" value="0.1" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_search_results2.xml" value="0.23822463768115942" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_sign_in_screen.xml" value="0.2427536231884058" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_signup_screen1.xml" value="0.264" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_signup_screen2_otp.xml" value="0.25416666666666665" />
@@ -92,30 +86,24 @@
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_users_screen.xml" value="0.9276315789473685" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_vehicle_details_addition_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_view_car_details.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/card_layout.xml" value="0.23822463768115942" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/dropdown_item.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/ride_list_item.xml" value="0.24728260869565216" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/search_ride_list_item.xml" value="0.23369565217391305" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2703125" />
         <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/drawable/ic_baseline_dashboard_24.xml" value="0.20555555555555555" />
         <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.20555555555555555" />
-        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_add_new_phone_number.xml" value="0.2368659420289855" />
         <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_add_ride_screen.xml" value="0.1" />
         <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_change_car_details.xml" value="0.176" />
         <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_change_password.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_dashboard.xml" value="0.144" />
-        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_drivers_profile.xml" value="0.144" />
-        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_drivers_view_request_screen.xml" value="0.16621376811594202" />
+        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_drivers_profile.xml" value="0.2" />
+        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_drivers_view_request_screen.xml" value="0.19791666666666666" />
+        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_entrance_layout.xml" value="0.2418478260869565" />
         <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_home_screen.xml" value="0.12360688956433637" />
-        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_main.xml" value="0.16621376811594202" />
         <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_navigationbar.xml" value="0.152" />
-        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_passengers_profile.xml" value="0.16621376811594202" />
-        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_search_results.xml" value="0.1852355072463768" />
-        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_users_screen.xml" value="0.6036184210526315" />
+        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_search_results.xml" value="0.19791666666666666" />
+        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_search_results2.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_vehicle_details_addition_screen.xml" value="0.20652173913043478" />
-        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/activity_view_car_details.xml" value="0.16621376811594202" />
-        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/car_layout.xml" value="0.16621376811594202" />
-        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/child_recycler_view.xml" value="0.16621376811594202" />
+        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/car_layout.xml" value="0.19791666666666666" />
+        <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/card_layout.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/fragment_dashboard.xml" value="0.11676798378926039" />
         <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/fragment_info.xml" value="0.11676798378926039" />
         <entry key="..\:/Users/deepa/CarpoolSystem/app/src/main/res/layout/fragment_setting.xml" value="0.12360688956433637" />
@@ -123,7 +111,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
