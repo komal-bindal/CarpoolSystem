@@ -42,7 +42,12 @@ class RequestStatus : AppCompatActivity() {
                     val destination = d.get("destination").toString()
                     val date = d.get("date").toString()
                     val time = d.get("time").toString()
-                    val status = d.get("accepted").toString()
+                    var status = d.get("accepted").toString()
+                    if (status == "true") {
+                        status = "Accepted"
+                    } else if (status == "false") {
+                        status = "Pending"
+                    }
                     var driverName: String
                     val dr = database.collection("users").whereEqualTo("uid", driverId)
                     dr.get().addOnSuccessListener { querySnapshot ->
