@@ -57,7 +57,7 @@ class SearchRideAdapter(var rides: List<Ride>) :
         request["time"] = time
         request["date"] = date
         request["driverId"] = driverId
-        request["accepted"] = false
+        request["accepted"] = "false"
         request["passengerId"] = FirebaseAuth.getInstance().currentUser?.uid.toString()
         db.collection("request")
             .add(request)
