@@ -27,9 +27,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarpoolSystem">
         <activity
+            android:name=".screens.RequestStatus"
+            android:exported="true" />
+        <activity
             android:name=".screens.ManageRide"
             android:exported="true" />
-
         <activity
             android:name=".screens.WaitingActivity"
             android:exported="true" />

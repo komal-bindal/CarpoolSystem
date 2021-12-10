@@ -28,7 +28,7 @@ class Dashboard : AppCompatActivity() {
         driverManageRideLayout = findViewById(R.id.driverManageRideLayout)
 
         driverProfileLayout.setOnClickListener {
-            val intent = Intent(this, DriversProfile::class.java)
+            val intent = Intent(this, SearchResults::class.java)
             startActivity(intent)
         }
 
@@ -44,7 +44,7 @@ class Dashboard : AppCompatActivity() {
             finish()
         }
         driverCarDetailsLayout.setOnClickListener {
-            val intent = Intent(this, ViewCarDetails::class.java)
+            val intent = Intent(this, RequestStatus::class.java)
             startActivity(intent)
         }
 
