@@ -49,7 +49,7 @@ class DashboardPassenger : AppCompatActivity() {
 
         }
         passengerRequestStatusLayout.setOnClickListener {
-            val intent = Intent(this@DashboardPassenger, PassengersProfile::class.java)
+            val intent = Intent(this@DashboardPassenger, RequestStatus::class.java)
             startActivity(intent)
         }
         passengerFeedbackLayout.setOnClickListener {
