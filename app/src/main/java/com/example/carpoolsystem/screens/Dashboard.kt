@@ -49,7 +49,7 @@ class Dashboard : AppCompatActivity() {
         }
 
         driverViewRequestLayout.setOnClickListener {
-            val intent = Intent(this, SearchResults::class.java)
+            val intent = Intent(this, DriversViewRequestScreen::class.java)
             startActivity(intent)
         }
 

@@ -5,18 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screens.DriversViewRequestScreen">
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        app:layout_constraintBottom_toTopOf="@+id/circleImageView4"
+        android:id="@+id/viewRequestRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="583dp"
+        android:layout_marginTop="112dp"
         app:layout_constraintBottom_toBottomOf="@+id/circleImageView4"
+        app:layout_constraintBottom_toTopOf="@+id/circleImageView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.67"
         tools:ignore="MissingConstraints,UnknownIdInLayout" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Requests"
+
+        android:textColor="@color/black"
+        android:textSize="@dimen/heading_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/infoTextViewForRequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Loading"
+        android:textColor="@color/black"
+        android:textSize="@dimen/heading_text"
+        app:layout_constraintBottom_toBottomOf="@+id/viewRequestRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintStart_toStartOf="@+id/viewRequestRecyclerView"
+        app:layout_constraintTop_toTopOf="@+id/viewRequestRecyclerView"
+        app:layout_constraintVertical_bias="0.397" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
