@@ -55,7 +55,7 @@ class RequestStatus : AppCompatActivity() {
                             val list1: List<DocumentSnapshot> =
                                 querySnapshot.documents
                             for (i in list1) {
-                                driverName = d.get("name").toString()
+                                driverName = i.get("name").toString()
                                 val r = Request(
                                     driverId,
                                     driverName,

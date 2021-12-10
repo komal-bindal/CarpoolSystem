@@ -1,7 +1,6 @@
 package com.example.carpoolsystem.screens
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -53,7 +52,7 @@ class DriversViewRequestScreen : AppCompatActivity() {
                             val list1: List<DocumentSnapshot> =
                                 querySnapshot.documents
                             for (i in list1) {
-                                passengerName = d.get("name").toString()
+                                passengerName = i.get("name").toString()
                                 val r = Request(
                                     driverId,
                                     driverName,
@@ -65,7 +64,6 @@ class DriversViewRequestScreen : AppCompatActivity() {
                                     time, status
                                 )
                                 requestList.add(r)
-                                Log.d("req", requestList.toString())
                             }
                             viewRequestRecyclerView.adapter = ViewRequestAdapter(requestList)
                         }

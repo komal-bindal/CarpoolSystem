@@ -23,6 +23,7 @@ class RequestStatusAdapter(var requests: MutableList<Request>) :
         holder.drop.text = request.destination
         holder.date.text = request.date
         holder.time.text = request.time
+        holder.requestStatus.text = request.driverName
         holder.requestStatus.text = request.status
 
     }
@@ -36,6 +37,7 @@ class RequestStatusAdapter(var requests: MutableList<Request>) :
         val drop: TextView = view.findViewById(R.id.dropItemStatus)
         val date: TextView = view.findViewById(R.id.dateItemStatus)
         val time: TextView = view.findViewById(R.id.timeItemStatus)
+        val name: TextView = view.findViewById(R.id.nameItemStatus)
         val requestStatus: TextView = view.findViewById(R.id.statusItem)
     }
 
