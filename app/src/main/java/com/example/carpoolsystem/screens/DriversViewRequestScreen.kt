@@ -45,6 +45,7 @@ class DriversViewRequestScreen : AppCompatActivity() {
                     val destination = d.get("destination").toString()
                     val date = d.get("date").toString()
                     val time = d.get("time").toString()
+                    val status = d.get("accepted").toString()
                     var passengerName: String
                     val dr = database.collection("users").whereEqualTo("uid", passengerId)
                     dr.get().addOnSuccessListener { querySnapshot ->
@@ -61,7 +62,7 @@ class DriversViewRequestScreen : AppCompatActivity() {
                                     source,
                                     destination,
                                     date,
-                                    time
+                                    time, status
                                 )
                                 requestList.add(r)
                                 Log.d("req", requestList.toString())

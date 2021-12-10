@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carpoolsystem.R
 import com.example.carpoolsystem.models.Request
-import com.example.carpoolsystem.screens.adapter.ViewRequestAdapter
+import com.example.carpoolsystem.screens.adapter.RequestStatusAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
@@ -59,15 +59,15 @@ class RequestStatus : AppCompatActivity() {
                                     source,
                                     destination,
                                     date,
-                                    time
+                                    time, status
                                 )
                                 requestList.add(r)
                                 Log.d("abc", user?.uid.toString())
                             }
+                            requestStatusRecyclerView.adapter = RequestStatusAdapter(requestList)
                         }
                     }
                 }
-                requestStatusRecyclerView.adapter = ViewRequestAdapter(requestList)
                 infoTextView.visibility = View.GONE
             } else {
                 infoTextView.visibility = View.VISIBLE
