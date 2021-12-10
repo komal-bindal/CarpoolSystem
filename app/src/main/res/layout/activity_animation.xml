@@ -7,10 +7,10 @@
 
     <FrameLayout
         android:id="@+id/frame_layout"
-        android:layout_width="367dp"
-        android:layout_height="615dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="572dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:context=".screens.Animation">
@@ -20,21 +20,19 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="408dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frame_layout">
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/buttongetStarted"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:layout_weight="1"
             android:backgroundTint="@color/white"
             android:text="Get Started"
@@ -43,7 +41,8 @@
         <Button
             android:id="@+id/buttonskipnow"
             android:layout_width="wrap_content"
-            android:layout_height="58dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:layout_weight="1"
             android:backgroundTint="@color/white"
             android:text="Skip"
