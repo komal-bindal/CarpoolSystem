@@ -210,15 +210,11 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 
     @SuppressLint("SetTextI18n")
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-//        myHour = hourOfDay
-//        myMinute = minute
-//        viewDateAndTime.text =
-//            "Date: $day/$myMonth/$myYear\nTime: $myHour : $myMinute"
-        val selectedTime="$hourOfDay:$minute"
-        val _24HrTimeFormat=SimpleDateFormat("HH:mm")
-        val _12HrTimeFormat=SimpleDateFormat("hh:mm a")
-        var _24HrTime:Date?=_24HrTimeFormat.parse(selectedTime)
-        viewDateAndTime.text=_12HrTimeFormat.format(_24HrTime)
+        val selectedTime = "$hourOfDay:$minute"
+        val _24HrTimeFormat = SimpleDateFormat("HH:mm")
+        val _12HrTimeFormat = SimpleDateFormat("hh:mm a")
+        var _24HrTime: Date? = _24HrTimeFormat.parse(selectedTime)
+        viewDateAndTime.text = _12HrTimeFormat.format(_24HrTime)
 
     }
 }
