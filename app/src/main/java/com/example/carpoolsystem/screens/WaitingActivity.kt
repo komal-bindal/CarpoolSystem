@@ -17,7 +17,7 @@ class WaitingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_waiting)
         getStartedNow = findViewById(R.id.button)
         getStartedNow.setOnClickListener {
-            val intent = Intent(this, SignupScreen1::class.java)
+            val intent = Intent(this, UsersScreen::class.java)
             startActivity(intent)
             finish()
         }
