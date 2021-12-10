@@ -64,10 +64,10 @@ class DriversViewRequestScreen : AppCompatActivity() {
                                 )
                                 requestList.add(r)
                             }
+                            viewRequestRecyclerView.adapter = ViewRequestAdapter(requestList)
                         }
                     }
                 }
-                viewRequestRecyclerView.adapter = ViewRequestAdapter(requestList)
                 infoTextViewForRequest.visibility = View.GONE
             } else {
                 infoTextViewForRequest.visibility = View.VISIBLE
