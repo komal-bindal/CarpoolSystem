@@ -8,5 +8,6 @@ data class Request(
     var source: String,
     var destination: String,
     var date: String,
-    var time: String
+    var time: String,
+    var status: String
 )
