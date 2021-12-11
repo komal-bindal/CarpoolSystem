@@ -49,7 +49,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/undraw_male_avatar"
+        app:srcCompat="@drawable/profile"
         tools:ignore="VectorDrawableCompat" />
 
     <TextView

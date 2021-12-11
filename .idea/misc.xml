@@ -23,7 +23,7 @@
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout-normal-land/activity_signup_screen2_phone_number.xml" value="0.114453125" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout-normal/activity_signup_screen1.xml" value="0.1921875" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout-normal/activity_signup_screen2_phone_number.xml" value="0.144140625" />
-        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout-normal/activity_users_screen.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout-normal/activity_users_screen.xml" value="0.13" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout-port/activity_add_ride_screen.xml" value="0.17" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout-port/activity_signup_screen1.xml" value="0.1921875" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout-port/activity_signup_screen2_phone_number.xml" value="0.144140625" />
@@ -42,16 +42,43 @@
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout-xlarge/activity_users_screen.xml" value="0.144140625" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout-xlarge/activity_vehicle_details_addition_screen.xml" value="0.144140625" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout-xlarge/activity_vehicle_details_screen.xml" value="0.144140625" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_add_new_phone_number.xml" value="0.1921875" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_add_ride_screen.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_change_car_details.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_change_password.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_dashboard_passenger.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_drivers_profile.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_drivers_view_request_screen.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_email_id_empty.xml" value="0.33" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_entrance_layout.xml" value="0.144140625" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_entrance_screen.xml" value="0.144140625" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_home_screen.xml" value="0.1921875" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_main.xml" value="0.144140625" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_manage_ride.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_no_results_found.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_passengers_profile.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_payment_integration.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_request_status.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_search_results.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_search_results2.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_sign_in_screen.xml" value="0.1921875" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_signup_screen1.xml" value="0.25" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_signup_screen2_otp.xml" value="0.144140625" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_signup_screen2_phone_number.xml" value="0.144140625" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_users_screen.xml" value="0.1921875" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_vehicle_details_addition_screen.xml" value="0.1921875" />
         <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_vehicle_details_screen.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_view_car_details.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/activity_waiting.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/car_layout.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/card_layout.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/child_recycler_view.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/driver_view_request_item.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/dropdown_item.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/parent_recycler_view.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/request_status_item.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/ride_list_item.xml" value="0.1921875" />
+        <entry key="..\:/Users/KRITIKA/AndroidStudioProjects/CarpoolSystem/app/src/main/res/layout/search_ride_list_item.xml" value="0.1921875" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/drawable/cardshape.xml" value="0.2703125" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2703125" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CarpoolSystem/app/src/main/res/drawable/ic_baseline_directions_car_filled_24.xml" value="0.2703125" />
