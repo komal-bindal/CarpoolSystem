@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:gravity="center"
+        android:layout_margin="10dp"
         android:text="Stop pollution or get alert for your elimination."
         android:textSize="@dimen/heading_text"
         android:textStyle="bold"
