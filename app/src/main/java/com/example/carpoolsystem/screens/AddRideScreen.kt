@@ -214,7 +214,8 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         val _24HrTimeFormat = SimpleDateFormat("HH:mm")
         val _12HrTimeFormat = SimpleDateFormat("hh:mm a")
         var _24HrTime: Date? = _24HrTimeFormat.parse(selectedTime)
-        viewDateAndTime.text = _12HrTimeFormat.format(_24HrTime)
+        val Time = _12HrTimeFormat.format(_24HrTime)
+        viewDateAndTime.text= "Date = $day/$myMonth/$myYear\nTime=$Time"
 
     }
 }
