@@ -179,5 +179,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonlogoutdriver" />
 
+    <Button
+        android:id="@+id/emailverify"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/warning"
+        android:text="Verify Email"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/button_text"
+        android:visibility="invisible"
+        app:backgroundTint="@color/warning"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feedbackForm"
+        app:layout_constraintVertical_bias="0.527"
+        tools:text="Verify Email" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

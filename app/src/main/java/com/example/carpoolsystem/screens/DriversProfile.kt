@@ -1,9 +1,11 @@
 package com.example.carpoolsystem.screens
 
 import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -30,6 +32,7 @@ class DriversProfile : AppCompatActivity() {
     private lateinit var emailIdDriverTextView: TextView
     private lateinit var driverPhoneNumberTextView: TextView
     private lateinit var deleteAccountButton: Button
+    private lateinit var buttonEmailVerify: Button
     private var FEEDBACK_URL = "https://forms.gle/2zD9AoMWGegbTwmg8"
 
 
@@ -45,6 +48,22 @@ class DriversProfile : AppCompatActivity() {
         nameDriverTextView = findViewById(R.id.fullNameDriver)
         driverPhoneNumberTextView = findViewById(R.id.driverPhoneNumber)
         deleteAccountButton = findViewById(R.id.deleteAcoountDriver)
+        buttonEmailVerify = findViewById(R.id.emailverify)
+        val addEmailDialog = AlertDialog.Builder(this)
+            .setTitle("Verify Your Email")
+            .setMessage("Plz verify the email send to your Email Id")
+            .setIcon(R.drawable.ic_add_email_background)
+            .setPositiveButton("Yes") { dialogInterface: DialogInterface, i: Int ->
+
+            }
+            .setNegativeButton("No") { dialogInterface: DialogInterface, i: Int ->
+                Toast.makeText(this, "Email Verification is mandatory", Toast.LENGTH_SHORT).show()
+            }.create()
+        buttonEmailVerify.setOnClickListener {
+
+            addEmailDialog.show()
+        }
+
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Confirm")
@@ -105,14 +124,22 @@ class DriversProfile : AppCompatActivity() {
             finish()
         }
 
+
         emailIdDriverTextView.setOnClickListener {
             if (emailIdDriverTextView.text.toString().equals("Add your email id")) {
                 val intent = Intent(this, EmailIdEmpty::class.java)
                 startActivity(intent)
+                if (emailIdDriverTextView.text.toString().length == 0) {
+                    buttonEmailVerify.setVisibility(View.GONE)
+                } else {
+                    buttonEmailVerify.setVisibility(View.VISIBLE)
+                }
                 finish()
             }
         }
     }
+
+
 
     private fun fetchDetailsFromDatabase() {
         val firebaseUser = FirebaseAuth.getInstance().currentUser
