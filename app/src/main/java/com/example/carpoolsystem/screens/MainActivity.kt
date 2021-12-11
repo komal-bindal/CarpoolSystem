@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
             getString(R.string.preference_file_key), Context.MODE_PRIVATE
         )
         val intent =
-            Intent(this@MainActivity, EntranceLayout::class.java)
+            Intent(this@MainActivity, AddRideScreen::class.java)
         startActivity(intent)
         finish()
     }

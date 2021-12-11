@@ -22,12 +22,12 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     private val SOURCE_ERROR = "invalid source format"
     private val DESTINATION_ERROR = "invalid destination format"
 
-    var day = 0
+    var day: Int = 0
     var month: Int = 0
     var year: Int = 0
     var hour: Int = 0
     var minute: Int = 0
-    var myDay = 0
+    var myDay: Int = 0
     var myMonth: Int = 0
     var myYear: Int = 0
     var myHour: Int = 0
@@ -81,14 +81,14 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         addDetails.setOnClickListener {
             val pick = pickUpPoint
             val drop = dropPoint
-            val dateTime = "$day/$myMonth/$myYear"
+            val dateTime = "$myDay/$myMonth/$myYear"
             val time = "$myHour : $myMinute"
             currentDate = sdf.format(Date())
 //            val dateNow = currentDate.split(" ").get(0)
 //            val timeNow = currentDate.split(" ").get(1)
 
 
-            if (pick.isEmpty() || drop.isEmpty() || day == 0 || myMonth == 0 || myYear == 0 || myHour == 0 || myMinute == 0) {
+            if (pick.isEmpty() || drop.isEmpty() || myDay == 0 || myMonth == 0 || myYear == 0 || myHour == 0 || myMinute == 0) {
                 Toast.makeText(
                     this,
                     "please enter the locations, time and date",
@@ -148,6 +148,7 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
             year = calendar.get(Calendar.YEAR)
             val datePickerDialog =
                 DatePickerDialog(this@AddRideScreen, this@AddRideScreen, year, month, day)
+            datePickerDialog.datePicker.minDate = calendar.timeInMillis
             datePickerDialog.show()
         }
 
@@ -194,9 +195,9 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        myDay = day
+        myDay = dayOfMonth
         myYear = year
-        myMonth = month
+        myMonth = month + 1
         val calendar: Calendar = Calendar.getInstance()
         hour = calendar.get(Calendar.HOUR)
         minute = calendar.get(Calendar.MINUTE)
@@ -215,7 +216,7 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         val _12HrTimeFormat = SimpleDateFormat("hh:mm a")
         var _24HrTime: Date? = _24HrTimeFormat.parse(selectedTime)
         val Time = _12HrTimeFormat.format(_24HrTime)
-        viewDateAndTime.text= "Date = $day/$myMonth/$myYear\nTime=$Time"
+        viewDateAndTime.text = "Date = $myDay/$myMonth/$myYear\nTime=$Time"
 
     }
 }
