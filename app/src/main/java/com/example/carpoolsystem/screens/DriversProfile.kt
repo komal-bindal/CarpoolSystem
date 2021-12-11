@@ -1,7 +1,6 @@
 package com.example.carpoolsystem.screens
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -49,19 +48,19 @@ class DriversProfile : AppCompatActivity() {
         driverPhoneNumberTextView = findViewById(R.id.driverPhoneNumber)
         deleteAccountButton = findViewById(R.id.deleteAcoountDriver)
         buttonEmailVerify = findViewById(R.id.emailverify)
-        val addEmailDialog = AlertDialog.Builder(this)
-            .setTitle("Verify Your Email")
-            .setMessage("Plz verify the email send to your Email Id")
-            .setIcon(R.drawable.ic_add_email_background)
-            .setPositiveButton("Yes") { dialogInterface: DialogInterface, i: Int ->
-
-            }
-            .setNegativeButton("No") { dialogInterface: DialogInterface, i: Int ->
-                Toast.makeText(this, "Email Verification is mandatory", Toast.LENGTH_SHORT).show()
-            }.create()
+//        val addEmailDialog = AlertDialog.Builder(this)
+//            .setTitle("Verify Your Email")
+//            .setMessage("Plz verify the email send to your Email Id")
+//            .setIcon(R.drawable.ic_add_email_background)
+//            .setPositiveButton("Yes") { dialogInterface: DialogInterface, i: Int ->
+//
+//            }
+//            .setNegativeButton("No") { dialogInterface: DialogInterface, i: Int ->
+//                Toast.makeText(this, "Email Verification is mandatory", Toast.LENGTH_SHORT).show()
+//            }.create()
         buttonEmailVerify.setOnClickListener {
 
-            addEmailDialog.show()
+//            addEmailDialog.show()
         }
 
 
@@ -130,9 +129,9 @@ class DriversProfile : AppCompatActivity() {
                 val intent = Intent(this, EmailIdEmpty::class.java)
                 startActivity(intent)
                 if (emailIdDriverTextView.text.toString().length == 0) {
-                    buttonEmailVerify.setVisibility(View.GONE)
+                    buttonEmailVerify.visibility = View.GONE
                 } else {
-                    buttonEmailVerify.setVisibility(View.VISIBLE)
+                    buttonEmailVerify.visibility = View.VISIBLE
                 }
                 finish()
             }

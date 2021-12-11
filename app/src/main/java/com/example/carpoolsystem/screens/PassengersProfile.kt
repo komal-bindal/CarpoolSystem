@@ -1,7 +1,6 @@
 package com.example.carpoolsystem.screens
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -39,23 +38,23 @@ class PassengersProfile : AppCompatActivity() {
         emailTextView = findViewById(R.id.emailofpassenger)
         phone = findViewById(R.id.phoneNumberTextView)
         deleteAccountButton = findViewById(R.id.deleteAccountPassenger)
-        EmailVerify=findViewById(R.id.Emailverify)
+        EmailVerify = findViewById(R.id.Emailverify)
 
         fetchDetailsFromDatabase()
-        val addEmailDialog = AlertDialog.Builder(this)
-            .setTitle("Verify Your Email")
-            .setMessage("Plz verify the email send to your Email Id")
-            .setIcon(R.drawable.ic_add_email_background)
-            .setPositiveButton("Yes") { dialogInterface: DialogInterface, i: Int ->
-
-            }
-            .setNegativeButton("No") { dialogInterface: DialogInterface, i: Int ->
-                Toast.makeText(this, "Email Verification is mandatory", Toast.LENGTH_SHORT).show()
-            }.create()
-        EmailVerify.setOnClickListener {
-
-            addEmailDialog.show()
-        }
+//        val addEmailDialog = AlertDialog.Builder(this)
+//            .setTitle("Verify Your Email")
+//            .setMessage("Plz verify the email send to your Email Id")
+//            .setIcon(R.drawable.ic_add_email_background)
+//            .setPositiveButton("Yes") { dialogInterface: DialogInterface, i: Int ->
+//
+//            }
+//            .setNegativeButton("No") { dialogInterface: DialogInterface, i: Int ->
+//                Toast.makeText(this, "Email Verification is mandatory", Toast.LENGTH_SHORT).show()
+//            }.create()
+//        EmailVerify.setOnClickListener {
+//
+//            addEmailDialog.show()
+//        }
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Confirm")
@@ -92,9 +91,9 @@ class PassengersProfile : AppCompatActivity() {
                 val intent = Intent(this, EmailIdEmpty::class.java)
                 startActivity(intent)
                 if (emailTextView.text.toString().length == 0) {
-                    EmailVerify.setVisibility(View.GONE)
+                    EmailVerify.visibility = View.GONE
                 } else {
-                    EmailVerify.setVisibility(View.VISIBLE)
+                    EmailVerify.visibility = View.VISIBLE
                 }
                 finish()
             }
