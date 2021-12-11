@@ -1,7 +1,6 @@
 package com.example.carpoolsystem.screens
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -67,7 +66,6 @@ class RequestStatus : AppCompatActivity() {
                                     time, status
                                 )
                                 requestList.add(r)
-                                Log.d("abc", user?.uid.toString())
                             }
                             requestStatusRecyclerView.adapter = RequestStatusAdapter(requestList)
                         }

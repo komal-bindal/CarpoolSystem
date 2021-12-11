@@ -23,7 +23,7 @@ class RequestStatusAdapter(var requests: MutableList<Request>) :
         holder.drop.text = request.destination
         holder.date.text = request.date
         holder.time.text = request.time
-        holder.requestStatus.text = request.driverName
+        holder.name.text = request.driverName
         holder.requestStatus.text = request.status
 
     }

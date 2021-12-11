@@ -72,6 +72,7 @@ class SignupScreen2Otp : AppCompatActivity() {
         verifyButton.setOnClickListener(
             object : View.OnClickListener {
                 override fun onClick(p0: View?) {
+                    verifyButton.isEnabled = false
                     val otpEntered = otpCode1.text.toString() +
                             otpCode2.text.toString() +
                             otpCode3.text.toString() +
@@ -100,6 +101,7 @@ class SignupScreen2Otp : AppCompatActivity() {
                                     @SuppressLint("LogNotTimber")
                                     override fun onComplete(task: Task<AuthResult>) {
                                         if (task.isSuccessful) {
+                                            Log.d("signup", "tada")
                                             val fireBaseUser = firebaseAuth.currentUser
                                             Log.d("auth", fireBaseUser?.uid!!)
                                             val docReference =
@@ -131,6 +133,7 @@ class SignupScreen2Otp : AppCompatActivity() {
                                                                 finish()
                                                             } else {
                                                                 makeToast("You have not registered as $selectedUser")
+                                                                firebaseAuth.signOut()
                                                             }
                                                         }
 
@@ -153,7 +156,9 @@ class SignupScreen2Otp : AppCompatActivity() {
                                                 }
 
                                         } else {
+                                            Log.d("signup", "nono")
                                             makeToast("OTP is invalid")
+                                            verifyButton.isEnabled = true
                                         }
                                     }
                                 }
