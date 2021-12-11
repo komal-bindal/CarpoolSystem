@@ -4,49 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.DriversViewRequestScreen">
+    tools:context=".screens.RequestStatus">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/viewRequestRecyclerView"
+        android:id="@+id/requestStatusRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="583dp"
-        android:layout_marginTop="112dp"
-        app:layout_constraintBottom_toBottomOf="@+id/circleImageView4"
-        app:layout_constraintBottom_toTopOf="@+id/circleImageView4"
+        android:layout_height="600dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.67"
-        tools:ignore="MissingConstraints,UnknownIdInLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.361" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Requests"
-
+        android:layout_marginTop="44dp"
+        android:text="Request Status"
         android:textColor="@color/black"
         android:textSize="@dimen/heading_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/infoTextViewForRequest"
+        android:id="@+id/infoTextViewStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Loading"
         android:textColor="@color/black"
         android:textSize="@dimen/heading_text"
-        app:layout_constraintBottom_toBottomOf="@+id/viewRequestRecyclerView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
-        app:layout_constraintStart_toStartOf="@+id/viewRequestRecyclerView"
-        app:layout_constraintTop_toTopOf="@+id/viewRequestRecyclerView"
-        app:layout_constraintVertical_bias="0.397" />
-
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

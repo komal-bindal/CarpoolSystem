@@ -40,6 +40,7 @@ class ManageRide : AppCompatActivity() {
                     querySnapshot.documents
                 for (d in list) {
                     val r = Ride(
+                        d.get("uid").toString(),
                         d.get("name").toString(),
                         d.get("source").toString(),
                         d.get("destination").toString(),
@@ -52,7 +53,15 @@ class ManageRide : AppCompatActivity() {
 
                 }
                 loadingTextView.visibility = View.GONE
-                recyclerView.adapter = ManageRideAdapter(rideList)
+                var adapter = ManageRideAdapter(rideList)
+                recyclerView.adapter = adapter
+//                adapter.setOnItemClickListener(object :ManageRideAdapter.OnItemClickListener{
+//                    override fun onItemClick(position: Int) {
+//                        Log.d("click", "click" +
+//                                "")
+//                    }
+//
+//                })
             }
         }
 

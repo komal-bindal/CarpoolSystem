@@ -26,9 +26,18 @@ The **Car Pooling application** is intended for people travelling,to make it a c
   
 ## Credits
 
+-  [Divyansh Bhardwaj](https://github.com/dbc2201)
+
 -  [Komal Bindal](https://github.com/komal-bindal)
 
 -  [Kritika Sharma](https://github.com/kritika-sharma130)
 
 -  [Deepanshi Mittal](https://github.com/deepanshi-mitta)
+
+
+## To have a look at the application you can download the apk from the link given below
+
+- https://kritika-sharma130.github.io/CarpoolLandingPage/
+
+
 

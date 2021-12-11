@@ -35,7 +35,7 @@
         android:layout_width="575dp"
         android:layout_height="511dp"
         android:layout_marginTop="236dp"
-        android:src="@drawable/s1"
+        android:src="@drawable/dashboardimage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
