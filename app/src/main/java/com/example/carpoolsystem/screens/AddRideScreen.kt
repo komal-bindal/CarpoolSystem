@@ -80,8 +80,8 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         }
 
         addDetails.setOnClickListener {
-            val pick = src.text.toString()
-            val drop = dest.text.toString()
+            val pick = pickUpPoint
+            val drop = dropPoint
             val dateTime = "$myDay/$myMonth/$myYear"
             val time = "$myHour : $myMinute"
             currentDate = sdf.format(Date())
@@ -89,7 +89,7 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 //            val timeNow = currentDate.split(" ").get(1)
 
 
-            if (pick.isEmpty() || drop.isEmpty() || myDay == 0 || myMonth == 0 || myYear == 0 || myHour == 0 || myMinute == 0) {
+            if (pick.isEmpty() || drop.isEmpty() || myDay == 0 || myMonth == 0 || myYear == 0 || myHour == 0) {
                 Toast.makeText(
                     this,
                     "please enter the locations, time and date",
