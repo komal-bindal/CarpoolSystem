@@ -32,6 +32,7 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     var myYear: Int = 0
     var myHour: Int = 0
     var myMinute: Int = 0
+    lateinit var Time: String
 
     @SuppressLint("SimpleDateFormat")
     val sdf = SimpleDateFormat("dd/M/yyyy hh:mm")
@@ -79,8 +80,8 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         }
 
         addDetails.setOnClickListener {
-            val pick = pickUpPoint
-            val drop = dropPoint
+            val pick = src.text.toString()
+            val drop = dest.text.toString()
             val dateTime = "$myDay/$myMonth/$myYear"
             val time = "$myHour : $myMinute"
             currentDate = sdf.format(Date())
@@ -94,10 +95,12 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
                     "please enter the locations, time and date",
                     Toast.LENGTH_SHORT
                 ).show()
+                Log.d("xxx", "$pick $drop $myDay $myMonth $myYear $myHour $myMinute")
             } else {
                 val firebaseUser = firebaseAuth?.currentUser
                 val name = firebaseUser?.displayName.toString()
                 val uid = firebaseUser?.uid!!.toString()
+                addDetails.isEnabled = false
                 if (isEmailIdLinked(firebaseUser)) {
                     val db = FirebaseFirestore.getInstance()
                     val docReference = db.collection("car")
@@ -108,7 +111,8 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
                             for (i in list) {
                                 Log.d("car", i.data?.get("carMake").toString())
                                 if (i.data?.get("carMake").toString() != "") {
-                                    saveFireStore(pick, drop, dateTime, time, uid, name)
+                                    saveFireStore(pick, drop, dateTime, Time, uid, name)
+                                    startActivity(Intent(this, Dashboard::class.java))
                                 }
                             }
                         } else {
@@ -117,10 +121,12 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
                                 "Add the Car Details",
                                 Toast.LENGTH_SHORT
                             ).show()
+                            startActivity(Intent(this, ChangeCarDetails::class.java))
                         }
                     }.addOnFailureListener { e ->
                         Toast.makeText(applicationContext, e.message.toString(), Toast.LENGTH_SHORT)
                             .show()
+                        startActivity(Intent(this, Dashboard::class.java))
                     }
                 } else {
                     Toast.makeText(
@@ -128,7 +134,7 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
                         "Please link your EmailId first",
                         Toast.LENGTH_SHORT
                     ).show()
-
+                    startActivity(Intent(this, DriversProfile::class.java))
                 }
             }
         }
@@ -211,11 +217,13 @@ class AddRideScreen : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
 
     @SuppressLint("SetTextI18n")
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
+        myHour = hourOfDay
+        myMinute = minute
         val selectedTime = "$hourOfDay:$minute"
         val _24HrTimeFormat = SimpleDateFormat("HH:mm")
         val _12HrTimeFormat = SimpleDateFormat("hh:mm a")
         var _24HrTime: Date? = _24HrTimeFormat.parse(selectedTime)
-        val Time = _12HrTimeFormat.format(_24HrTime)
+        Time = _12HrTimeFormat.format(_24HrTime)
         viewDateAndTime.text = "Date = $myDay/$myMonth/$myYear\nTime=$Time"
 
     }
